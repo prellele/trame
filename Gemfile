@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'strong_parameters'
+
+gem 'strong_parameters', '0.2.1'
 gem 'configurate'
 
 # App Server
