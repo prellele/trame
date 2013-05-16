@@ -43,7 +43,7 @@ group :assets do
 end
 
 # Testing
-gem 'rspec-rails', '2.13.0', group: [:test, :development]
+gem 'rspec-rails', '2.13.1', group: [:test, :development]
 
 group :development do
   #Optimizing
