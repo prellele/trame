@@ -15,7 +15,7 @@ gem 'pg'
 gem 'devise', '2.2.4'
 
 #i18n
-gem 'rails-i18n'
+gem 'rails-i18n', '0.6.4'
 
 # View
 gem 'twitter-bootstrap-rails', '2.2.6'
