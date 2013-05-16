@@ -1,0 +1,11 @@
+CsvShaper.configure do |config|
+  config.col_sep = ";"
+end
+csv.headers :start_time, :description, :minutes
+csv.headers :project, :start_time, :description, :minutes if @projects.size > 1
+@projects_data.each do |project, trackings|
+	csv.rows trackings do |csv, tracking|
+		csv.cell :project, project.name if @projects.size > 1
+		csv.cells :start_time, :description, :minutes
+	end 
+end

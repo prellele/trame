@@ -1,0 +1,8 @@
+<%- model_class = Tracking -%>
+<div class="page-header">
+  <h1 class="header"><%= t '.title' %></h1>
+  <%= link_to t('.new', default: t("helpers.links.new")),
+  new_tracking_path,
+  class: 'btn btn-primary btn-header' %>
+</div>
+<%= render partial: 'table' %>

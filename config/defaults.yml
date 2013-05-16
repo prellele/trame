@@ -1,0 +1,23 @@
+#######################################################################
+############### DO NOT TOUCH ANYTHING BELOW THIS ######################
+#######################################################################
+
+defaults:
+  server:
+    host: "example.com"
+  mail:
+    enable: false
+    sender_address: 'no-reply@example.org'
+    method: 'smtp'
+    smtp:
+      host: 'localhost'
+      port: 587
+      authentication: 'plain'
+      username:
+      password:
+      starttls_auto: true
+      domain:
+
+development:
+
+production:

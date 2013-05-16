@@ -1,0 +1,180 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  forgot_password: "Forgot your password?"
+  no_confirmation_instructions: "Didn't receive confirmation instructions?"
+  no_unlock_instructions: "Didn't receive unlock instructions?"
+  workinghours: "Workinghours"
+  no_data_yet: "No %{name} yet, try to create one %{href}"
+  nothing_to_see: "Nothing to see here, you need to start tracking..."
+  here: "here"
+  'yes': "Yes"
+  'no': "No"
+  action:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    search: "Search"
+    filter: "Filter"
+  flash:
+    notice:
+      successfully_created: "%{class} was successfully created."
+      successfully_updated: "%{class} was successfully updated."
+      downgrade_user: "%{username} is not an admin any more."
+      upgrade_user: "%{username} is an admin now."
+      failed_downgrade_user: "Couldnt downgrade %{username}."
+      failed_upgrade_user: "Could not make %{username} an admin."
+    alert:
+      not_authorized: "Not Authorized"
+  date:
+    formats:
+      date_format: "%Y-%m-%d"
+      datetime: "%Y-%m-%d %h-%M"
+      datetime_format: "%Y-%m-%d %h-%M"
+      date_format_datepicker: "yyyy-mm-dd"
+      date_format_daterangepicker: "yyyy-MM-dd"
+  time:
+    formats:
+      time_format: "%H:%M"
+      date_format: "%Y-%m-%d"
+      datetime: "%Y-%m-%d %H:%M"
+      time_hrs: "%{hours}h"
+      time_min: "%{minutes}min"
+      time_picker: "hh:mm"
+      time_picker_moment: "HH:mm"
+      datetime_picker: "yyyy-MM-dd hh:mm"
+      datetime_picker_moment: "yyyy-MM-dd HH:mm"
+      time_ago: "%{time} ago"
+  dateranges:
+    today: "Today"
+    yesterday: "Yesterday"
+    last_7_days: "Last 7 Days"
+    last_30_days: "Last 30 Days"
+    this_month: "This Month"
+    last_month: "Last Month"
+    custom_range: "Custom Range"
+    from: "From"
+    to: "To"
+    apply: "Apply"
+    clear: "Clear"
+  helpers:
+    actions: "Actions"
+    links:
+      update: "Update"
+      update_resource: "Update %{resource}"
+      export: "Export"
+      show: "Show"
+      back: "Back"
+      cancel: "Cancel"
+      confirm: "Confirm"
+      destroy: "Delete"
+      new: "New"
+      edit: "Edit"
+    titles:
+      edit: "Edit"
+      save: "Save"
+      new: "New"
+      delete: "Delete"
+  devise:
+    registrations:
+      edit:
+        edit_account: "Edit Account"
+        settings: "Settings"
+  home:
+    index:
+      today: "Today"
+      week: "week"
+      month: "month"
+      year: "year"      
+      last_trackings: "Your last trackings"
+      projects_working_on: "Projects you are working on"
+      this: "this %{duration}"
+    statistics:
+      of: "of"
+      billable_workingtime: "Billable Workingtime"
+      workingtime: "Workingtime"
+      overtime: "Overtime"
+  layouts:
+    application:
+      admin: "Admin"
+      home: "Dashboard"
+      reports: "Reports"
+      projects: "Projects"
+      users: "Users"
+      trackings: "Trackings"
+      settings: "Settings"
+      logout: "Logout"
+  projects:
+    project: "Project"
+    edit:
+      title: "Edit Project"
+    form:
+      name: "Name"
+    index:
+      title: "Projects"
+      usage: "Usage of Projects"
+      y_axis_usage: "Workingtime (hours)"
+      total_workingtime: "Total Workingtime of this Project"
+    new:
+      title: "New Project"
+  reports:
+    report: "Report"
+    workinghours_devided_projects: "Your total workingtime devided by projects"
+    percentage: "Amount percentage"
+    index:
+      title: "Reports"
+      workinghours_for_projects: "Workinghours for Projects"
+      workinghours_of_projects: "Workinghours of Projects"
+    admin:
+      title: "All Reports"
+  trackings:
+    tracking: "Tracking"
+    trackings: "Trackings"
+    duration: "Duration"
+    billable: "Billable"
+    description: "Description"
+    date: "Date"
+    minutes: "Minutes"
+    starttime: "Starttime"
+    endtime: "Endtime"
+    todays_trackings: "Your todays trackings"
+    edit:
+      title: "Edit Tracking"
+    form:
+      back_to_overview: "Back to Overview"
+    index:
+      title: "Trackings"
+      duration_in_words: "%{hours} hours {minutes} minutes"
+    new:
+      title: "New Tracking"
+  users:
+    user: "User"
+    email: "Email"
+    prename: "Prename"
+    surname: "Surname"
+    password: "Password"
+    weekly_workinghours: "weekly workinghours"
+    password_confirmation: "Password confirmation"
+    current_password: "Current password"
+    current_sign_in_at: "Current sign in at"
+    last_sign_in_at: "Last sign in at"
+    current_sign_in_ip: "Current sign in IP"
+    last_sign_in_ip: "Last sign in IP"
+    reset_password_sent_at: "Reset passwort sent at"
+    remember_created_at: "Remember created at"
+    admin: "Admin"
+    index:
+      title: "Users"
+      make_admin: "Make Admin"
+      revoke_admin: "Revoke Admin"
+    devise:
+      session:
+        remember_me: "Remember me"
+      password:
+        resend_instructions: "Send me reset password instructions"
+      unlock:
+        resend_instructions: "Resend unlock instructions"
+

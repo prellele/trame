@@ -1,0 +1,22 @@
+# config/application.yml
+
+configuration:
+  server:
+    # host: "host.example.com"
+  mail:
+    # enable: false
+    # sender_address: "mail@example.com"
+    smtp:
+      # host: "host.example.com"
+      # port: 25
+      # domain: "mail.example.com"
+      # username: "username"
+      # password: 'secret'
+      # authentication: 'plain'
+      # enable_starttls_auto: true
+
+development:
+  
+production:
+
+

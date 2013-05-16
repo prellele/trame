@@ -1,0 +1,23 @@
+<ul class="statistics unstyled">
+	<li><%= t(".workingtime") %>
+		<span class="pull-right strong">
+			<%= duration_in_words(current_user.workingtime_minutes(duration)) %>
+			<%= t(".of") %>
+			<%= duration_in_words(current_user.expected_workingtime_minutes(duration)) %>
+		</span>
+		<div class="progress progress-info">
+			<div class="bar" style="width: <%= current_user.workingtime_percentage(duration) %>%;"></div>
+		</div>
+	</li>
+	<li><%= t(".billable_workingtime") %><span class="pull-right strong"><%= current_user.percentage_billable(duration) %>%</span>
+		<div class="donut donut">
+    		<div class="donut-arrow" data-percentage="<%= current_user.percentage_billable(duration) %>"></div>
+		</div>
+	</li>
+	<li>
+		<%= t(".overtime") %>
+		<span class="pull-right strong">
+			<%= duration_in_words(current_user.overtime_minutes(duration)) %>
+		</span>
+	</li>
+</ul>

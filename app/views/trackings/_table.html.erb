@@ -1,0 +1,22 @@
+<% if @trackings.present? %>
+<table id="trackings_table" class="table table-striped trackings_index">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t("trackings.description") %></th>
+      <th><%= t("trackings.duration") %></th>
+      <th><%= t("trackings.starttime") %></th>
+      <th><%= t("projects.project") %></th>
+      <% if @show_actions %>
+      <th><%= t '.actions', default: t("helpers.actions") %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @trackings %>
+  </tbody>
+</table>
+<%= will_paginate @trackings %>
+<% else %>
+<h3><%= t("nothing_to_see")%></h3>
+<% end %>

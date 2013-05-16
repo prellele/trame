@@ -1,0 +1,180 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  sign_in: "Anmelden"
+  sign_up: "Registrieren"
+  forgot_password: "Passwort vergessen?"
+  no_confirmation_instructions: "Keine Bestätigungs-Email erhalten?"
+  no_unlock_instructions: "Keine Entriegelungs-Email erhalten?"
+  workinghours: "Arbeitsstunden"
+  no_data_yet: "Keine %{name} vorhanden, versuche welche %{href} zu erstellen"
+  nothing_to_see: "Hier gibts nichts zu sehen, beginne zu tracken..."
+  here: "hier"
+  'yes': "Ja"
+  'no': "Nein"
+  action:
+    show: "Zeigen"
+    edit: "Editieren"
+    destroy: "Löschen"
+    search: "Suchen"
+    filter: "Filtern"
+  flash:
+    notice:
+      successfully_created: "%{class} wurde erfolgreich erstellt."
+      successfully_updated: "%{class} wurde erfolgreich aktualisiert."
+      downgrade_user: "%{username} ist kein Admin mehr."
+      upgrade_user: "%{username} ist nun Admin."
+      failed_downgrade_user: "Konnte %{username} nicht herunterstufen.."
+      failed_upgrade_user: "Konnte %{username} heraufstufen."
+    alert:
+      not_authorized: "Nicht autorisiert"
+  date:
+    formats:
+      date_format: "%d-%m-%Y"
+      datetime: "%d-%m-%Y %h-%M"
+      datetime_format: "%d-%m-%Y %h-%M"
+      date_format_datepicker: "dd-mm-yyyy"
+      date_format_daterangepicker: "dd-MM-yyyy"
+  time:
+    formats:
+      time_format: "%H:%M"
+      date_format: "%d-%m-%Y"
+      datetime: "%d-%m-%Y %H:%M"
+      time_hrs: "%{hours}std"
+      time_min: "%{minutes}min"
+      time_picker: "hh:mm"
+      time_picker_moment: "HH:mm"
+      datetime_picker: "dd-MM-yyyy hh:mm"
+      datetime_picker_moment: "dd-MM-yyyy HH:mm"
+      time_ago: "vor %{time}"
+  dateranges:
+    today: "Heute"
+    yesterday: "Gestern"
+    last_7_days: "Letzten 7 Tage"
+    last_30_days: "Letzten 30 Tage"
+    this_month: "Dieser Monat"
+    last_month: "Letzter Monat"
+    custom_range: "Bereich einstellen"
+    from: "Von"
+    to: "Bis"
+    apply: "setzen"
+    clear: "abbrechen"
+  helpers:
+    actions: "Aktionen"
+    links:
+      update: "Aktualisieren"
+      update_resource: "%{resource} aktualisieren"
+      export: "Exportieren"
+      show: "Zeigen"
+      back: "Zurück"
+      cancel: "Abbrechen"
+      confirm: "Bestätigen"
+      destroy: "Löschen"
+      new: "Neu"
+      edit: "Editieren"
+    titles:
+      edit: "Editieren"
+      save: "Speichern"
+      new: "Neu"
+      delete: "Löschen"
+  devise:
+    registrations:
+      edit:
+        edit_account: "Konto bearbeiten"
+        settings: "Einstellungen"
+  home:
+    index:
+      today: "Heute"
+      week: "Woche"
+      month: "Monat"
+      year: "Jahr"      
+      last_trackings: "Deine letzten Trackings"
+      projects_working_on: "Projekte an denen du arbeitest"
+      this: "this %{duration}"
+    statistics:
+      of: "von"
+      billable_workingtime: "Abrechenbare Arbeitszeit"
+      workingtime: "Arbeitszeit"
+      overtime: "Überstunden"
+  layouts:
+    application:
+      admin: "Admin"
+      home: "Dashboard"
+      reports: "Berichte"
+      projects: "Projekte"
+      users: "Benutzer"
+      trackings: "Trackings"
+      settings: "Einstellungen"
+      logout: "Abmelden"
+  projects:
+    project: "Projekt"
+    edit:
+      title: "Projekt editieren"
+    form:
+      name: "Name"
+    index:
+      title: "Projekte"
+      usage: "Nutzung der Projekte"
+      y_axis_usage: "Arbeitszeit (std)"
+      total_workingtime: "Absolute Arbeitszeit dieses Projekts"
+    new:
+      title: "Neues Projekt"
+  reports:
+    report: "Bericht"
+    workinghours_devided_projects: "Deine Arbeitszeit nach Projekten aufgeteilt"
+    percentage: "Prozentual"
+    index:
+      title: "Berichte"
+      workinghours_for_projects: "Arbeitsstunden für Projekte"
+      workinghours_of_projects: "Arbeitsstunden von Projekten"
+    admin:
+      title: "Alle Berichte"
+  trackings:
+    tracking: "Tracking"
+    trackings: "Trackings"
+    duration: "Dauer"
+    billable: "Abrechenbar"
+    description: "Beschreibung"
+    date: "Datum"
+    minutes: "Minuten"
+    starttime: "Startzeit"
+    endtime: "Endzeit"
+    todays_trackings: "Deine heutigen Trackings"
+    edit:
+      title: "Tracking editieren"
+    form:
+      back_to_overview: "Zurück zur Übersicht"
+    index:
+      title: "Trackings"
+      duration_in_words: "%{hours} Stunden {minutes} Minuten"
+    new:
+      title: "Neues Tracking"
+  users:
+    user: "User"
+    email: "Email"
+    prename: "Vorname"
+    surname: "Nachname"
+    password: "Passwort"
+    weekly_workinghours: "wöchentliche Arbeitsstunden"
+    password_confirmation: "Passwort wiederholen"
+    current_password: "Aktuelles Passwort"
+    current_sign_in_at: "Aktuelle Anmeldung um"
+    last_sign_in_at: "Letzte Anmeldung um"
+    current_sign_in_ip: "Aktuell angemeldete IP"
+    last_sign_in_ip: "Letzte angemeldete IP"
+    reset_password_sent_at: "Passwort zurücksetzten gesendet am"
+    remember_created_at: "Anmeldedaten gemerkt am"
+    admin: "Admin"
+    index:
+      title: "Benutzer"
+      make_admin: "heraufstufen"
+      revoke_admin: "herunterstufen"
+    devise:
+      session:
+        remember_me: "Angemeldet bleiben"
+      password:
+        resend_instructions: "Anleitung zum Passwort zurücksetzen senden"
+      unlock:
+        resend_instructions: "Anleitung zum Benutzer freischalten zusenden"
+

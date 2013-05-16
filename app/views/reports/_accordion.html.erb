@@ -1,0 +1,70 @@
+<div class="accordion reports" id="accordion2">
+  <% @projects_data.each do |project, trackings| %>
+  <% if trackings && trackings.size > 0 %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <div class="row-fluid">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= project.id %>">
+            <div class="span9">
+              <h2 class=""><%= project.name %></h2>
+            </div>
+            <div class="span3 additionals">
+              <ul>
+                <li><i class="icon-tags"></i>
+                  <%= trackings.count %> | 
+                </li>
+                <li>
+                  <i class="icon-time"></i>
+                  <% if current_page?(:action => 'admin') %>
+                  <%= duration_in_words(project.sum_workingtime) || "0" %> |
+                  <% else %>
+                  <%= duration_in_words(project.workinghours_for(current_user)) || "0" %> |
+                  <% end %>
+                </li>
+                <li>
+                  <span class="block" data-toggle="tooltip" data-placement="top"
+                  title="<%= project.members.each { |m| m.to_s }.join(', ') %>">
+                  <i class="icon-user"></i>
+                  <%= project.members.size %>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="collapse<%= project.id if trackings.size > 0 %>" class="accordion-body collapse in">
+        <div class="accordion-inner">
+          <table class="table table-striped">
+            <tbody>
+              <% trackings.each do |tracking| %>
+              <tr>
+                <td class="td-billable">
+                  <% if tracking.billable %>
+                  <i class="icon-money"></i>
+                  <% end %>
+                </td>
+                <td class="td-description nowrap">
+                  <%= tracking.description %>
+                </td>
+                <td class="td-duration nowrap">
+                  <%= duration_in_words(tracking.minutes) %>
+                </td>
+                <td class="td-date">
+                  <%= l(tracking.start_time, format: :datetime) if tracking.start_time %>
+                </td>
+                <% if current_page?(:action => 'admin') %>
+                <td class="td-username nowrap">
+                  <%= tracking.user.name %>
+                </td>
+                <% end %>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>

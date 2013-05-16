@@ -1,0 +1,238 @@
+/*
+ *= require bootstrap-datetimepicker
+ *= require daterangepicker
+ *= require bootstrapSwitch
+ *= require donuts
+ *= require bootstrap-datetimepicker
+ *= require_self
+ *= require_tree .
+ */
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+div.container{
+}
+
+h1.header{
+  display:inline;
+}
+.nav li.main{
+  a{ 
+    text-transform: uppercase;
+  } 
+}
+
+.form-signin {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 80px auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="email"],
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+.statistics li{
+  margin-bottom:25px;
+}
+
+.trackings_index {
+  .td-description {
+    max-width: 400px;
+  }
+  .td-duration {
+    width: 80px;
+  }
+  .td-date {
+    width: 130px;
+  }
+  .td-project_name {
+    width: 200px;
+  }
+  .td-username {
+    width: 120px;
+  }
+  .td-created_at {
+    max-width: 130px;
+  }
+  .td-actions {
+    width: 140px;
+  }
+  .td-billable {
+    width: 20px;
+  }
+}
+.row-tracking{
+  padding-top:5px;
+  #tracking_description{
+    max-width: 672px;
+  }
+  .date{
+    padding-left: -10px;
+  }
+  .billable{
+    vertical-align: top;
+  }
+  #tracking_minutes{
+  }
+
+  #tracking_end_time{
+    
+  }
+  #tracking_start_time{
+  }
+}
+
+.tooltip {
+  color: black;
+}
+
+.flash {
+  width: 250px;
+  position: fixed;
+  left: 50%;
+  top: 50px;
+  margin-left: -125px;
+}
+
+.navbar .brand:hover {
+  color: rgb(0, 0, 0);
+}
+
+.form-inline {
+  .field_with_errors {
+    display: inline-block;
+    input {
+      background-color: darken(red, 10%);
+    }
+  }
+}
+
+ul.projects {
+  list-style: none;
+}
+
+ul.trackings {
+  list-style: none;
+}
+
+li.project {
+  h2.project-name {
+    display: inline;
+  }
+  .project-info {
+    width: 100%;
+    display: inline;
+  }
+}
+
+.nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.additionals {
+  text-align: left;
+  vertical-align: center;
+  height: 40px;
+  width: 110px;
+  margin-top: 10px;
+  display:block;
+}
+.additionals ul{
+  list-style: none;
+}
+.additionals ul li{
+  display: inline;
+}
+
+.reports {
+  .td-description {
+    max-width: 700px;
+  }
+  .td-billable {
+    width: 20px;
+  }
+  .td-username {
+    width: 100px;
+  }
+  .td-date {
+    width: 130px;
+  }
+  .td-duration {
+    width: 70px;
+  }
+}
+
+.home_index{
+  .td-duration{
+    width: 80px;
+  }
+}
+
+.charts{
+  padding-bottom:15px;
+}
+
+.projects{
+  
+}
+
+.btn-header{
+  float:right;
+}
+
+div.user_edit{
+   input{
+    float: right;
+    display: inline;
+  }
+}
+
+ul.user_edit{
+  float: right;
+  li{
+    float: right;
+    list-style:none;
+  }
+  label{
+    display:inline;
+    vertical-align:sub;
+    margin-right: 15px;
+  }
+}
+
+.dropdown img {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.row-fluid .additionals{
+  width: 8.5%;
+}
+
+.filter-form{
+  .multiselect{
+    max-width: 160px;
+  }
+}

@@ -1,0 +1,7 @@
+<%- model_class = Tracking -%>
+<div class="page-header">
+  <h1><%= t '.title' %></h1>
+</div>
+<%= render partial: 'form' %>
+<h2><%= t("trackings.todays_trackings") %></h2>
+<%= render partial: 'table', :locals => { :trackings => @todays_trackings } %>

@@ -1,0 +1,31 @@
+<%- model_class = Tracking -%>
+<div class="page-header">
+  <h1><%= t '.title' %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= t 'trackings.description' %>:</strong></dt>
+  <dd><%= @tracking.description %></dd>
+  <dt><strong><%= t 'trackings.starttime' %>:</strong></dt>
+  <dd><%= @tracking.start_time %></dd>
+  <dt><strong><%= t 'trackings.minutes' %>:</strong></dt>
+  <dd><%= @tracking.minutes %></dd>
+  <dt><strong><%= t 'trackings.billable' %>:</strong></dt>
+  <dd><%= @tracking.billable ? t('yes') : t('no') %></dd>
+  <dt><strong><%= t 'projects.project' %>:</strong></dt>
+  <dd><%= @tracking.project.try(:name) ? @tracking.project.name : "-" %></dd>
+  <dt><strong><%= t 'users.user' %>:</strong></dt>
+  <dd><%= @tracking.user.name %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', default: t("helpers.links.back")),
+              trackings_path, class: 'btn' %>
+  <%= link_to t('.edit', default: t("helpers.links.edit")),
+              edit_tracking_path(@tracking), class: 'btn btn-warning' %>
+  <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+              tracking_path(@tracking),
+              method: 'delete',
+              data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
+              class: 'btn btn-danger' %>
+</div>

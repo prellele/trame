@@ -1,0 +1,6 @@
+$('#trackings_table').append('<%= j render(@trackings) %>');
+<% if @trackings.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@trackings) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>

@@ -1,0 +1,99 @@
+<%- model_class = Project -%>
+<div class="page-header">
+  <h1 class="header"><%= t '.title' %></h1>
+  <%= link_to t('.new', default: t("helpers.links.new")),
+            new_project_path,
+            class: 'btn btn-primary btn-header' %>
+</div>
+<div class="span7">
+<table class="table table-striped span6">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%= t '.actions', default: t("helpers.actions") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.id, project_path(project) %></td>
+        <td><%= project.name %></td>
+        <td>
+          <%= link_to t('action.show'), project_path(project), class: 'btn btn-mini' %>
+          <%= link_to t('.edit', default: t("helpers.links.edit")),
+                      edit_project_path(project), class: 'btn btn-mini btn-warning' %>
+          <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+                      project_path(project),
+                      method: :delete,
+                      data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
+                      class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+<div class="span4">
+  <div id="projects_workingtime"></div>
+  <script>
+      $(function() {
+          $('#projects_workingtime').highcharts({
+            chart: {
+                type: 'column',
+                margin: [ 50, 50, 100, 80]
+            },
+            title: {
+                text: '<%= t(".usage") %>'
+            },
+            xAxis: {
+                categories: [
+                     <%= @projects_usage.map { |project| "'#{project.name}'" }.join(",\n").html_safe %>
+                ],
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '<%= t(".y_axis_usage") %>'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                        '<%= t(".total_workingtime") %>: ' + this.y + 
+                        '<%= t("time.formats.time_hrs", hours: '' )%>';
+                }
+            },
+            series: [{
+                name: 'Population',
+                data: [<%= @projects_usage.map { |project| "#{project.sum_workingtime_hours()}" }.join(",").html_safe %>],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 10,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+      });
+    </script>
+</div>
+
+

@@ -1,0 +1,24 @@
+<tr>
+  <td class="td-billable">
+    <% if tracking.billable %>
+    <i class="icon-money"></i>
+    <% end %>
+  </td>
+  <td class="td-description nowrap"><%= tracking.description %></td>
+  <td class="td-duration"><%= duration_in_words(tracking.minutes) %></td>
+  <td class="td-date"><%= l(tracking.start_time, format: :datetime) if tracking.start_time %></td>
+  <td class="td-project_name nowrap"><%= tracking.try(:project) ? tracking.project.name : "-" %></td>
+  <% if @show_actions %>
+  <td class="td-actions">
+    <div class="btn-group">
+      <%= link_to t('action.show'), tracking_path(tracking), class: 'btn btn-mini' %>
+      <%= link_to t('action.edit'), edit_tracking_path(tracking), class: 'btn btn-warning btn-mini' %>
+      <%= link_to t('action.destroy'),
+      tracking_path(tracking),
+      method: :delete,
+      data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
+      class: 'btn btn-mini btn-danger' %>
+    </div>
+  </td>
+  <% end %>
+</tr>
