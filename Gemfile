@@ -49,7 +49,7 @@ group :development do
   #Optimizing
   gem 'rack-mini-profiler'
   # Debugging
-  gem 'better_errors'
+  gem 'better_errors', '0.8.0'
   gem 'binding_of_caller'
   gem 'debugger'
 end
