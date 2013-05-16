@@ -12,7 +12,7 @@ gem 'mysql2'
 gem 'pg'
 
 # Auth
-gem 'devise'
+gem 'devise', '2.2.4'
 
 #i18n
 gem 'rails-i18n'
