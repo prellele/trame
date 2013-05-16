@@ -30,6 +30,8 @@ en:
     alert:
       not_authorized: "Not Authorized"
   date:
+    today: "Today"
+    yesterday: "Yesterday"
     formats:
       date_format: "%Y-%m-%d"
       datetime: "%Y-%m-%d %h-%M"

@@ -2,47 +2,48 @@
 <div class="page-header .visible-desktop">
 	<h1><%= "#{@greeting}, #{current_user.name}" %></h1>
 </div>
-
 <div class="row">
-	<div class="span6">
+	<div class="span10">
+		<%= render partial: 'trackings/form' %>
 		<div class="row">
-			<h3><%= t("trackings.todays_trackings")%></h3>
-			<% if @todays_trackings.present? %>
-			<table class="table table-striped home_index">
-				<tbody>
-					<% @todays_trackings.each do |tracking| %>
-					<tr>
-						<td class="td-description"><%= tracking.description %></td>
-						<td class="td-duration"><%= duration_in_words(tracking.minutes) %></td>
-					</tr>
+			<div class="span12">
+				<div class="row">
+					<% if @todays_trackings.present? || @newest_trackings.present? %>
+
+							<% if @todays_trackings.present?  %>
+								<h3><%= t("date.today") %></h3>
+								<table class="table table-striped home_index">
+									<tbody>
+										
+										
+
+										<%= render partial: 'trackings/table', :locals => { :trackings => @todays_trackings } %>
+
+										
+									</tbody>
+								</table>
+							<% end %>
+							<% if @newest_trackings.present? %>
+								<% @newest_trackings.each do |tracking| %>
+								<% if tracking.start_time.to_date == Date.today-1.day %>
+									<%= t("date.yesterday")  %>
+								<% else %>
+									<%= tracking.start_time.to_date %>
+								<% end %>
+								
+								<%= render partial: 'trackings/table', :locals => { :trackings => tracking } %>
+								
+								<% end %>
+							<% end %>
+						</tbody>
+					</table>
 					<% end %>
-				</tbody>
-			</table>
-			<% else %>
-			<p><%= t("no_data_yet", name: t('trackings.trackings'), href: link_to(t("here"), new_tracking_path) ).html_safe %></p>
-			<% end %>
-		</div>
-		<div class="row">
-			<h3><%= t(".projects_working_on") %></h3>
-			<% if @projects.present? %>
-			<table class="table table-striped home_index">
-				<tbody>
-					<% @projects.each do |project| %>
-					<% if project.workinghours_for(current_user) > 0 %>
-					<tr>
-						<td class="td-description"><%= project.name %></td>
-						<td class="td-duration"><%= duration_in_words(project.workinghours_for(current_user)) %></td>
-					</tr>
-					<% end %>
-					<% end %>
-				</tbody>
-			</table>
-			<% else %>
-			<p><%= t("no_data_yet", name: t('trackings.trackings'), href: link_to(t("here"), new_tracking_path) ).html_safe %></p>
-			<% end %>
-		</div>
+				</div>
+			</div>
+			
+		</div> 
 	</div>
-	<div class="span4 offset1">
+	<div class="span2">
 		<ul class="nav nav-tabs" id="home_navtab">
 			<li class="active"><a href="#today" data-toggle="tab"><%= t(".today") %></a></li>
 			<li><a href="#week" data-toggle="tab"><%= t(".week") %></a></li>
@@ -64,6 +65,7 @@
 				<%= render "statistics", duration: "year" %>
 			</div>
 		</div>
-	</div>  
+	</div> 
 </div>
+
 

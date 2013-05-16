@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20130516140923) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "refno"
   end
 
   create_table "trackings", :force => true do |t|
