@@ -22,7 +22,7 @@ gem 'twitter-bootstrap-rails', '2.2.6'
 gem 'csv_shaper', '1.0.0'
 gem 'momentjs-rails', '2.0.0.1'
 gem 'jquery-rails', '2.2.1'
-gem "bootstrap-datetimepicker-rails", "0.0.10.1"
+gem "bootstrap-datetimepicker-rails", "0.0.11"
 gem 'bootstrap-daterangepicker-rails', '0.0.5'
 
 #Performance
