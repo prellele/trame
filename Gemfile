@@ -5,7 +5,7 @@ gem 'strong_parameters'
 gem 'configurate'
 
 # App Server
-gem 'puma', '1.6.3'
+gem 'puma', '2.0.1'
 
 # Database
 gem 'mysql2'
