@@ -2,7 +2,7 @@ class Permission
   def initialize(user)
 
     allow "devise/sessions", [:new, :create, :destroy]
-    allow "devise/passwords", [:new, :create]
+    allow "devise/passwords", [:new, :create, :edit, :update]
     allow "devise/registrations", [:new, :create]
 
     allow "registrations", [:new, :create]
