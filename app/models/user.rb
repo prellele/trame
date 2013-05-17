@@ -85,4 +85,12 @@ class User < ActiveRecord::Base
     return 0
   end
 
+  def weekly_workinghours
+    @workinghours = []
+    Date.today.at_beginning_of_week.upto(Date.today) { |date| 
+      @workinghours<< (self.trackings.where("start_time >= ? AND start_time < ?", date, date+1.day).sum(:minutes)/60.to_f).round(1)
+    }
+    @workinghours
+  end
+
 end
