@@ -8,6 +8,7 @@ en:
   no_confirmation_instructions: "Didn't receive confirmation instructions?"
   no_unlock_instructions: "Didn't receive unlock instructions?"
   workinghours: "Workinghours"
+  hours: "hours"
   no_data_yet: "No %{name} yet, try to create one %{href}"
   nothing_to_see: "Nothing to see here, you need to start tracking..."
   here: "here"
@@ -29,6 +30,14 @@ en:
       failed_upgrade_user: "Could not make %{username} an admin."
     alert:
       not_authorized: "Not Authorized"
+  weekday:
+    monday: "Monday"
+    tuesday: "Tuesday"
+    wednesday: "Wednesday"
+    thursday: "Thursday"
+    friday: "Friday"
+    saturday: "Saturday"
+    sunday: "Sunday"
   date:
     today: "Today"
     yesterday: "Yesterday"

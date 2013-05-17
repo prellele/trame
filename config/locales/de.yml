@@ -8,6 +8,7 @@ de:
   no_confirmation_instructions: "Keine Bestätigungs-Email erhalten?"
   no_unlock_instructions: "Keine Entriegelungs-Email erhalten?"
   workinghours: "Arbeitsstunden"
+  hours: "Stunden"
   no_data_yet: "Keine %{name} vorhanden, versuche welche %{href} zu erstellen"
   nothing_to_see: "Hier gibts nichts zu sehen, beginne zu tracken..."
   here: "hier"
@@ -29,6 +30,14 @@ de:
       failed_upgrade_user: "Konnte %{username} heraufstufen."
     alert:
       not_authorized: "Nicht autorisiert"
+  weekday:
+    monday: "Montag"
+    tuesday: "Dienstag"
+    wednesday: "Mittwoch"
+    thursday: "Donnerstag"
+    friday: "Freitag"
+    saturday: "Samstag"
+    sunday: "Sonntag"
   date:
     today: "Heute"
     yesterday: "Gestern"
