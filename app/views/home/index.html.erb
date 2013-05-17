@@ -6,33 +6,36 @@
 	<div class="span10">
 		<%= render partial: 'trackings/form' %>
 		<div class="row">
-			<div class="span12">
+			<div class="span10">
 				<div class="row">
 					<% if @todays_trackings.present? || @newest_trackings.present? %>
 
 							<% if @todays_trackings.present?  %>
-								<h3><%= t("date.today") %></h3>
+								<h4><%= t("date.today") %></h4>
 								<table class="table table-striped home_index">
 									<tbody>
 										
 										
 
-										<%= render partial: 'trackings/table', :locals => { :trackings => @todays_trackings } %>
+										<%= render partial: 'trackings/table', :locals => { :trackings => @todays_trackings, :header => false } %>
 
 										
 									</tbody>
 								</table>
 							<% end %>
-							<% if @newest_trackings.present? %>
-								<% @newest_trackings.each do |tracking| %>
-								<% if tracking.start_time.to_date == Date.today-1.day %>
-									<%= t("date.yesterday")  %>
-								<% else %>
-									<%= tracking.start_time.to_date %>
+							<% if @yesterdays_trackings.present? %>
+								<% @yesterdays_trackings.each do |tracking| %>
+								<h4><%= t("date.yesterday")  %></h4>
+								<%= render partial: 'trackings/table', :locals => { :trackings => tracking, :header => false  } %>
 								<% end %>
-								
-								<%= render partial: 'trackings/table', :locals => { :trackings => tracking } %>
-								
+							<% end %>
+							<% if @newest_trackings.present? %>
+								<% (0..@newest_trackings.length-1).each do |i| %>
+									<% if @newest_trackings[i].start_time.to_date != @newest_trackings[i-1].start_time.to_date %>
+										<h4><%= l(@newest_trackings[i].start_time.to_date, format: :date_format) %></h4>
+									<% end %>
+									
+									<%= render partial: 'trackings/table', :locals => { :trackings => @newest_trackings[i], :header => false  } %>
 								<% end %>
 							<% end %>
 						</tbody>
@@ -43,29 +46,9 @@
 			
 		</div> 
 	</div>
-	<div class="span2">
-		<ul class="nav nav-tabs" id="home_navtab">
-			<li class="active"><a href="#today" data-toggle="tab"><%= t(".today") %></a></li>
-			<li><a href="#week" data-toggle="tab"><%= t(".week") %></a></li>
-			<li><a href="#month" data-toggle="tab"><%= t(".month") %></a></li>
-			<li><a href="#year" data-toggle="tab"><%= t(".year") %></a></li>
-
-		</ul>
-		<div class="tab-content">
-			<div class="tab-pane active" id="today">
-				<%= render "statistics", duration: "day" %>
-			</div>
-			<div class="tab-pane" id="week">
-			  	<%= render "statistics", duration: "week" %>
-			</div>
-			<div class="tab-pane" id="month">
-				<%= render "statistics", duration: "month" %>
-			</div>
-			<div class="tab-pane" id="year">
-				<%= render "statistics", duration: "year" %>
-			</div>
-		</div>
-	</div> 
+	<%= render partial: 'piechart' %>
+	<%= render partial: 'workinghours' %>
+	
 </div>
 
 

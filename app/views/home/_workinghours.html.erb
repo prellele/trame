@@ -1,0 +1,66 @@
+<div id="weeklyworkinghours"></div>
+<script type="text/javascript">
+$(function () {
+        $('#weeklyworkinghours').highcharts({
+            chart: {
+                type: 'column',
+                width: 200,
+                height: 300
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    '<%= t("weekday.monday") %>',
+                    '<%= t("weekday.tuesday") %>',
+                    '<%= t("weekday.wednesday") %>',
+                    '<%= t("weekday.thursday") %>',
+                    '<%= t("weekday.friday") %>',
+                    '<%= t("weekday.saturday") %>',
+                    '<%= t("weekday.sunday") %>'
+                ],
+                labels: {
+                    rotation: -90,
+                    align: 'right',
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '<%= t("workinghours")%> (<%= t("hours") %>)'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                        '<%= t("workinghours")%>: '+ Highcharts.numberFormat(this.y, 1) +
+                        ' <%= t("hours") %>';
+                }
+            },
+            series: [{
+                name: 'Population',
+                data: [<%= current_user.weekly_workinghours { |w|  "#{w}" }.join(",\n").html_safe %>],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 1,
+                    style: {
+                        fontSize: '11px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    });
+    </script>
