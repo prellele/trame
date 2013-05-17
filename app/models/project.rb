@@ -14,6 +14,10 @@ class Project < ActiveRecord::Base
     trackings.where(user_id: user.id).sum(:minutes)
   end
 
+  def weekly_workinghours_for(user)
+    (trackings.where("start_time >= ?", Date.today.beginning_of_week).where(user_id: user.id).sum(:minutes)/60.to_f).round(1)
+  end
+
   def sum_workingtime
     trackings.sum(:minutes)
   end

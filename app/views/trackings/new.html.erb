@@ -4,4 +4,4 @@
 </div>
 <%= render partial: 'form' %>
 <h2><%= t("trackings.todays_trackings") %></h2>
-<%= render partial: 'table', :locals => { :trackings => @todays_trackings } %>
+<%= render partial: 'table', :locals => { :trackings => @todays_trackings, :header => false } %>

@@ -5,4 +5,4 @@
   new_tracking_path,
   class: 'btn btn-primary btn-header' %>
 </div>
-<%= render partial: 'table' %>
+<%= render partial: 'paginatedtable', :locals => { :trackings => @todays_trackings, :header => true } %>
