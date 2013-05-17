@@ -1,6 +1,5 @@
-<% if trackings.present? %>
+<% if @trackings.present? %>
 <table id="trackings_table" class="table table-striped trackings_index">
-  <% if header %>
   <thead>
     <tr>
       <th></th>
@@ -13,11 +12,11 @@
       <% end %>
     </tr>
   </thead>
-  <% end %>
   <tbody>
-    <%= render trackings %>
+    <%= render @trackings %>
   </tbody>
 </table>
+<%= will_paginate @trackings %>
 <% else %>
 <h3><%= t("nothing_to_see")%></h3>
 <% end %>

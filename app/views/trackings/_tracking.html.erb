@@ -6,7 +6,7 @@
   </td>
   <td class="td-description nowrap"><%= tracking.description %></td>
   <td class="td-duration"><%= duration_in_words(tracking.minutes) %></td>
-  <td class="td-date"><%= l(tracking.start_time, format: :datetime) if tracking.start_time %></td>
+  <td class="td-date"><%= l(tracking.start_time, format: :time_format) if tracking.start_time %></td>
   <td class="td-project_name nowrap"><%= tracking.try(:project) ? tracking.project.name : "-" %></td>
   <% if @show_actions %>
   <td class="td-actions">
