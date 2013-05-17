@@ -30,7 +30,7 @@ class TrackingsController < ApplicationController
     @tracking = current_user.trackings.build(params[:tracking])
 
     if @tracking.save
-      redirect_to new_tracking_path, notice: t("flash.notice.successfully_created", class: t("trackings.tracking") )
+      redirect_to request.referer, notice: t("flash.notice.successfully_created", class: t("trackings.tracking") )
     else
       set_tracking_new_data()
       render action: "new"
@@ -61,7 +61,7 @@ class TrackingsController < ApplicationController
   private
 
   def set_tracking_new_data
-    @trackings = current_user.trackings.where("start_time >= ?", Date.today).paginate(:page => params[:page], :per_page => 20)
+    @todays_trackings = current_user.trackings.where("start_time >= ?", Date.today).paginate(:page => params[:page], :per_page => 20)
     @projects = Project.all
   end
 end
