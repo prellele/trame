@@ -3,6 +3,7 @@
 configuration:
   server:
     # host: "host.example.com"
+   # db: "mysql"
   mail:
     # enable: false
     # sender_address: "mail@example.com"

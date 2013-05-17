@@ -9,8 +9,8 @@ gem 'configurate'
 gem 'puma', '2.0.1'
 
 # Database
-gem 'mysql2'
-gem 'pg'
+gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'mysql'
+gem 'pg', '0.14.1' if ENV['DB'] == 'postgres'
 
 # Auth
 gem 'devise', '2.2.4'
