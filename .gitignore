@@ -13,6 +13,7 @@
 # Ignore configs
 /config/application.yml
 /config/database.yml
+.wti
 
 # Ignore all logfiles and tempfiles.
 /log
