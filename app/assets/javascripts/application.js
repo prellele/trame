@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap-datetimepicker
+//= require bootstrap-flashmessage
 //= require moment
 //= require highcharts
 //= require date
@@ -14,7 +15,6 @@ $(document).ready(function () {
     $('time').tooltip();
     $('span').tooltip();
     $(".collapse").collapse();
-    $('.alert').delay(10000).slideUp(800);
 
     $('#datetimepicker').datetimepicker({
       pickSeconds: false

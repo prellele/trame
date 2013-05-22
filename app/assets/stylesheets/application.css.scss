@@ -4,6 +4,7 @@
  *= require bootstrapSwitch
  *= require donuts
  *= require bootstrap-datetimepicker
+ *= require bootstrap-flashmessage
  *= require_self
  *= require_tree .
  */
@@ -105,14 +106,6 @@ h1.header{
 
 .tooltip {
   color: black;
-}
-
-.flash {
-  width: 250px;
-  position: fixed;
-  left: 50%;
-  top: 50px;
-  margin-left: -125px;
 }
 
 .navbar .brand:hover {
