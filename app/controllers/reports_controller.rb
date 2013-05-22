@@ -10,9 +10,7 @@ class ReportsController < ApplicationController
       trackings = project.trackings
       trackings = trackings.where(user_id: current_user.id)
       if params[:daterange].present?
-        trackings = trackings.where("start_time >= ? and start_time <= ?", 
-          DateTime.strptime(params[:daterange].split(' - ')[0],t("date.formats.date_format")),
-          DateTime.strptime("#{params[:daterange].split(' - ')[1]} 23:59",t("time.formats.datetime")))
+        trackings = trackings_in_daterange(params[:daterange])
       end
       [project, trackings]
     end
@@ -23,8 +21,7 @@ class ReportsController < ApplicationController
     csv_usernames = "All"
     @selectable_projects = current_user.visible_projects
     @selectable_users = User.all
-    params[:user_ids] = [current_user.id] unless current_user.admin?
-    @projects = current_user.visible_projects
+    @projects = Project.all
     @projects = @projects.where(id: params[:project_ids]) if params[:project_ids]
     @projects_data = @projects.map do |project|
       trackings = project.trackings
@@ -33,9 +30,7 @@ class ReportsController < ApplicationController
         trackings = trackings.where(user_id: params[:user_ids])
       end
       if params[:daterange].present?
-        trackings = trackings.where("start_time >= ? and start_time <= ?", 
-          DateTime.strptime(params[:daterange].split(' - ')[0],t("date.formats.date_format")),
-          DateTime.strptime("#{params[:daterange].split(' - ')[1]} 23:59",t("time.formats.datetime")))
+        trackings = trackings_in_daterange(params[:daterange])
       end
       [project, trackings]
     end
@@ -44,6 +39,12 @@ class ReportsController < ApplicationController
   end
  
   private
+
+  def trackings_in_daterange(daterange)
+    trackings = trackings.where("start_time >= ? and start_time <= ?", 
+      DateTime.strptime(params[:daterange].split(' - ')[0],t("date.formats.date_format")),
+      DateTime.strptime("#{params[:daterange].split(' - ')[1]} 23:59",t("time.formats.datetime")))
+  end
  
   def set_csv_filename(names)
     components = [t("reports.report")]
