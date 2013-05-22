@@ -112,7 +112,7 @@ de:
   layouts:
     application:
       admin: Admin
-      home: Übersicht
+      home: Dashboard
       reports: Berichte
       projects: Projekte
       users: Benutzer
