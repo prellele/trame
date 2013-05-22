@@ -21,10 +21,8 @@ en:
     notice:
       successfully_created: "%{class} was successfully created."
       successfully_updated: "%{class} was successfully updated."
-      downgrade_user: "%{username} is not an admin any more."
-      upgrade_user: "%{username} is an admin now."
-      failed_downgrade_user: "Couldnt downgrade %{username}."
-      failed_upgrade_user: "Could not make %{username} an admin."
+      failed_change_permission: "Failed by changing %{username}'s permissions"
+      successfully_changed_permission: "Successfully changed %{username}'s permissions"
     alert:
       not_authorized: "Not Authorized"
   weekday:

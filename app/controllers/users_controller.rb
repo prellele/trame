@@ -11,31 +11,15 @@ class UsersController < ApplicationController
 
   def toggle_admin
     @user = User.find(params[:user_id])
-    if @user.admin?
-      @user.admin = false
+    @user.admin? ? @user.admin = false : @user.admin = true
+    
+    respond_to do |format|
       if @user.save
-        respond_to do |format|
-          format.html { redirect_to users_path, notice: t("flash.notice.downgrade_user", username: @user.name) }
-          format.json { head :ok }
-        end
+        format.html { redirect_to users_path, notice: t("flash.notice.successfully_changed_permission", username: @user.name) }
+        format.json { head :ok }
       else
-        respond_to do |format|
-          format.html { redirect_to users_path, notice: t("flash.notice.failed_downgrade_user", username: @user.name) }
-          format.json { head :error }
-        end
-      end
-    else
-      @user.admin = true
-      if @user.save
-        respond_to do |format|
-          format.html { redirect_to users_path, notice: t("flash.notice.upgrade_user", username: @user.name) }
-          format.json { head :ok }
-        end
-      else
-        respond_to do |format|
-          format.html { redirect_to users_path, notice: t("flash.notice.failed_upgrade_user", username: @user.name) }
-          format.json { head :error }
-        end
+        format.html { redirect_to users_path, notice: t("flash.notice.failed_change_permission", username: @user.name) }
+        format.json { head :error }
       end
     end
   end
