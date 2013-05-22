@@ -234,6 +234,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.2.1)
   guard-rspec (= 3.0.0)
   jquery-rails (= 2.2.1)
+  json (= 1.8.0)
   less-rails
   momentjs-rails (= 2.0.0.1)
   mysql2 (= 0.3.11)

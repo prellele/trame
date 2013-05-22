@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 
 gem 'strong_parameters', '0.2.1'
 gem 'configurate'
+gem 'json', '1.8.0'
 
 # App Server
 gem 'puma', '2.0.1'
