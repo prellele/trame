@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many :trackings, dependent: :destroy, order: 'start_time DESC'
   has_many :projects, through: :trackings, order: 'created_at DESC', uniq: true
 
-  def working_hours
-    (self.weekly_workinghours || 8.0)
+  def workinghours_week
+    (weekly_workinghours || 40.0)
   end
 
   def name
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def expected_workingtime_minutes(duration)
-    day = working_hours*60
+    day = workinghours_week / 5 * 60
     expected_minutes = case duration
                  when "day" then day
                  when "week"  then day*5
@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
     return 0
   end
 
-  def weekly_workinghours
+  def daily_worked_hours
     @workinghours = []
     Date.today.at_beginning_of_week.upto(Date.today) { |date| 
       @workinghours<< (self.trackings.where("start_time >= ? AND start_time < ?", date, date+1.day).sum(:minutes)/60.to_f).round(1)

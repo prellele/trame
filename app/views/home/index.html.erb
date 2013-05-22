@@ -40,7 +40,29 @@
 	</div>
 	<%= render partial: 'piechart' %>
 	<%= render partial: 'workinghours' %>
-	
+	<!-- <div class="span4 offset1">
+		<ul class="nav nav-tabs" id="home_navtab">
+			<li class="active"><a href="#today" data-toggle="tab"><%= t(".today") %></a></li>
+			<li><a href="#week" data-toggle="tab"><%= t(".week") %></a></li>
+			<li><a href="#month" data-toggle="tab"><%= t(".month") %></a></li>
+			<li><a href="#year" data-toggle="tab"><%= t(".year") %></a></li>
+
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="today">
+			<%= render "statistics", duration: "day" %>
+			</div>
+			<div class="tab-pane" id="week">
+			<%= render "statistics", duration: "week" %>
+			</div>
+			<div class="tab-pane" id="month">
+			<%= render "statistics", duration: "month" %>
+			</div>
+			<div class="tab-pane" id="year">
+			<%= render "statistics", duration: "year" %>
+			</div>
+		</div>
+	</div> -->
 </div>
 
 

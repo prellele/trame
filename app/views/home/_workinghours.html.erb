@@ -47,7 +47,7 @@ $(function () {
             },
             series: [{
                 name: 'Population',
-                data: [<%= current_user.weekly_workinghours { |w|  "#{w}" }.join(",\n").html_safe %>],
+                data: [<%= current_user.daily_worked_hours { |w|  "#{w}" }.join(",\n").html_safe %>],
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
