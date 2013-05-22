@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def toggle_admin
     @user = User.find(params[:user_id])
-    @user.admin? ? @user.admin = false : @user.admin = true
+    @user.admin = !@user.admin
     
     respond_to do |format|
       if @user.save
