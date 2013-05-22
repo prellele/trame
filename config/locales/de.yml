@@ -1,25 +1,22 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 de:
-  sign_in: "Anmelden"
-  sign_up: "Registrieren"
-  forgot_password: "Passwort vergessen?"
-  no_confirmation_instructions: "Keine Bestätigungs-Email erhalten?"
-  no_unlock_instructions: "Keine Entriegelungs-Email erhalten?"
-  workinghours: "Arbeitsstunden"
-  hours: "Stunden"
+  sign_in: Anmelden
+  sign_up: Registrieren
+  forgot_password: "Kennwort vergessen?"
+  no_confirmation_instructions: "Keine Bestätigungsanleitung erhalten?"
+  no_unlock_instructions: "Keine Entsperr-Anweisungen erhalten?"
+  workinghours: Arbeitsstunden
+  hours: Stunden
   no_data_yet: "Keine %{name} vorhanden, versuche welche %{href} zu erstellen"
   nothing_to_see: "Hier gibts nichts zu sehen, beginne zu tracken..."
-  here: "hier"
-  'yes': "Ja"
-  'no': "Nein"
+  here: hier
+  "yes": Ja
+  "no": Nein
   action:
-    show: "Zeigen"
-    edit: "Editieren"
-    destroy: "Löschen"
-    search: "Suchen"
-    filter: "Filtern"
+    show: Zeigen
+    edit: Bearbeiten
+    destroy: Löschen
+    search: Suche
+    filter: "Auswahl einschränken"
   flash:
     notice:
       successfully_created: "%{class} wurde erfolgreich erstellt."
@@ -29,24 +26,24 @@ de:
       failed_downgrade_user: "Konnte %{username} nicht herunterstufen.."
       failed_upgrade_user: "Konnte %{username} heraufstufen."
     alert:
-      not_authorized: "Nicht autorisiert"
+      not_authorized: "Nicht berechtigt"
   weekday:
-    monday: "Montag"
-    tuesday: "Dienstag"
-    wednesday: "Mittwoch"
-    thursday: "Donnerstag"
-    friday: "Freitag"
-    saturday: "Samstag"
-    sunday: "Sonntag"
+    monday: Montag
+    tuesday: Dienstag
+    wednesday: Mittwoch
+    thursday: Donnerstag
+    friday: Freitag
+    saturday: Samstag
+    sunday: Sonntag
   date:
-    today: "Heute"
-    yesterday: "Gestern"
+    today: Heute
+    yesterday: Gestern
     formats:
       date_format: "%d-%m-%Y"
       datetime: "%d-%m-%Y %h-%M"
       datetime_format: "%d-%m-%Y %h-%M"
-      date_format_datepicker: "dd-mm-yyyy"
-      date_format_daterangepicker: "dd-MM-yyyy"
+      date_format_datepicker: dd-mm-yyyy
+      date_format_daterangepicker: dd-MM-yyyy
   time:
     formats:
       time_format: "%H:%M"
@@ -60,115 +57,121 @@ de:
       datetime_picker_moment: "dd-MM-yyyy HH:mm"
       time_ago: "vor %{time}"
   dateranges:
-    today: "Heute"
-    yesterday: "Gestern"
-    last_7_days: "Letzten 7 Tage"
-    last_30_days: "Letzten 30 Tage"
-    this_month: "Dieser Monat"
+    today: Heute
+    yesterday: Gestern
+    last_7_days: "vergangene 7 Tage"
+    last_30_days: "Letzte 30 Tage"
+    this_month: "Diesen Monat"
     last_month: "Letzter Monat"
     custom_range: "Bereich einstellen"
-    from: "Von"
-    to: "Bis"
-    apply: "setzen"
-    clear: "abbrechen"
+    from: von
+    to: bis
+    apply: anwenden
+    clear: Leeren
   helpers:
-    actions: "Aktionen"
+    actions: Aktionen
     links:
-      update: "Aktualisieren"
+      update: Aktualisieren
       update_resource: "%{resource} aktualisieren"
-      export: "Exportieren"
-      show: "Zeigen"
-      back: "Zurück"
-      cancel: "Abbrechen"
-      confirm: "Bestätigen"
-      destroy: "Löschen"
-      new: "Neu"
-      edit: "Editieren"
+      export: Exportieren
+      show: Zeigen
+      back: Zurück
+      cancel: Abbrechen
+      confirm: Bestätigen
+      destroy: Löschen
+      new: Neu
+      edit: Bearbeiten
     titles:
-      edit: "Editieren"
-      save: "Speichern"
-      new: "Neu"
-      delete: "Löschen"
+      edit: Bearbeiten
+      save: Speichern
+      new: Neu
+      delete: Löschen
   devise:
     registrations:
       edit:
         edit_account: "Konto bearbeiten"
-        settings: "Einstellungen"
+        settings: Einstellungen
+    passwords:
+      edit:
+        change_password: "Mein Passwort ändern"
+        confirm_new_password: "Neues Passwort bestätigen"
+        new_password: "Neues Passwort"
+        title: "Ändere dein Passwort"
   home:
     index:
-      today: "Heute"
-      week: "Woche"
-      month: "Monat"
-      year: "Jahr"      
+      today: Heute
+      week: Woche
+      month: Monat
+      year: Jahr
       last_trackings: "Deine letzten Trackings"
       projects_working_on: "Projekte an denen du arbeitest"
       this: "this %{duration}"
     statistics:
-      of: "von"
+      of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"
-      workingtime: "Arbeitszeit"
-      overtime: "Überstunden"
+      workingtime: Arbeitszeit
+      overtime: Überstunden
   layouts:
     application:
-      admin: "Admin"
-      home: "Dashboard"
-      reports: "Berichte"
-      projects: "Projekte"
-      users: "Benutzer"
-      trackings: "Trackings"
-      settings: "Einstellungen"
-      logout: "Abmelden"
+      admin: Admin
+      home: Übersicht
+      reports: Berichte
+      projects: Projekte
+      users: Benutzer
+      trackings: Trackings
+      settings: Einstellungen
+      logout: Abmelden
   projects:
-    project: "Projekt"
+    project: Projekt
     edit:
-      title: "Projekt editieren"
+      title: "Projekt bearbeiten"
     form:
-      name: "Name"
+      name: Name
     index:
-      title: "Projekte"
+      title: Projekte
       usage: "Nutzung der Projekte"
       y_axis_usage: "Arbeitszeit (std)"
       total_workingtime: "Absolute Arbeitszeit dieses Projekts"
     new:
       title: "Neues Projekt"
   reports:
-    report: "Bericht"
+    report: Bericht
     workinghours_devided_projects: "Deine Arbeitszeit nach Projekten aufgeteilt"
-    percentage: "Prozentual"
+    percentage: Prozentual
     index:
-      title: "Berichte"
+      title: Berichte
       workinghours_for_projects: "Arbeitsstunden für Projekte"
       workinghours_of_projects: "Arbeitsstunden von Projekten"
     admin:
       title: "Alle Berichte"
   trackings:
-    tracking: "Tracking"
-    trackings: "Trackings"
-    duration: "Dauer"
-    billable: "Abrechenbar"
-    description: "Beschreibung"
-    date: "Datum"
-    minutes: "Minuten"
-    starttime: "Startzeit"
-    endtime: "Endzeit"
+    tracking: Tracking
+    trackings: Trackings
+    duration: Dauer
+    billable: Abrechenbar
+    description: Beschreibung
+    date: Datum
+    minutes: Minuten
+    starttime: Startzeit
+    endtime: Endzeit
     todays_trackings: "Deine heutigen Trackings"
     edit:
-      title: "Tracking editieren"
+      title: "Tracking bearbeiten"
     form:
       back_to_overview: "Zurück zur Übersicht"
     index:
-      title: "Trackings"
+      title: Trackings
       duration_in_words: "%{hours} Stunden {minutes} Minuten"
     new:
       title: "Neues Tracking"
   users:
-    user: "User"
-    email: "Email"
-    prename: "Vorname"
-    surname: "Nachname"
-    password: "Passwort"
-    weekly_workinghours: "wöchentliche Arbeitsstunden"
-    password_confirmation: "Passwort wiederholen"
+    user: Benutzer
+    email: Mail
+    prename: Vorname
+    surname: Nachname
+    password: Passwort
+    weekly_workinghours: "Wöchentliche Arbeitsstunden"
+    password_confirmation: "Passwort bestätigen"
     current_password: "Aktuelles Passwort"
     current_sign_in_at: "Aktuelle Anmeldung um"
     last_sign_in_at: "Letzte Anmeldung um"
@@ -176,11 +179,11 @@ de:
     last_sign_in_ip: "Letzte angemeldete IP"
     reset_password_sent_at: "Passwort zurücksetzten gesendet am"
     remember_created_at: "Anmeldedaten gemerkt am"
-    admin: "Admin"
+    admin: Admin
     index:
-      title: "Benutzer"
-      make_admin: "heraufstufen"
-      revoke_admin: "herunterstufen"
+      title: Benutzer
+      make_admin: heraufstufen
+      revoke_admin: herunterstufen
     devise:
       session:
         remember_me: "Angemeldet bleiben"
@@ -188,4 +191,3 @@ de:
         resend_instructions: "Anleitung zum Passwort zurücksetzen senden"
       unlock:
         resend_instructions: "Anleitung zum Benutzer freischalten zusenden"
-
