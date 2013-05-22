@@ -15,7 +15,7 @@
   </thead>
   <% end %>
   <tbody>
-    <%= render trackings %>
+    <%= render trackings, :locals => { :hide_starttime_date => hide_starttime_date } %>
   </tbody>
 </table>
 <% else %>

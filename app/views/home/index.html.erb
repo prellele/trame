@@ -13,7 +13,7 @@
 								<h4><%= t("date.today") %></h4>
 								<table class="table table-striped home_index">
 									<tbody>
-										<%= render partial: 'trackings/table', :locals => { :trackings => @todays_trackings, :header => false } %>
+										<%= render partial: 'trackings/table', :locals => { :trackings => @todays_trackings, :header => false, :hide_starttime_date => true } %>
 									</tbody>
 								</table>
 							<% end %>
@@ -27,7 +27,7 @@
 									<% if @newest_trackings[i].start_time.to_date != @newest_trackings[i-1].start_time.to_date %>
 										<h4><%= l(@newest_trackings[i].start_time.to_date, format: :date_format) %></h4>
 									<% end %>
-									<%= render partial: 'trackings/table', :locals => { :trackings => @newest_trackings[i], :header => false  } %>
+									<%= render partial: 'trackings/table', :locals => { :trackings => @newest_trackings[i], :header => false, :hide_starttime_date => true } %>
 								<% end %>
 							<% end %>
 						</tbody>
