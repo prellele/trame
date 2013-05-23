@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
-  # GET /projects
+  # GET /
   def index
     @greeting = ["Hey there","Bon dia","Aloha","Hallo","Hi","Ola","Hola","Namaste", "Moin Moin"].sample
-
+    @show_actions = true
+    
     @tracking = Tracking.new(project_id: current_user.most_used_project_id)
     @tracking.billable = true
 
