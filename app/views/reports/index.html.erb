@@ -62,7 +62,7 @@
                 type: 'pie',
                 name: '<%= t("reports.percentage")%>:',
                 data: [
-                    <%= @projects.map { |project|  "['#{project.name}', #{project.workinghours_for(current_user)} ]" }.join(",\n").html_safe %>
+                    <%= @projects_data.map { |project, trackings|  "['#{project.name}', #{trackings.sum(:minutes)} ]" }.join(",\n").html_safe %>
                 ]
             }]
         });
