@@ -11,23 +11,21 @@
             <div class="span3 additionals">
               <ul>
                 <li><i class="icon-tags"></i>
-                  <%= trackings.count %> | 
+                  <%= trackings.count %>
                 </li>
                 <li>
-                  <i class="icon-time"></i>
-                  <% if current_page?(:action => 'admin') %>
-                  <%= duration_in_words(project.sum_workingtime) || "0" %> |
-                  <% else %>
-                  <%= duration_in_words(project.workinghours_for(current_user)) || "0" %> |
-                  <% end %>
+                  | <i class="icon-time"></i>
+                  <%= duration_in_words(trackings.sum(:minutes)) || "0" %>
                 </li>
+                <% if trackings.count(:user_id, :distinct => true) > 1 || current_page?(:action => 'admin') %>
                 <li>
-                  <span class="block" data-toggle="tooltip" data-placement="top"
+                  | <span class="block" data-toggle="tooltip" data-placement="top"
                   title="<%= project.members.each { |m| m.to_s }.join(', ') %>">
                   <i class="icon-user"></i>
-                  <%= project.members.size %>
+                  <%= trackings.count(:user_id, :distinct => true) %>
                   </span>
                 </li>
+                <% end %>
               </ul>
             </div>
           </a>
