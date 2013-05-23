@@ -6,13 +6,9 @@ class HomeController < ApplicationController
     @tracking = Tracking.new(project_id: current_user.most_used_project_id)
     @tracking.billable = true
 
-    set_displayed_trackings()
+    @trackings = current_user.trackings.where("start_time >= ? OR updated_at >= ?", Date.today, Date.today-1.day)
+                             .group_by(&:group_by_criteria).map { |d,t| [d, t] }
     @projects = Project.all
   end
 
-  def set_displayed_trackings
-    @todays_trackings = current_user.trackings.where("start_time >= ?", Date.today)
-    @yesterdays_trackings = current_user.trackings.where("start_time > ? AND start_time < ?", Date.today-1.day, Date.today)
-    @newest_trackings = current_user.trackings.where("updated_at >= ? AND start_time < ?", Date.today-1.day, Date.today-1.day)
-  end
 end

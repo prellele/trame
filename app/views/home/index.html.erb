@@ -8,30 +8,23 @@
 		<div class="row">
 			<div class="span10">
 				<div class="row">
-					<% if @todays_trackings.present? || @yesterdays_trackings.present? || @newest_trackings.present? %>
-							<% if @todays_trackings.present?  %>
-								<h4><%= t("date.today") %></h4>
+					<% if @trackings.present? %>
+							<%@trackings.each do |date, trackings| %>
+								<h4>
+									<% if date.to_date.today? %>
+										<%= t("date.today") %>
+									<% elsif (date.to_date+1.day).today? %>
+										<%= t("date.yesterday") %>
+									<% else %>
+									  <%= l(date.to_date, format: :date_format) %>
+									<% end %>
+								</h4>
 								<table class="table table-striped home_index">
 									<tbody>
-										<%= render partial: 'trackings/table', :locals => { :trackings => @todays_trackings, :header => false, :hide_starttime_date => true } %>
+										<%= render partial: 'trackings/table', :locals => { :trackings => trackings, :header => false, :hide_starttime_date => true } %>
 									</tbody>
 								</table>
 							<% end %>
-							<% if @yesterdays_trackings.present? %>
-								<h4><%= t("date.yesterday")  %></h4>
-								<%= render partial: 'trackings/table', :locals => { :trackings => @yesterdays_trackings, :header => false  } %>
-							<% end %>
-							<% if @newest_trackings.present? %>
-								<h4><%= l(@newest_trackings[0].start_time.to_date, format: :date_format) %></h4>
-								<% (0..@newest_trackings.length-1).each do |i| %>
-									<% if @newest_trackings[i].start_time.to_date != @newest_trackings[i-1].start_time.to_date %>
-										<h4><%= l(@newest_trackings[i].start_time.to_date, format: :date_format) %></h4>
-									<% end %>
-									<%= render partial: 'trackings/table', :locals => { :trackings => @newest_trackings[i], :header => false, :hide_starttime_date => true } %>
-								<% end %>
-							<% end %>
-						</tbody>
-					</table>
 					<% end %>
 				</div>
 			</div>

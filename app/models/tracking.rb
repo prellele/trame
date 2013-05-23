@@ -14,4 +14,8 @@ class Tracking < ActiveRecord::Base
   def end_time
     self.start_time + self.minutes.minutes if self.start_time && self.minutes
   end
+
+  def group_by_criteria
+    start_time.to_date.to_s(:date_format)
+  end
 end
