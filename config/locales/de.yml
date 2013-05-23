@@ -104,6 +104,8 @@ de:
       last_trackings: "Deine letzten Trackings"
       projects_working_on: "Projekte an denen du arbeitest"
       this: "this %{duration}"
+      this_week: "Diese Woche"
+      your_projects: "Deine Projekte"
     statistics:
       of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"

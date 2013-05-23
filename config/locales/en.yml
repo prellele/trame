@@ -104,6 +104,8 @@ en:
       last_trackings: "Your last trackings"
       projects_working_on: "Projects you are working on"
       this: "this %{duration}"
+      this_week: "This Week"
+      your_projects: "Your projects"
     statistics:
       of: of
       billable_workingtime: "Billable Workingtime"

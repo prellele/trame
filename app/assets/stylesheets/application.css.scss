@@ -57,18 +57,29 @@ h1.header{
   margin-bottom:25px;
 }
 
-.trackings_index {
+.home_index{
+  #trackings_table{
+    .td-description{
+      max-width: 200px;
+    }
+    .td-project_name{
+      max-width: 200px;
+    }
+  }
+}
+
+#trackings_table {
   .td-description {
     max-width: 400px;
   }
   .td-duration {
-    width: 80px;
+    width: 100px;
   }
   .td-date {
-    width: 130px;
+    width: 150px;
   }
   .td-project_name {
-    width: 200px;
+    width: 170px; 
   }
   .td-username {
     width: 120px;

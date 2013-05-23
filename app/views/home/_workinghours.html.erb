@@ -1,4 +1,5 @@
 <div id="weeklyworkinghours"></div>
+<span class="nowrap"><%= duration_in_words(current_user.weekly_worked_hours) %> <%= t("home.index.this_week") %></span>
 <script type="text/javascript">
 $(function () {
         $('#weeklyworkinghours').highcharts({
