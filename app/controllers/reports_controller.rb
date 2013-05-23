@@ -26,7 +26,7 @@ class ReportsController < ApplicationController
     @projects = Project.all
     @projects = @projects.where(id: params[:project_ids]) if params[:project_ids]
     @projects_data = @projects.map do |project|
-      @trackings = project.trackings
+      trackings = project.trackings
       if params[:user_ids]
         csv_usernames = User.where(id: params[:user_ids]).map(&:name).join('-')
         trackings = trackings.where(user_id: params[:user_ids])
