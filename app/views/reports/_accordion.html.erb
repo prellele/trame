@@ -56,6 +56,14 @@
                   <%= tracking.user.name %>
                 </td>
                 <% end %>
+                <% if defined?(@show_actions) && @show_actions %>
+                <td class="td-actions">
+                  <div class="btn-group">
+                    <%= link_to t('action.show'), tracking_path(tracking), class: 'btn btn-mini' %>
+                    <%= link_to t('action.edit'), edit_tracking_path(tracking), class: 'btn btn-warning btn-mini' %>
+                  </div>
+                </td>
+                <% end %>
               </tr>
               <% end %>
             </tbody>
