@@ -41,7 +41,7 @@ class TrackingsController < ApplicationController
   def update
     @tracking = current_resource
     if @tracking.update_attributes(params[:tracking])
-      redirect_to trackings_path, notice: t("flash.notice.successfully_updated", class: t("trackings.tracking") )
+      redirect_to request.referer, notice: t("flash.notice.successfully_updated", class: t("trackings.tracking") )
     else
       render action: "edit"
     end
@@ -51,7 +51,7 @@ class TrackingsController < ApplicationController
   def destroy
     @tracking = current_resource
     @tracking.destroy
-    redirect_to trackings_path
+    redirect_to request.referer
   end
 
   def current_resource

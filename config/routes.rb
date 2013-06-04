@@ -11,7 +11,7 @@ Trame::Application.routes.draw do
       post :toggle_admin
     end
   end
-  resources :home
+  get 'home/index'
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   
