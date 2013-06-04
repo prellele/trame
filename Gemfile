@@ -10,9 +10,8 @@ gem 'json', '1.8.0'
 gem 'puma', '2.0.1'
 
 # Database
-ENV['DB'] ||= 'mysql'
-gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'mysql'
-gem 'pg', '0.14.1' if ENV['DB'] == 'postgres'
+gem 'mysql2', '0.3.11', group: :mysql
+gem 'pg', '0.14.1', group: :postgres
 
 # Auth
 gem 'devise', '2.2.4'
