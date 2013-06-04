@@ -16,8 +16,8 @@ configuration:
       # authentication: 'plain'
       # enable_starttls_auto: true
 
-  development:
-    environment:
-    
-  production:
-    environment:
+development:
+  environment:
+  
+production:
+  environment:
