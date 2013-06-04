@@ -16,6 +16,6 @@ class Tracking < ActiveRecord::Base
   end
 
   def group_by_criteria
-    start_time.to_date.to_s(:date_format)
+    start_time.to_date
   end
 end

@@ -1,20 +1,20 @@
 
 <div class="page-header .visible-desktop">
-	<h1><%= "#{@greeting}, #{current_user.name}" %></h1>
+	<h1><%= "#{greeting()}, #{current_user.name}" %></h1>
 </div>
 <div class="row home_index">
 	<div class="span10 ">
 		<%= render partial: 'trackings/form' %>
 		<div class="row">
 			<% if @trackings.present? %>
-					<%@trackings.each do |date, trackings| %>
+					<% @trackings.each do |date, trackings| %>
 						<h4>
-							<% if date.to_date.today? %>
+							<% if date.today? %>
 								<%= t("date.today") %>
-							<% elsif (date.to_date+1.day).today? %>
+							<% elsif (date+1.day).today? %>
 								<%= t("date.yesterday") %>
 							<% else %>
-							  <%= l(date.to_date, format: :date_format) %>
+							  <%= l(date, format: :date_format) %>
 							<% end %>
 						</h4>
 						<table class="table table-striped home_index">
