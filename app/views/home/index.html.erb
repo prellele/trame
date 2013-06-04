@@ -6,6 +6,9 @@
 	<div class="span10 ">
 		<%= render partial: 'trackings/form' %>
 		<div class="row">
+			<%= render partial: 'timeline', :locals => { :trackings => @trackings[Date.today] } %>
+		</div>
+		<div class="row">
 			<% if @trackings.present? %>
 					<% @trackings.each do |date, trackings| %>
 						<h4>

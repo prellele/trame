@@ -1,0 +1,71 @@
+<% pixels_shows_hours = 40.to_f %>
+<% pixels_shows_hours_factor = 60/pixels_shows_hours %>
+<% margin_left = 10 %>
+
+<div id="container" style="width: 970px; height: 100px; margin: 0 auto"></div>
+<script type="text/javascript">
+	$(function () {
+	    var chart = new Highcharts.Chart({
+	        chart: {
+	            backgroundColor: '#E0E8FF',
+	            renderTo: 'container',
+	            events: {
+	                load: function () {
+	                    
+	                    // Draw the flow chart
+	                    var ren = this.renderer,
+	                        colors = Highcharts.getOptions().colors
+
+	                    ren.path(['M', <%= margin_left %>, 40, 'L', <%= 24*pixels_shows_hours %>, 40])
+		                        .attr({
+		                            'stroke-width': 1,
+		                            stroke: 'silver',
+		                            dashstyle: 'dash'
+		                        })
+		                        .add();	 
+	                    <% (2..23).step(2).each do |i| %>
+		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 60])
+		                        .attr({
+		                            'stroke-width': 1,
+		                            stroke: 'silver',
+		                            dashstyle: 'dash'
+		                        })
+		                        .add();	                    	
+	                    <% end %>
+	                    
+	                    <% x=3 %>
+	                    <% (2..23).step(2).each do |i| %>
+	                    	<% x=0 if i > 9 %>
+		                    ren.label('<%= i %>', <%= x+i*pixels_shows_hours %>, 60)
+		                        .css({
+		                            fontWeight: 'bold',
+		                            color: '#999999'
+		                        })
+		                        .add();               	
+	                    <% end %>
+
+	                    <% if trackings.present? %>
+												<% trackings.each do |tracking| %>
+			                    ren.label('', <%= margin_left+(tracking.start_time.strftime('%H').to_i*pixels_shows_hours)+tracking.start_time.strftime('%H').to_i %>, 40)
+		                        .attr({
+		                        	  width: <%= tracking.minutes/pixels_shows_hours_factor %>,
+		                            height: 15,
+		                            fill: '#6685FF'
+		                        })
+		                        .css({
+		                            color: 'white',
+		                            fontWeight: 'bold'
+		                        })
+		                        .add();
+	                      <% end %>
+	                    <% end %>
+	                }
+	            }
+	        },
+	        title: {
+	            text: 'Your Timeline'
+	        }
+	            
+	    });
+	});
+</script>
