@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Server Error (500)</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    body { background-color: rgb(237, 240, 240); color: #666; font-family: Helvetica,Arial,sans-serif;}
+    h1 { font-size: 48px; font-weight: bold; letter-spacing: -1px; color: rgb(51, 51, 51);}
+    h3 { font-size: 24px; font-weight: bold; letter-spacing: -1px; color: rgb(51, 51, 51);}
+    .error{ margin-bottom: 100px; }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
+  <div class="error">
+    <h1>Hoooooooooray!</h1>
+    <h3>You broke the Internet!</h3>
   </div>
+    <p>It looks like you provoked an internal server error (500).</p>
+    <p>You should inform the maintainer.</p>
 </body>
 </html>
