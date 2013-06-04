@@ -17,8 +17,4 @@ class HomeController < ApplicationController
     @projects = Project.all 
   end
 
-  def greeting
-    ["Hey there","Bon dia","Aloha","Hallo","Hi","Ola","Hola","Namaste", "Moin Moin"].sample
-  end
-
 end
