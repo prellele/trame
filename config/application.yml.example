@@ -3,7 +3,7 @@
 configuration:
   server:
     # host: "host.example.com"
-   # db: "mysql"
+    # db: "mysql"
   mail:
     # enable: false
     # sender_address: "mail@example.com"
@@ -16,8 +16,8 @@ configuration:
       # authentication: 'plain'
       # enable_starttls_auto: true
 
-development:
-  
-production:
-
-
+  development:
+    environment:
+    
+  production:
+    environment:

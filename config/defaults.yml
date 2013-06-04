@@ -5,6 +5,7 @@
 defaults:
   server:
     host: "example.com"
+    db: "mysql"
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -19,5 +20,7 @@ defaults:
       domain:
 
 development:
+  environment:
 
 production:
+  environment:
