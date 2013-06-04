@@ -24,7 +24,7 @@ class ReportsController < ApplicationController
     @selectable_projects = current_user.visible_projects
     @selectable_users = User.all
     @projects = Project.all
-    @projects = @projects.where(id: params[:project_ids]) if params[:project_ids]
+    @projects = Project.where(id: params[:project_ids]) if params[:project_ids]
     @projects_data = @projects.map do |project|
       trackings = project.trackings
       if params[:user_ids]
