@@ -1,0 +1,10 @@
+branches:
+  only:
+    - 'master'
+
+language: ruby
+rvm:
+  - 1.9.3
+
+script: "./script/ci/build.sh"
+
