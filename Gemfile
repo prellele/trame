@@ -10,8 +10,8 @@ gem 'json', '1.8.0'
 gem 'puma', '2.0.1'
 
 # Database
-gem 'mysql2', '0.3.11', group: :mysql
-gem 'pg', '0.15.1', group: :postgres
+gem 'mysql2', '0.3.11', :group => :mysql
+gem 'pg', '0.15.1', :group => :postgres
 
 # Auth
 gem 'devise', '2.2.4'
@@ -39,13 +39,13 @@ group :assets do
   gem 'less-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', platforms: :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 # Testing
-gem 'rspec-rails', '2.13.1', group: [:test, :development]
+gem 'rspec-rails', '2.13.1', :group => [:test, :development]
 
 group :development do
   #Optimizing
