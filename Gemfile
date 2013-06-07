@@ -20,7 +20,7 @@ gem 'devise', '2.2.4'
 gem 'rails-i18n', '0.7.3'
 
 # View
-gem 'twitter-bootstrap-rails', '2.2.6'
+gem 'twitter-bootstrap-rails', '2.2.7'
 gem 'csv_shaper', '1.0.0'
 gem 'momentjs-rails', '2.0.0.2'
 gem 'jquery-rails', '2.2.1'

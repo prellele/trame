@@ -93,7 +93,7 @@ GEM
     guard-rspec (3.0.0)
       guard (>= 1.8)
       rspec (~> 2.13)
-    hike (1.2.2)
+    hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -118,7 +118,7 @@ GEM
     mime-types (1.23)
     momentjs-rails (2.0.0.2)
       railties (>= 3.1)
-    multi_json (1.7.4)
+    multi_json (1.7.6)
     mysql2 (0.3.11)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
@@ -203,9 +203,10 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.2.6)
+    twitter-bootstrap-rails (2.2.7)
       actionpack (>= 3.1)
       execjs
+      rails (>= 3.1)
       railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.1.1)
@@ -248,6 +249,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   strong_parameters (= 0.2.1)
   therubyracer
-  twitter-bootstrap-rails (= 2.2.6)
+  twitter-bootstrap-rails (= 2.2.7)
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
