@@ -58,7 +58,7 @@ GEM
     coffee-script-source (1.6.2)
     columnize (0.3.6)
     commonjs (0.2.6)
-    configurate (0.0.7)
+    configurate (0.0.8)
     csv_shaper (1.0.0)
       activesupport (>= 3.0.0)
     debug_inspector (0.0.2)
@@ -228,7 +228,7 @@ DEPENDENCIES
   bootstrap-flashmessage (= 0.0.1)
   capybara (= 2.1.0)
   coffee-rails (~> 3.2.1)
-  configurate
+  configurate (= 0.0.8)
   csv_shaper (= 1.0.0)
   debugger
   devise (= 2.2.4)

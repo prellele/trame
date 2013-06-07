@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 
 gem 'strong_parameters', '0.2.1'
-gem 'configurate'
+gem 'configurate', '0.0.8'
 gem 'json', '1.8.0'
 
 # App Server
