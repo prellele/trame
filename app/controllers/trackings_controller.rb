@@ -1,11 +1,5 @@
 class TrackingsController < ApplicationController
 
-  # GET /trackings
-  def index
-    @trackings = current_user.trackings.paginate(:page => params[:page], :per_page => 20)
-    @show_actions = true
-  end
-
   # GET /trackings/1
   def show
     @tracking = current_resource
@@ -30,7 +24,7 @@ class TrackingsController < ApplicationController
     @tracking = current_user.trackings.build(params[:tracking])
 
     if @tracking.save
-      redirect_to request.referer, notice: t("flash.notice.successfully_created", class: t("trackings.tracking") )
+      redirect_to root_path, notice: t("flash.notice.successfully_created", class: t("trackings.tracking") )
     else
       set_tracking_new_data()
       render action: "new"
@@ -41,7 +35,7 @@ class TrackingsController < ApplicationController
   def update
     @tracking = current_resource
     if @tracking.update_attributes(params[:tracking])
-      redirect_to request.referer, notice: t("flash.notice.successfully_updated", class: t("trackings.tracking") )
+      redirect_to root_path, notice: t("flash.notice.successfully_updated", class: t("trackings.tracking") )
     else
       render action: "edit"
     end
@@ -51,7 +45,7 @@ class TrackingsController < ApplicationController
   def destroy
     @tracking = current_resource
     @tracking.destroy
-    redirect_to request.referer
+    redirect_to root_path
   end
 
   def current_resource
