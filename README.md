@@ -7,11 +7,13 @@ trame
 
 Timetracking via Web
 
+Demo (Heroku): http://demo.trame.prellele.de
+
 ## Getting Started
 clone the repo
 
-    $ git clone https://github.com/rawrjustin/foodprep.git
-    $ cd foodprep
+    $ git clone https://github.com/prellele/trame.git
+    $ cd trame
     
 bundle install
 
