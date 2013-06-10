@@ -36,7 +36,7 @@ gem 'will_paginate', '~> 3.0'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'less-rails'
+  gem 'less-rails' '>= 2.3.3'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
@@ -45,19 +45,19 @@ group :assets do
 end
 
 # Testing
-gem 'rspec-rails', '2.13.1', :group => [:test, :development]
+gem 'rspec-rails', '>= 2.13.1', :group => [:test, :development]
 
 group :development do
   #Optimizing
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', '>= 0.1.26'
   # Debugging
-  gem 'better_errors', '0.8.0'
-  gem 'binding_of_caller'
-  gem 'debugger'
+  gem 'better_errors', '>= 0.9.0'
+  gem 'binding_of_caller', '>= 0.7.1'
+  gem 'debugger', '>= 1.6.0'
 end
 
 group :test do
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'capybara', '2.1.0'
-  gem 'guard-rspec', '3.0.0'
+  gem 'factory_girl_rails', '>= 4.2.1'
+  gem 'capybara', '>= 2.1.0'
+  gem 'guard-rspec', '>= 3.0.0'
 end
