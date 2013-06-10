@@ -84,52 +84,6 @@ de:
       save: Speichern
       new: Neu
       delete: Löschen
-  devise:
-    confirmations:
-      confirmed: ~
-      send_instructions: ~
-      send_paranoid_instructions: ~
-    failure:
-      already_authenticated: ~
-      inactive: ~
-      invalid: ~
-      invalid_token: ~
-      locked: ~
-      not_found_in_database: ~
-      timeout: ~
-      unauthenticated: ~
-      unconfirmed: ~
-    mailer:
-      confirmation_instructions:
-        subject: ~
-      reset_password_instructions:
-        subject: ~
-      unlock_instructions:
-        subject: ~
-    omniauth_callbacks:
-      failure: ~
-      success: ~
-    passwords:
-      no_token: ~
-      send_instructions: ~
-      send_paranoid_instructions: ~
-      updated: ~
-      updated_not_active: ~
-    registrations:
-      destroyed: ~
-      signed_up: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
-      signed_up_but_unconfirmed: ~
-      update_needs_confirmation: ~
-      updated: ~
-    sessions:
-      signed_in: ~
-      signed_out: ~
-    unlocks:
-      send_instructions: ~
-      send_paranoid_instructions: ~
-      unlocked: ~
   home:
     index:
       today: Heute
@@ -142,6 +96,7 @@ de:
       this_week: "Diese Woche"
       your_projects: "Deine Projekte"
       your_timeline: "Dein Zeitstrahl"
+      attendances: ~
     statistics:
       of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"
@@ -229,10 +184,16 @@ de:
         resend_instructions: "Anleitung zum Passwort zurücksetzen senden"
       unlock:
         resend_instructions: "Anleitung zum Benutzer freischalten zusenden"
-  errors:
-    messages:
-      already_confirmed: ~
-      confirmation_period_expired: ~
-      expired: ~
-      not_found: ~
-      not_locked: ~
+  attendances:
+    edit:
+      title: ~
+    index:
+      title: ~
+    new:
+      title: ~
+    update:
+      title: ~
+    show:
+      title: ~
+    end: ~
+    start: ~

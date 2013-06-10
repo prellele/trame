@@ -1,0 +1,38 @@
+<%= form_for @attendance, html: {class: 'form-inline'} do |f| %>
+    <div class="row">
+      <div class="span2 date">
+        
+          <div id="datetimepicker" class="input-prepend">
+                <span class="add-on">
+              <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+            </span>
+            <%= f.text_field :start,
+                              placeholder: t("attendances.start"),
+                              class: "input-block-level",
+                              data: { format: t("time.formats.datetime_picker"), 
+                                      :"format-moment" => t("time.formats.datetime_picker_moment") } %>
+          </div>
+      </div>
+      <div class="span2 date">
+        
+          <div id="datetimepicker2" class="input-prepend">
+                <span class="add-on">
+              <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+            </span>
+            <%= f.text_field :end,
+                              placeholder: t("attendances.end"),
+                              class: "input-block-level",
+                              data: { format: t("time.formats.datetime_picker"), 
+                                      :"format-moment" => t("time.formats.datetime_picker_moment") } %>
+          </div>
+      </div>
+</div>
+      <div class="form-actions">
+        <%= f.submit class: 'btn btn-primary' %>
+        <% if params[:controller] != "home" %>
+          <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
+                      attendances_path, class: 'btn' %>
+        <% end %>
+      </div>
+    
+<% end %>

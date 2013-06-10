@@ -1,6 +1,19 @@
-
 <div class="page-header .visible-desktop">
-	<h1><%= "#{greeting()}, #{current_user.name}" %></h1>
+	<h1 class="header"><%= "#{greeting()}, #{current_user.name}" %></h1>
+	<% if @attendance %>
+		<% if @attendance.duration == 0 %>
+			<%= link_to t('.im_away'), toggle_attendances_path,
+		            class: 'btn btn-danger btn-header',
+		            method: :post %>
+		<% elsif @attendance.duration != 0 %>
+			<%= link_to t('.im_away'), '#',
+		            class: 'btn btn-danger btn-header disabled' %>
+		<% end %>
+	<% else %>
+		<%= link_to t('.im_here'), toggle_attendances_path,
+	            class: 'btn btn-success btn-header',
+	            method: :post %>
+    <% end %>
 </div>
 <div class="row home_index">
 	<div class="span10 ">

@@ -1,0 +1,31 @@
+<%- model_class = Attendance -%>
+<div class="page-header">
+  <h1 class="header"><%= t '.title' %></h1>
+  <%= link_to t('.new', default: t("helpers.links.new")),
+            new_attendance_path,
+            class: 'btn btn-primary btn-header' %>
+</div>
+<div class="span7">
+<table class="table table-striped span6">
+  <thead>
+  <tr>
+    <th><%= t(".date") %></th>
+    <th><%= t(".start") %></th>
+    <th><%= t(".end") %></th>
+    <th><%= t '.actions', default: t("helpers.actions") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= l(attendance.start, format: :date_format ) %></td>
+        <td><%= l(attendance.start, format: :time_format) %></td>
+        <td><%= l(attendance.end, format: :time_format) %></td>
+        <td>
+          <%= link_to t('action.show'), attendance_path(attendance), class: 'btn btn-mini' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

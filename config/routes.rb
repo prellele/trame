@@ -1,16 +1,25 @@
 Trame::Application.routes.draw do
   resources :projects
   resources :trackings
+
+  resources :attendances do
+    collection do 
+      post :toggle
+    end
+  end
+
   resources :reports do 
     collection do 
       get :admin 
     end 
   end
+
   scope "/control" do
     resources :users do
       post :toggle_admin
     end
   end
+  
   get 'home/index'
 
   devise_for :users, :controllers => { :registrations => "registrations" }

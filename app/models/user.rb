@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :prename, :surname, :password, :password_confirmation, 
                   :remember_me, :admin, :weekly_workinghours
 
-  has_many :trackings, dependent: :destroy, order: 'start_time DESC'
+  has_many :trackings, order: 'start_time DESC'
   has_many :projects, through: :trackings, order: 'created_at DESC', uniq: true
+  has_many :attendances, order: 'created_at DESC', uniq: true
 
   def workinghours_week
     (weekly_workinghours || 40.0)

@@ -18,6 +18,10 @@ $(document).ready(function () {
 
     $('#datetimepicker').datetimepicker({
       pickSeconds: false
+    });    
+    
+    $('#datetimepicker2').datetimepicker({
+      pickSeconds: false
     });
 
     $('#home_navtab a').click(function (e) {
