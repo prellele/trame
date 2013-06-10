@@ -102,11 +102,11 @@ class User < ActiveRecord::Base
   end
 
   def weekly_earliest_tracking_start_time
-    trackings_of_week_sorted_by_time.first.start_time.strftime("%H").to_i
+    trackings_of_week_sorted_by_time.first ? trackings_of_week_sorted_by_time.first.start_time.strftime("%H").to_i - 1 : 1
   end
 
   def weekly_latest_tracking_start_time
-    trackings_of_week_sorted_by_time.last.start_time.strftime("%H").to_i
+    trackings_of_week_sorted_by_time.last ? trackings_of_week_sorted_by_time.last.start_time.strftime("%H").to_i + 1 : 23
   end
 
   def trackings_of_week_sorted_by_time
