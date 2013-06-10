@@ -85,16 +85,51 @@ de:
       new: Neu
       delete: Löschen
   devise:
-    registrations:
-      edit:
-        edit_account: "Konto bearbeiten"
-        settings: Einstellungen
+    confirmations:
+      confirmed: ~
+      send_instructions: ~
+      send_paranoid_instructions: ~
+    failure:
+      already_authenticated: ~
+      inactive: ~
+      invalid: ~
+      invalid_token: ~
+      locked: ~
+      not_found_in_database: ~
+      timeout: ~
+      unauthenticated: ~
+      unconfirmed: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~
+    omniauth_callbacks:
+      failure: ~
+      success: ~
     passwords:
-      edit:
-        change_password: "Mein Passwort ändern"
-        confirm_new_password: "Neues Passwort bestätigen"
-        new_password: "Neues Passwort"
-        title: "Ändere dein Passwort"
+      no_token: ~
+      send_instructions: ~
+      send_paranoid_instructions: ~
+      updated: ~
+      updated_not_active: ~
+    registrations:
+      destroyed: ~
+      signed_up: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: ~
+      update_needs_confirmation: ~
+      updated: ~
+    sessions:
+      signed_in: ~
+      signed_out: ~
+    unlocks:
+      send_instructions: ~
+      send_paranoid_instructions: ~
+      unlocked: ~
   home:
     index:
       today: Heute
@@ -106,6 +141,7 @@ de:
       this: "this %{duration}"
       this_week: "Diese Woche"
       your_projects: "Deine Projekte"
+      your_timeline: "Dein Zeitstrahl"
     statistics:
       of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"
@@ -164,6 +200,8 @@ de:
       duration_in_words: "%{hours} Stunden {minutes} Minuten"
     new:
       title: "Neues Tracking"
+    show:
+      title: "Tracking zeigen"
   users:
     user: Benutzer
     email: Mail
@@ -191,3 +229,10 @@ de:
         resend_instructions: "Anleitung zum Passwort zurücksetzen senden"
       unlock:
         resend_instructions: "Anleitung zum Benutzer freischalten zusenden"
+  errors:
+    messages:
+      already_confirmed: ~
+      confirmation_period_expired: ~
+      expired: ~
+      not_found: ~
+      not_locked: ~
