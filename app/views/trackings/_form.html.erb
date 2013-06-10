@@ -52,7 +52,9 @@
 
     <div class="form-actions">
       <%= f.submit class: 'btn btn-primary' %>
-      <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
-                  home_index_path, class: 'btn' %>
+      <% if params[:controller] != "home" %>
+        <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
+                    home_index_path, class: 'btn' %>
+      <% end %>
     </div>
 <% end %>
