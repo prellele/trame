@@ -24,7 +24,7 @@
 		                        })
 		                        .add();	 
 	                    <% (2..23).step(2).each do |i| %>
-		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 60])
+		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 65])
 		                        .attr({
 		                            'stroke-width': 1,
 		                            stroke: 'silver',
@@ -45,11 +45,11 @@
 	                    <% end %>
 
 	                    <% if trackings.present? %>
-												<% trackings.each do |tracking| %>
-			                    ren.label('', <%= margin_left+(tracking.start_time.strftime('%H').to_i*pixels_shows_hours)+tracking.start_time.strftime('%H').to_i %>, 40)
+							<% trackings.each do |tracking| %>
+			                    ren.label('', <%= margin_left+(tracking.start_time.strftime('%H').to_i*pixels_shows_hours)+tracking.start_time.strftime('%M').to_i %>, 40)
 		                        .attr({
 		                        	  width: <%= tracking.minutes/pixels_shows_hours_factor %>,
-		                            height: 15,
+		                            height: 10,
 		                            fill: '#6685FF'
 		                        })
 		                        .css({
@@ -57,7 +57,7 @@
 		                            fontWeight: 'bold'
 		                        })
 		                        .add();
-	                      <% end %>
+	                    	<% end %>
 	                    <% end %>
 	                }
 	            }
