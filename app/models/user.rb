@@ -102,16 +102,21 @@ class User < ActiveRecord::Base
   end
 
   def weekly_earliest_tracking_start_time
-    trackings_of_week_sorted_by_time.first ? trackings_of_week_sorted_by_time.first.start_time.strftime("%H").to_i - 1 : 1
+    weekly_trackings.present? ? weekly_trackings.sort_by{|a| a.start_time.strftime("%H %M").to_i}.first.start_time.strftime("%H").to_i : 1
   end
 
   def weekly_latest_tracking_start_time
-    trackings_of_week_sorted_by_time.last ? trackings_of_week_sorted_by_time.last.start_time.strftime("%H").to_i + 1 : 23
+    if weekly_trackings.present?
+      latest_tracking = weekly_trackings.sort_by{|a| (a.start_time + a.minutes.minutes).strftime("%H %M").to_i}.last
+      (latest_tracking.start_time + latest_tracking.minutes.minutes).strftime("%H").to_i
+    else
+      23
+    end
   end
 
-  def trackings_of_week_sorted_by_time
+  def weekly_trackings
     first_day = Date.today.at_beginning_of_week
-    sorted_trackings = self.trackings.where("start_time >= ? AND start_time < ?", first_day, first_day+6.day).sort_by{|a| a.start_time.strftime("%H %M").to_i}
+    sorted_trackings = self.trackings.where("start_time >= ? AND start_time < ?", first_day, first_day+6.day)
   end
 
 end

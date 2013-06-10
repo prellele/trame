@@ -1,8 +1,8 @@
 
 <% pixels_shows_hours = 40.to_f %>
 <% pixels_shows_hours_factor = 60/pixels_shows_hours %>
-<% first_hour = current_user.weekly_earliest_tracking_start_time-1%>
-<% last_hour = current_user.weekly_latest_tracking_start_time.to_i+1%>
+<% first_hour = current_user.weekly_earliest_tracking_start_time - 1 %>
+<% last_hour = current_user.weekly_latest_tracking_start_time.to_i + 1 %>
 <% displayed_hours = last_hour-first_hour%>
 <% margin_left = 10 %>
 <div id="container" class="hidden-phone" style="width: <%= pixels_shows_hours*(displayed_hours)+margin_left*2 %>px; height: 100px; margin: 0 auto"></div>
@@ -19,21 +19,46 @@
 	                    var ren = this.renderer,
 	                        colors = Highcharts.getOptions().colors
 
-	                    ren.path(['M', <%= margin_left %>, 40, 'L', <%= displayed_hours*pixels_shows_hours %>, 40])
+	                    ren.path(['M', <%= margin_left %>, 40, 'L', <%= displayed_hours*pixels_shows_hours+margin_left %>, 40])
 		                        .attr({
 		                            'stroke-width': 1,
-		                            stroke: 'silver',
-		                            dashstyle: 'dash'
+		                            stroke: '#999999',
 		                        })
 		                        .add();	 
+
+	                    <% if trackings.present? %>
+							<% trackings.each do |tracking| %>
+			                    ren.label('', <%= margin_left+(((tracking.start_time.strftime('%H').to_i-first_hour)+tracking.start_time.strftime('%M').to_i/60.to_f)*pixels_shows_hours) %>, 40)
+		                        .attr({
+		                        	width: <%= tracking.minutes/pixels_shows_hours_factor - 6 %>,
+		                            height: 10,
+		                            fill: '#2f7ed8'
+		                        })
+		                        .css({
+		                        })
+		                        .add();
+
+	                    	<% end %>
+	                    <% end %>
+
+	                    <% (0..displayed_hours).step(1).each do |i| %>
+		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 55])
+		                        .attr({
+		                            'stroke-width': 1,
+		                            stroke: '#999999',
+		                        })
+		                        .add();	 
+
+	                    <% end %>
+
 	                    <% (1..displayed_hours).step(2).each do |i| %>
 		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 65])
 		                        .attr({
 		                            'stroke-width': 1,
-		                            stroke: 'silver',
-		                            dashstyle: 'dash'
+		                            stroke: '#999999',
 		                        })
-		                        .add();	                    	
+		                        .add();	    
+
 	                    <% end %>
 	                    
 	                    <% (1..displayed_hours).step(2).each do |i| %>
@@ -43,23 +68,8 @@
 		                            fontWeight: 'bold',
 		                            color: '#999999'
 		                        })
-		                        .add();               	
-	                    <% end %>
+		                        .add();    
 
-	                    <% if trackings.present? %>
-							<% trackings.each do |tracking| %>
-			                    ren.label('', <%= margin_left+((tracking.start_time.strftime('%H').to_i-first_hour)*pixels_shows_hours)+tracking.start_time.strftime('%M').to_i %>, 40)
-		                        .attr({
-		                        	  width: <%= tracking.minutes/pixels_shows_hours_factor %>,
-		                            height: 10,
-		                            fill: '#6685FF'
-		                        })
-		                        .css({
-		                            color: 'white',
-		                            fontWeight: 'bold'
-		                        })
-		                        .add();
-	                    	<% end %>
 	                    <% end %>
 	                }
 	            }
