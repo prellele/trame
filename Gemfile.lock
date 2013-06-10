@@ -222,30 +222,30 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors (= 0.9.0)
-  binding_of_caller
+  better_errors (>= 0.9.0)
+  binding_of_caller (>= 0.7.1)
   bootstrap-daterangepicker-rails (= 0.0.5)
   bootstrap-datetimepicker-rails (= 0.0.11)
   bootstrap-flashmessage (= 0.0.1)
-  capybara (= 2.1.0)
+  capybara (>= 2.1.0)
   coffee-rails (~> 3.2.1)
   configurate (= 0.0.8)
   csv_shaper (= 1.0.0)
-  debugger
+  debugger (>= 1.6.0)
   devise (= 2.2.4)
-  factory_girl_rails (= 4.2.1)
-  guard-rspec (= 3.0.0)
+  factory_girl_rails (>= 4.2.1)
+  guard-rspec (>= 3.0.0)
   jquery-rails (= 2.2.1)
   json (= 1.8.0)
-  less-rails
+  less-rails (>= 2.3.3)
   momentjs-rails (= 2.0.0.2)
   mysql2 (= 0.3.11)
   pg (= 0.15.1)
   puma (= 2.0.1)
-  rack-mini-profiler
+  rack-mini-profiler (>= 0.1.26)
   rails (= 3.2.13)
   rails-i18n (= 0.7.3)
-  rspec-rails (= 2.13.1)
+  rspec-rails (>= 2.13.1)
   sass-rails (~> 3.2.3)
   strong_parameters (= 0.2.1)
   therubyracer
