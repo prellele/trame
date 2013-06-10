@@ -5,7 +5,7 @@
 <% last_hour = current_user.weekly_latest_tracking_start_time.to_i+1%>
 <% displayed_hours = last_hour-first_hour%>
 <% margin_left = 10 %>
-<div id="container" style="width: <%= pixels_shows_hours*(displayed_hours)+margin_left*2 %>px; height: 100px; margin: 0 auto"></div>
+<div id="container" class="hidden-phone" style="width: <%= pixels_shows_hours*(displayed_hours)+margin_left*2 %>px; height: 100px; margin: 0 auto"></div>
 <script type="text/javascript">
 	$(function () {
 	    var chart = new Highcharts.Chart({
