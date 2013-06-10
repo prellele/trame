@@ -1,8 +1,11 @@
+
 <% pixels_shows_hours = 40.to_f %>
 <% pixels_shows_hours_factor = 60/pixels_shows_hours %>
+<% first_hour = current_user.weekly_earliest_tracking_start_time-1%>
+<% last_hour = current_user.weekly_latest_tracking_start_time.to_i+1%>
+<% displayed_hours = last_hour-first_hour%>
 <% margin_left = 10 %>
-
-<div id="container" style="width: 970px; height: 100px; margin: 0 auto"></div>
+<div id="container" style="width: <%= pixels_shows_hours*(displayed_hours)+margin_left*2 %>px; height: 100px; margin: 0 auto"></div>
 <script type="text/javascript">
 	$(function () {
 	    var chart = new Highcharts.Chart({
@@ -11,19 +14,19 @@
 	            renderTo: 'container',
 	            events: {
 	                load: function () {
-	                    
+	                    <%= current_user.weekly_earliest_tracking_start_time %>
 	                    // Draw the flow chart
 	                    var ren = this.renderer,
 	                        colors = Highcharts.getOptions().colors
 
-	                    ren.path(['M', <%= margin_left %>, 40, 'L', <%= 24*pixels_shows_hours %>, 40])
+	                    ren.path(['M', <%= margin_left %>, 40, 'L', <%= displayed_hours*pixels_shows_hours %>, 40])
 		                        .attr({
 		                            'stroke-width': 1,
 		                            stroke: 'silver',
 		                            dashstyle: 'dash'
 		                        })
 		                        .add();	 
-	                    <% (2..23).step(2).each do |i| %>
+	                    <% (1..displayed_hours).step(2).each do |i| %>
 		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 65])
 		                        .attr({
 		                            'stroke-width': 1,
@@ -33,10 +36,9 @@
 		                        .add();	                    	
 	                    <% end %>
 	                    
-	                    <% x=3 %>
-	                    <% (2..23).step(2).each do |i| %>
-	                    	<% x=0 if i > 9 %>
-		                    ren.label('<%= i %>', <%= x+i*pixels_shows_hours %>, 60)
+	                    <% (1..displayed_hours).step(2).each do |i| %>
+	                    	<% i > 9 ? x=0 : x=3 %>
+		                    ren.label('<%= first_hour+i %>', <%= x+i*pixels_shows_hours %>, 60)
 		                        .css({
 		                            fontWeight: 'bold',
 		                            color: '#999999'
@@ -46,7 +48,7 @@
 
 	                    <% if trackings.present? %>
 							<% trackings.each do |tracking| %>
-			                    ren.label('', <%= margin_left+(tracking.start_time.strftime('%H').to_i*pixels_shows_hours)+tracking.start_time.strftime('%M').to_i %>, 40)
+			                    ren.label('', <%= margin_left+((tracking.start_time.strftime('%H').to_i-first_hour)*pixels_shows_hours)+tracking.start_time.strftime('%M').to_i %>, 40)
 		                        .attr({
 		                        	  width: <%= tracking.minutes/pixels_shows_hours_factor %>,
 		                            height: 10,

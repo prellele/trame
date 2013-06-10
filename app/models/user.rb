@@ -99,6 +99,19 @@ class User < ActiveRecord::Base
       @weekly_worked_hours += (self.trackings.where("start_time >= ? AND start_time < ?", date, date+1.day).sum(:minutes))
     }
     @weekly_worked_hours
-  end  
+  end
+
+  def weekly_earliest_tracking_start_time
+    trackings_of_week_sorted_by_time.first.start_time.strftime("%H").to_i
+  end
+
+  def weekly_latest_tracking_start_time
+    trackings_of_week_sorted_by_time.last.start_time.strftime("%H").to_i
+  end
+
+  def trackings_of_week_sorted_by_time
+    first_day = Date.today.at_beginning_of_week
+    sorted_trackings = self.trackings.where("start_time >= ? AND start_time < ?", first_day, first_day+6.day).sort_by{|a| a.start_time.strftime("%H %M").to_i}
+  end
 
 end
