@@ -30,8 +30,10 @@
 		</div>
 	</div>
 	<div class="span2">
-		<%= render partial: 'piechart' %>
-		<%= render partial: 'workinghours' %>
+		<% if current_user.workinghours > 0 %>
+			<%= render partial: 'piechart' %>
+			<%= render partial: 'workinghours' %>
+		<% end %>
 		<!-- <div class="span4 offset1">
 			<ul class="nav nav-tabs" id="home_navtab">
 				<li class="active"><a href="#today" data-toggle="tab"><%= t(".today") %></a></li>
