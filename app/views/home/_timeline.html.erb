@@ -41,7 +41,7 @@
 	                    	<% end %>
 	                    <% end %>
 
-	                    <% (0..displayed_hours).step(1).each do |i| %>
+	                    <% (0..displayed_hours).step(2).each do |i| %>
 		                    ren.path(['M', <%= margin_left+i*pixels_shows_hours %>, 40, 'L', <%= margin_left+i*pixels_shows_hours %>, 55])
 		                        .attr({
 		                            'stroke-width': 1,
