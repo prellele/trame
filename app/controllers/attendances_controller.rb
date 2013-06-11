@@ -12,7 +12,7 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/new
   def new
-    @attendance = Attendance.new(user_id: current_user)
+    @attendance = current_user.attendances.new()
   end
 
   # GET /attendances/1/edit
@@ -61,10 +61,11 @@ class AttendancesController < ApplicationController
   end
 
   def toggle
+    p "--------------------- Time now: #{Time.zone.now}"
     if @attendance = Attendance.where("start >= ?",Date.today).first
-      @attendance.duration = ((Time.now - @attendance.start) * 24 * 60).to_i if @attendance.duration == 0
+      @attendance.duration = ((Time.now - @attendance.start) / 60).to_i if @attendance.duration == 0
     else
-      @attendance = current_user.attendances.new(user_id: current_user)
+      @attendance = current_user.attendances.new()
       @attendance.start = Time.now
       @attendance.duration = 0
     end

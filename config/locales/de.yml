@@ -21,6 +21,7 @@ de:
     notice:
       successfully_created: "%{class} wurde erfolgreich erstellt."
       successfully_updated: "%{class} wurde erfolgreich aktualisiert."
+      failed_creating: "Entschuldigung, das Erstellen der %{class} schlug fehl."
       failed_change_permission: "Fehlgeschlagen: Ändern von %{username}'s Berechtigungen"
       successfully_changed_permission: "Erfolgreich %{username}'s Berechtigungen geändert"
     alert:
@@ -90,13 +91,14 @@ de:
       week: Woche
       month: Monat
       year: Jahr
+      im_here: "Ich bin da!"
+      im_away: "Ich bin weg!"
       last_trackings: "Deine letzten Trackings"
       projects_working_on: "Projekte an denen du arbeitest"
       this: "this %{duration}"
       this_week: "Diese Woche"
       your_projects: "Deine Projekte"
       your_timeline: "Dein Zeitstrahl"
-      attendances: ~
     statistics:
       of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"
@@ -111,6 +113,7 @@ de:
       users: Benutzer
       trackings: Trackings
       settings: Einstellungen
+      attendances: Anwesenheiten
       logout: Abmelden
   projects:
     project: Projekt
@@ -185,15 +188,19 @@ de:
       unlock:
         resend_instructions: "Anleitung zum Benutzer freischalten zusenden"
   attendances:
+    end: Ende
+    start: Beginn
+    attendance: Anwesenheit
     edit:
-      title: ~
+      title: "Anwesenheit bearbeiten"
     index:
-      title: ~
+      title: "Alle Anwesenheiten"
+      date: Datum
+      start: Gestartet
+      end: Geendet
     new:
-      title: ~
+      title: "Neue Anwesenheit"
     update:
-      title: ~
+      title: "Anwesenheit aktualisieren"
     show:
-      title: ~
-    end: ~
-    start: ~
+      title: "Anwesenheit anzeigen"
