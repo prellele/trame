@@ -21,6 +21,7 @@ class TrackingsController < ApplicationController
 
   # POST /trackings
   def create
+    params[:tracking].delete :end_time
     @tracking = current_user.trackings.build(params[:tracking])
 
     if @tracking.save
@@ -33,6 +34,7 @@ class TrackingsController < ApplicationController
 
   # PUT /trackings/1
   def update
+    params[:tracking].delete :end_time
     @tracking = current_resource
     if @tracking.update_attributes(params[:tracking])
       redirect_to root_path, notice: t("flash.notice.successfully_updated", class: t("trackings.tracking") )

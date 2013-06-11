@@ -15,31 +15,29 @@
         <%= f.select :project_id, options_for_project_select(@tracking, @projects), class: "input-block-level" %>
       </div>
 
-      <div class="span2 offset3 date">
-        
-          <div id="datetimepicker" class="input-prepend">
-                <span class="add-on">
-              <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-            </span>
-            <%= f.text_field :start_time,
-                              placeholder: t("trackings.starttime"),
-                              class: "input-block-level",
-                              data: { format: t("time.formats.datetime_picker"), 
-                                      :"format-moment" => t("time.formats.datetime_picker_moment") } %>
-          </div>
+      <div class="span3 offset1 date">
+        <div id="datetimepicker" class="input-prepend">
+          <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+          </span>
+          <%= f.text_field :start_time,
+                            placeholder: t("trackings.starttime"),
+                            class: "input-block-level",
+                            data: { format: t("time.formats.datetime_picker"), 
+                                    :"format-moment" => t("time.formats.datetime_picker_moment") } %>
+        </div>
       </div>
-      <div class="span2">
-          <div class="input-append">
-            <input id="tracking_end_time" 
-                class="input-block-level" 
-                placeholder="<%= t("trackings.endtime") %>" 
-                data-format-moment=<%= t("time.formats.time_picker_moment") %> 
-                type="text" 
-                value="<%= @tracking.end_time.to_formatted_s(:time) if @tracking.end_time %>" disabled></input>
-            <span class="add-on">
-              <i class="icon-time"></i>
-            </span>
-          </div>
+      <div class="span3">
+        <div id="datetimepicker2" class="input-prepend">
+          <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+          </span>
+          <%= f.text_field :end_time,
+                            placeholder: t("trackings.endtime"),
+                            class: "input-block-level",
+                            data: { format: t("time.formats.datetime_picker"), 
+                                    :"format-moment" => t("time.formats.datetime_picker_moment") } %>
+        </div>
       </div>
       <div class="span3">
         <span class="lead billable"><%= t('trackings.billable') %></span>
