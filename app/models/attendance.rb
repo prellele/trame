@@ -10,7 +10,7 @@ class Attendance < ActiveRecord::Base
   end
 
   def end=(date)
-    self.duration = ((Time.zone.parse(date) - self.start.to_time) / 60).to_i
+    self.duration = ((Time.zone.parse(date) - self.start.to_time) / 60).to_i if date.present?
   end
 
 end
