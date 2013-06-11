@@ -25,6 +25,12 @@ run the web server (puma)
 
 the site should be at http://localhost:9292
 
+don't forget to set the right timezone in config/application.rb. e.g:
+
+    config.time_zone = 'Berlin'
+
+you can find the list of supported timezones here: http://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html
+
 
 ## Ruby on Rails
 
