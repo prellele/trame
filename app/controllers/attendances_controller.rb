@@ -22,10 +22,7 @@ class AttendancesController < ApplicationController
 
   # POST /attendances
   def create
-    duration = ((params[:attendance][:end].to_datetime - params[:attendance][:start].to_datetime) * 24 * 60).to_i
-    params[:attendance].delete :end
     @attendance = current_user.attendances.build(params[:attendance])
-    @attendance.duration = duration
 
     if @attendance.save
       redirect_to attendances_path, notice: t("flash.notice.successfully_created", class: t("attendances.attendance") )
@@ -37,10 +34,7 @@ class AttendancesController < ApplicationController
 
   # PUT /attendances/1
   def update
-    duration = ((params[:attendance][:end].to_datetime - params[:attendance][:start].to_datetime) * 24 * 60).to_i
-    params[:attendance].delete :end
     @attendance = current_resource
-    @attendance.duration = duration
 
     if @attendance.update_attributes(params[:attendance])
       redirect_to attendances_path, notice: t("flash.notice.successfully_updated", class: t("attendances.attendance") )
@@ -61,7 +55,6 @@ class AttendancesController < ApplicationController
   end
 
   def toggle
-    p "--------------------- Time now: #{Time.zone.now}"
     if @attendance = Attendance.where("start >= ?",Date.today).first
       @attendance.duration = ((Time.now - @attendance.start) / 60).to_i if @attendance.duration == 0
     else

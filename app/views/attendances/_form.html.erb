@@ -7,6 +7,7 @@
               <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
             </span>
             <%= f.text_field :start,
+                              value: @attendance.start.strftime(t("time.formats.datetime")),
                               placeholder: t("attendances.start"),
                               class: "input-block-level",
                               data: { format: t("time.formats.datetime_picker"), 
@@ -20,6 +21,7 @@
               <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
             </span>
             <%= f.text_field :end,
+                              value: @attendance.end.strftime(t("time.formats.datetime")),
                               placeholder: t("attendances.end"),
                               class: "input-block-level",
                               data: { format: t("time.formats.datetime_picker"), 
