@@ -12,80 +12,81 @@
   <div class="flash">
     <%= bootstrap_flash %>
   </div>
-  <% if user_signed_in? %>
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="brand" href="https://github.com/prellele/trame" target="_blank"><%= image_tag("icon_25.png") %>Trame</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav main-nav">
-            <li class="main">
-              <%= link_to root_path do %>
-                <i class="icon-dashboard"></i><%= t(".home") %>
-              <% end %>
-            </li>
-            <li class="main">
-              <%= link_to reports_path do %>
-                <i class="icon-suitcase"></i><%= t(".reports") %>
-              <% end %>
-            </li>
-            <li class="main">
-              <%= link_to attendances_path do %>
-                <i class="icon-flag"></i><%= t(".attendances") %>
-              <% end %>
-            </li>
+  <div id="wrap">
+    <% if user_signed_in? %>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/"><%= image_tag("icon_25.png") %>Trame</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav main-nav">
+              <li class="main">
+                <%= link_to root_path do %>
+                  <i class="icon-dashboard"></i><%= t(".home") %>
+                <% end %>
+              </li>
+              <li class="main">
+                <%= link_to reports_path do %>
+                  <i class="icon-suitcase"></i><%= t(".reports") %>
+                <% end %>
+              </li>
+              <li class="main">
+                <%= link_to attendances_path do %>
+                  <i class="icon-flag"></i><%= t(".attendances") %>
+                <% end %>
+              </li>
 
-            <% if current_user.admin? %>
-              <li class="main dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-star"></i><%= t(".admin") %>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to projects_path do %>
-                      <i class="icon-road"></i><%= t(".projects") %>
-                    <% end %>
-                  </li>
-                  <li>
-                    <%= link_to admin_reports_path do %>
-                      <i class="icon-suitcase"></i><%= t(".reports") %>
-                    <% end %>
-                  </li>
-                  <li>
-                    <%= link_to users_path do %>
-                      <i class="icon-group"></i><%= t(".users") %>
-                    <% end %>
-                  </li>
-                </ul>
-              </li>
+              <% if current_user.admin? %>
+                <li class="main dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-star"></i><%= t(".admin") %>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to projects_path do %>
+                        <i class="icon-road"></i><%= t(".projects") %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to admin_reports_path do %>
+                        <i class="icon-suitcase"></i><%= t(".reports") %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to users_path do %>
+                        <i class="icon-group"></i><%= t(".users") %>
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
               <% end %>
-            </ul>
-            <ul class="nav pull-right">
-              <li class="main dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <%= current_user.name %>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <% if allow? "devise/registrations", :edit %>
-                  <li><%= link_to edit_user_registration_path do %>
-                    <i class="icon-cogs"></i><%= t(".settings") %>
+              </ul>
+              <ul class="nav pull-right">
+                <li class="main dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= current_user.name %>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <% if allow? "devise/registrations", :edit %>
+                    <li><%= link_to edit_user_registration_path do %>
+                      <i class="icon-cogs"></i><%= t(".settings") %>
+                      <% end %>
+                    </li>
                     <% end %>
-                  </li>
-                  <% end %>
-                  <li>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                    <i class="icon-signout"></i><%= t(".logout") %>
-                    <% end %>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+                    <li>
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                      <i class="icon-signout"></i><%= t(".logout") %>
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -94,5 +95,12 @@
       <div class="container">
         <%= yield %>
       </div>
-    </body>
-    </html>
+      <div id="push"></div>
+    </div>  
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Designed and built by <a href="https://github.com/prellele">prellele</a>. Code is available on <a href="https://github.com/prellele/trame/blob/master/">Github</a> and is licensed under <a href="https://github.com/prellele/trame/blob/master/LICENSE">GNU GPL</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>
