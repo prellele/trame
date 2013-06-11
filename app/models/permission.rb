@@ -10,6 +10,10 @@ class Permission
     if user
       allow :home, [:index]
       allow :reports, [:index]
+      allow :attendances, [:index, :new, :create, :toggle]
+      allow :attendances, [:edit, :update, :show, :destroy] do |attendance|
+        attendance.user_id = user.id
+      end
       allow :trackings, [:index, :new, :create]
       allow :trackings, [:edit, :update, :show, :destroy] do |tracking|
         tracking.user_id = user.id
