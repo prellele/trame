@@ -20,7 +20,41 @@ class Permission
       end
       allow "registrations", [:edit, :update]
       allow "devise/registrations", [:edit, :update]
-      allow_all if user.admin?
+
+      if user.rights.include?(Right.find_by_name("ViewProjects") || Right.find_by_name("EditProjects"))
+        allow :projects, [:index, :show]
+      end
+      if user.rights.include?(Right.find_by_name("EditProjects"))
+        allow :projects, [:edit, :update, :destroy]
+      end
+
+      if user.rights.include?(Right.find_by_name("ViewRoles") || Right.find_by_name("EditRoles"))
+        allow :roles, [:index, :show]
+      end
+      if user.rights.include?(Right.find_by_name("EditRoles"))
+        allow :roles, [:new, :create, :edit, :update, :destroy]
+      end
+
+      if user.rights.include?(Right.find_by_name("ViewUser") || Right.find_by_name("EditUsers"))
+        allow :users, [:index, :show]
+      end
+      if user.rights.include?(Right.find_by_name("EditUsers"))
+        allow :users, [:new, :create, :edit, :update, :destroy]
+      end
+
+      if user.rights.include?(Right.find_by_name("ViewAllTrackings")||Right.find_by_name("EditAllTrackings"))
+        allow :trackings, [:show]
+      end
+      if user.rights.include?(Right.find_by_name("EditAllTrackings"))
+        allow :trackings, [:new, :create, :edit, :update, :destroy]
+      end
+
+      if user.rights.include?(Right.find_by_name("ViewAllAttendances")||Right.find_by_name("EditAllAttendances"))
+        allow :attendances, [:show]
+      end
+      if user.rights.include?(Right.find_by_name("EditAllAttendances"))
+        allow :attendances, [:new, :create, :edit, :update, :destroy]
+      end
     end
   end
 

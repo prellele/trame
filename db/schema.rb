@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610141425) do
+ActiveRecord::Schema.define(:version => 20130612145750) do
 
   create_table "attendances", :force => true do |t|
     t.datetime "start"
@@ -27,6 +27,29 @@ ActiveRecord::Schema.define(:version => 20130610141425) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "rights", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rights_roles", :id => false, :force => true do |t|
+    t.integer "right_id"
+    t.integer "role_id"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
   create_table "trackings", :force => true do |t|
     t.string   "description"
     t.integer  "minutes"
@@ -39,8 +62,8 @@ ActiveRecord::Schema.define(:version => 20130610141425) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                                 :default => "",    :null => false
-    t.string   "encrypted_password",                                    :default => "",    :null => false
+    t.string   "email",                                                 :default => "", :null => false
+    t.string   "encrypted_password",                                    :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -49,11 +72,10 @@ ActiveRecord::Schema.define(:version => 20130610141425) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                                               :null => false
-    t.datetime "updated_at",                                                               :null => false
+    t.datetime "created_at",                                                            :null => false
+    t.datetime "updated_at",                                                            :null => false
     t.string   "prename"
     t.string   "surname"
-    t.boolean  "admin",                                                 :default => false
     t.decimal  "weekly_workinghours",    :precision => 10, :scale => 0
   end
 

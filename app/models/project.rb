@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :trackings
 
   def trackings_for(user)
-    user.admin? ? trackings : trackings.where(user_id: user.id)
+    (self.rights.include?(Right.find_by_name("ViewAllTrackings")||Right.find_by_name("EditAllTrackings")) ? trackings : trackings.where(user_id: user.id)
   end
 
   def workinghours_for(user)

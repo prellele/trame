@@ -1,8 +1,3 @@
-<%- model_class = User -%>
-<div class="page-header">
-  <h1><%= t '.title' %></h1>
-</div>
-
 <dl class="dl-horizontal">
   <dt><strong><%= t 'users.email' %>:</strong></dt>
   <dd><%= @user.email %></dd>
@@ -20,13 +15,19 @@
   <dd><%= @user.last_sign_in_ip || "-" %></dd>
   <dt><strong><%= t 'users.name' %>:</strong></dt>
   <dd><%= @user.prename || "-" %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:roles) %>:</strong></dt>
-  <dd><%= @user.roles.map(&:name).join(', ') %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rights) %>:</strong></dt>
-  <dd><%= @user.rights.map(&:name).join(', ') %></dd>
 </dl>
-
-<div class="form-actions">
-  <%= link_to t('.back', default: t("helpers.links.back")),
-              users_path, class: 'btn' %>
-</div>
+<%= form_for @user, html: {class: 'form-horizontal'} do |f| %>
+<p>Roles:</p>
+    <ul class="rights">
+    <% for role in Role.all %>
+      <li>
+        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %><%= role.name %>
+      <li>
+    <% end %>
+    </ul>
+    <div class="form-actions">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                  roles_path, class: 'btn' %>
+    </div>
+<% end %>

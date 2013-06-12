@@ -1,6 +1,7 @@
 Trame::Application.routes.draw do
   resources :projects
   resources :trackings
+  resources :roles
 
   resources :attendances do
     collection do 

@@ -3,11 +3,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :prename, :surname, :password, :password_confirmation, 
-                  :remember_me, :admin, :weekly_workinghours
+                  :remember_me, :admin, :weekly_workinghours, :role_ids
 
   has_many :trackings, order: 'start_time DESC'
   has_many :projects, through: :trackings, order: 'created_at DESC', uniq: true
   has_many :attendances, order: 'created_at DESC', uniq: true
+  has_and_belongs_to_many :roles
+  has_many :rights, through: :roles
 
   def workinghours_week
     (weekly_workinghours || 40.0)
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def visible_trackings
-    (admin? ? Tracking : trackings).scoped
+    (self.rights.include?(Right.find_by_name("ViewAllTrackings")||Right.find_by_name("EditAllTrackings")) ? Tracking : trackings).scoped
   end
 
   def visible_projects

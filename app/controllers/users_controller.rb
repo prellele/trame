@@ -9,18 +9,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def toggle_admin
-    @user = User.find(params[:user_id])
-    @user.admin = !@user.admin
-    
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to users_path, notice: t("flash.notice.successfully_changed_permission", username: @user.name) }
-        format.json { head :ok }
-      else
-        format.html { redirect_to users_path, notice: t("flash.notice.failed_change_permission", username: @user.name) }
-        format.json { head :error }
-      end
+  # GET /users/1/edit
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # PUT /users/1
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect_to users_path, notice: t("flash.notice.successfully_updated", class: t("users.user") )
+    else
+      render action: "edit"
     end
   end
+
 end

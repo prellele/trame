@@ -24,19 +24,7 @@
         <td><%= l(user.current_sign_in_at, format: :short) %></td>
         <td><%= user.current_sign_in_ip %></td>
         <td>
-          <% if user.admin? %>
-              <%= link_to t('.revoke_admin'),
-                          user_toggle_admin_path(user),
-                          method: :post,
-                          data: {user_id: user.id},
-                          class: 'btn btn-mini btn-warning' %>
-          <% else %>
-              <%= link_to t('.make_admin'),
-                          user_toggle_admin_path(user),
-                          method: :post,
-                          data: {user_id: user.id},
-                          class: 'btn btn-mini btn-success' %>
-          <% end %>
+          <%= link_to t('.edit'), edit_user_path(user), class: 'btn btn-mini btn-success' %>
           <%= link_to t('.show', default: t("helpers.links.show")), user_path(user), class: 'btn btn-mini' %>
         </td>
       </tr>
