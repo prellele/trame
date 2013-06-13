@@ -19,13 +19,19 @@
 </dl>
 
 <div class="form-actions">
+  <% if allow?("trackings","show") %>
   <%= link_to t('.back', default: t("helpers.links.back")),
               trackings_path, class: 'btn' %>
+  <% end %>
+  <% if allow?("trackings","edit") %>
   <%= link_to t('.edit', default: t("helpers.links.edit")),
               edit_tracking_path(@tracking), class: 'btn btn-warning' %>
+  <% end %>
+  <% if allow?("trackings","destroy") %>
   <%= link_to t('.destroy', default: t("helpers.links.destroy")),
               tracking_path(@tracking),
               method: 'delete',
               data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
               class: 'btn btn-danger' %>
+  <% end %>
 </div>

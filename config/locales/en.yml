@@ -106,17 +106,13 @@ en:
       overtime: Overtime
   layouts:
     application:
-      admin: Admin
-      home: Dashboard
-      reports: Reports
-      projects: Projects
-      users: Users
-      trackings: Trackings
+      management: Management
+      dashboard: Dashboard
       settings: Settings
-      attendances: Attendances
       logout: Logout
   projects:
     project: Project
+    projects: Projects
     edit:
       title: "Edit Project"
     form:
@@ -130,6 +126,7 @@ en:
       title: "New Project"
   reports:
     report: Report
+    reports: Reports
     workinghours_devided_projects: "Your total workingtime devided by projects"
     percentage: "Amount percentage"
     index:
@@ -138,6 +135,19 @@ en:
       workinghours_of_projects: "Workinghours of Projects"
     admin:
       title: "All Reports"
+  rights:
+    right: Right
+    rights: Rights
+  roles:
+    role: Role
+    roles: Roles
+    name: Name
+    index:
+      title: "Roles"
+    edit:
+      title: "Edit Role"
+    new:
+      title: "New Role"
   trackings:
     tracking: Tracking
     trackings: Trackings
@@ -162,7 +172,9 @@ en:
       title: "Show tracking"
   users:
     user: User
+    users: Users
     email: Email
+    name: Name
     prename: Prename
     surname: Surname
     password: Password
@@ -180,6 +192,10 @@ en:
       title: Users
       make_admin: "Make Admin"
       revoke_admin: "Revoke Admin"
+    edit:
+      title: "Edit User"
+    show:
+      title: "Show User"
     devise:
       session:
         remember_me: "Remember me"
@@ -188,9 +204,10 @@ en:
       unlock:
         resend_instructions: "Resend unlock instructions"
   attendances:
-    end: "End"
-    start: "Start"
-    attendance: "Attendance"
+    attendance: Attendance
+    attendances: Attendances
+    end: End
+    start: Start
     edit:
       title: "Edit Attendances"
     index:

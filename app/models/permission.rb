@@ -21,38 +21,39 @@ class Permission
       allow "registrations", [:edit, :update]
       allow "devise/registrations", [:edit, :update]
 
-      if user.rights.include?(Right.find_by_name("ViewProjects") || Right.find_by_name("EditProjects"))
+      if user.can?("ViewProjects" || "EditProjects")
         allow :projects, [:index, :show]
       end
-      if user.rights.include?(Right.find_by_name("EditProjects"))
+      if user.can?("EditProjects")
         allow :projects, [:edit, :update, :destroy]
       end
 
-      if user.rights.include?(Right.find_by_name("ViewRoles") || Right.find_by_name("EditRoles"))
+      if user.can?("ViewRoles" || "EditRoles")
         allow :roles, [:index, :show]
       end
-      if user.rights.include?(Right.find_by_name("EditRoles"))
+      if user.can?("EditRoles")
         allow :roles, [:new, :create, :edit, :update, :destroy]
       end
 
-      if user.rights.include?(Right.find_by_name("ViewUser") || Right.find_by_name("EditUsers"))
+      if user.can?("ViewUsers" || "EditUsers")
         allow :users, [:index, :show]
       end
-      if user.rights.include?(Right.find_by_name("EditUsers"))
-        allow :users, [:new, :create, :edit, :update, :destroy]
+      if user.can?("EditUsers")
+        allow :users, [:edit, :update]
       end
 
-      if user.rights.include?(Right.find_by_name("ViewAllTrackings")||Right.find_by_name("EditAllTrackings"))
+      if user.can?("ViewAllTrackings" || "EditAllTrackings")
         allow :trackings, [:show]
+        allow :reports, [:admin]
       end
-      if user.rights.include?(Right.find_by_name("EditAllTrackings"))
+      if user.can?("EditAllTrackings")
         allow :trackings, [:new, :create, :edit, :update, :destroy]
       end
 
-      if user.rights.include?(Right.find_by_name("ViewAllAttendances")||Right.find_by_name("EditAllAttendances"))
+      if user.can?("ViewAllAttendances" || "EditAllAttendances")
         allow :attendances, [:show]
       end
-      if user.rights.include?(Right.find_by_name("EditAllAttendances"))
+      if user.can?("EditAllAttendances")
         allow :attendances, [:new, :create, :edit, :update, :destroy]
       end
     end

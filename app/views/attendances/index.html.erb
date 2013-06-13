@@ -22,7 +22,12 @@
         <td><%= l(attendance.start, format: :time_format) %></td>
         <td><%= l(attendance.end, format: :time_format) %></td>
         <td>
-          <%= link_to t('action.show'), attendance_path(attendance), class: 'btn btn-mini' %>
+          <% if allow?("attendances","show") %>
+            <%= link_to t('action.show'), attendance_path(attendance), class: 'btn btn-mini' %>
+          <% end %>
+          <% if allow?("attendances","show") %>
+            <%= link_to t('action.edit'), edit_attendance_path(attendance), class: 'btn btn-mini' %>
+          <% end %>
         </td>
       </tr>
   <% end %>

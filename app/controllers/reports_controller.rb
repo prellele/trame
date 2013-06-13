@@ -3,8 +3,6 @@ class ReportsController < ApplicationController
  
   # GET /reports
   def index
-    @show_actions = true
-
     @selectable_projects = current_user.projects
     @projects = current_user.projects
     @projects = @projects.where(id: params[:project_ids]) if params[:project_ids]

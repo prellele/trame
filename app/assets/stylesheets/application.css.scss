@@ -192,12 +192,13 @@ li.project {
   width: 110px;
   margin-top: 10px;
   display:block;
-}
-.additionals ul{
-  list-style: none;
-}
-.additionals ul li{
-  display: inline;
+  ul{
+    list-style: none;
+
+    li{
+    display: inline;
+    }
+  }
 }
 
 .reports {
@@ -262,7 +263,7 @@ ul.user_edit{
 }
 
 .row-fluid .additionals{
-  width: 8.5%;
+  width: 20.5%;
 }
 
 .filter-form{

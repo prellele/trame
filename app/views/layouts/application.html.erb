@@ -27,54 +27,51 @@
             <ul class="nav main-nav">
               <li class="main">
                 <%= link_to root_path do %>
-                  <i class="icon-dashboard"></i><%= t(".home") %>
+                  <i class="icon-dashboard"></i><%= t(".dashboard") %>
                 <% end %>
               </li>
               <li class="main">
                 <%= link_to reports_path do %>
-                  <i class="icon-suitcase"></i><%= t(".reports") %>
+                  <i class="icon-suitcase"></i><%= t("reports.reports") %>
                 <% end %>
               </li>
               <li class="main">
                 <%= link_to attendances_path do %>
-                  <i class="icon-flag"></i><%= t(".attendances") %>
+                  <i class="icon-flag"></i><%= t("attendances.attendances") %>
                 <% end %>
               </li>
 
-              <% if current_user.rights.include?(Right.find_by_name("ViewProjects") || Right.find_by_name("EditProjects") || 
-                Right.find_by_name("ViewRoles") || Right.find_by_name("EditRoles") || Right.find_by_name("ViewUser") || 
-                Right.find_by_name("EditUsers") || Right.find_by_name("ViewAllTrackings")|| 
-                Right.find_by_name("EditAllTrackings")) %>
+              <% if current_user.can?("ViewProjects" || "EditProjects" || "ViewRoles" || "EditRoles" || "ViewUser" || "EditUsers" || "ViewAllTrackings" || "EditAllTrackings") %>
                 <li class="main dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-star"></i><%= t(".admin") %>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-star"></i><%= t(".management") %>
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <% if current_user.rights.include?(Right.find_by_name("ViewProjects") || Right.find_by_name("EditProjects")) %>
+                    <% if current_user.can?("ViewProjects" || "EditProjects") %>
                     <li>
                       <%= link_to projects_path do %>
-                        <i class="icon-road"></i><%= t(".projects") %>
+                        <i class="icon-road"></i><%= t("projects.projects") %>
                       <% end %>
                     </li>
                     <% end %>
-                    <% if current_user.rights.include?(Right.find_by_name("ViewAllTrackings") || Right.find_by_name("EditAllTrackings")) %>
+                    <% if current_user.can?("ViewAllTrackings" || "EditAllTrackings") %>
                     <li>
                       <%= link_to admin_reports_path do %>
-                        <i class="icon-suitcase"></i><%= t(".reports") %>
+                        <i class="icon-suitcase"></i><%= t("reports.reports") %>
                       <% end %>
                     </li>
                     <% end %>
-                    <% if current_user.rights.include?(Right.find_by_name("ViewUsers") || Right.find_by_name("EditUsers")) %>
+                    <% if current_user.can?("ViewUsers" || "EditUsers") %>
                     <li>
                       <%= link_to users_path do %>
-                        <i class="icon-group"></i><%= t(".users") %>
+                        <i class="icon-group"></i><%= t("users.users") %>
                       <% end %>
                     </li>
                     <% end %>
-                    <% if current_user.rights.include?(Right.find_by_name("ViewRoles") || Right.find_by_name("EditRoles")) %>
+                    <% if current_user.can?("ViewRoles" || "EditRoles") %>
                     <li>
                       <%= link_to roles_path do %>
-                        <i class="icon-eye-open"></i><%= t(".roles") %>
+                        <i class="icon-eye-open"></i><%= t("roles.roles") %>
                       <% end %>
                     </li>
                     <% end %>

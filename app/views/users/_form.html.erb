@@ -1,33 +1,23 @@
 <dl class="dl-horizontal">
-  <dt><strong><%= t 'users.email' %>:</strong></dt>
-  <dd><%= @user.email %></dd>
-  <dt><strong><%= t 'users.reset_password_sent_at' %>:</strong></dt>
-  <dd><%= @user.reset_password_sent_at || "-" %></dd>
-  <dt><strong><%= t 'users.remember_created_at' %>:</strong></dt>
-  <dd><%= @user.remember_created_at || "-" %></dd>
-  <dt><strong><%= t 'users.current_sign_in_at' %>:</strong></dt>
-  <dd><%= @user.current_sign_in_at || "-" %></dd>
-  <dt><strong><%= t 'users.last_sign_in_at' %>:</strong></dt>
-  <dd><%= @user.last_sign_in_at || "-" %></dd>
-  <dt><strong><%= t 'users.current_sign_in_ip' %>:</strong></dt>
-  <dd><%= @user.current_sign_in_ip || "-" %></dd>
-  <dt><strong><%= t 'users.last_sign_in_ip' %>:</strong></dt>
-  <dd><%= @user.last_sign_in_ip || "-" %></dd>
-  <dt><strong><%= t 'users.name' %>:</strong></dt>
-  <dd><%= @user.prename || "-" %></dd>
+  <dt><%= t 'users.user' %></dt>
+  <dd><%= @user.prename || @user.email %></dd>
 </dl>
 <%= form_for @user, html: {class: 'form-horizontal'} do |f| %>
-<p>Roles:</p>
-    <ul class="rights">
-    <% for role in Role.all %>
-      <li>
-        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %><%= role.name %>
-      <li>
-    <% end %>
-    </ul>
-    <div class="form-actions">
-      <%= f.submit class: 'btn btn-primary' %>
-      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
-                  roles_path, class: 'btn' %>
+  <div class="control-group">
+    <%= f.label t("roles.roles"), class: 'control-label' %>
+    <div class="controls">
+      <ul class="rights">
+      <% for role in Role.all %>
+        <li>
+          <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %><%= role.name %>
+        <li>
+      <% end %>
+      </ul>
     </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                roles_path, class: 'btn' %>
+  </div>
 <% end %>

@@ -35,11 +35,11 @@ class User < ActiveRecord::Base
   end
 
   def visible_trackings
-    (self.rights.include?(Right.find_by_name("ViewAllTrackings")||Right.find_by_name("EditAllTrackings")) ? Tracking : trackings).scoped
+    (self.can?("ViewAllTrackings" || "EditAllTrackings") ? Tracking : trackings).scoped
   end
 
   def visible_projects
-    (admin? ? Project : projects).scoped
+    Project.all
   end
 
   def expected_workingtime_minutes(duration)
@@ -120,6 +120,10 @@ class User < ActiveRecord::Base
   def weekly_trackings
     first_day = Date.today.at_beginning_of_week
     sorted_trackings = self.trackings.where("start_time >= ? AND start_time < ?", first_day, first_day+6.day)
+  end
+
+  def can?(rightname)
+    self.rights.include?(Right.find_by_name(rightname))
   end
 
 end

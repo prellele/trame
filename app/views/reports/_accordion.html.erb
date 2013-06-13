@@ -56,14 +56,16 @@
                   <%= tracking.user.name %>
                 </td>
                 <% end %>
-                <% if defined?(@show_actions) && @show_actions %>
                 <td class="td-actions">
                   <div class="btn-group">
+                    <% if allow?("trackings","show") %>
                     <%= link_to t('action.show'), tracking_path(tracking), class: 'btn btn-mini' %>
+                    <% end %>
+                    <% if allow?("trackings","edit") %>
                     <%= link_to t('action.edit'), edit_tracking_path(tracking), class: 'btn btn-warning btn-mini' %>
+                    <% end %>
                   </div>
                 </td>
-                <% end %>
               </tr>
               <% end %>
             </tbody>

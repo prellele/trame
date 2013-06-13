@@ -106,17 +106,13 @@ de:
       overtime: Überstunden
   layouts:
     application:
-      admin: Admin
-      home: Dashboard
-      reports: Berichte
-      projects: Projekte
-      users: Benutzer
-      trackings: Trackings
+      management: Verwaltung
+      dashboard: ~
       settings: Einstellungen
-      attendances: Anwesenheiten
       logout: Abmelden
   projects:
     project: Projekt
+    projects: Projekte
     edit:
       title: "Projekt bearbeiten"
     form:
@@ -130,6 +126,7 @@ de:
       title: "Neues Projekt"
   reports:
     report: Bericht
+    reports: Berichte
     workinghours_devided_projects: "Deine Arbeitszeit nach Projekten aufgeteilt"
     percentage: Prozentual
     index:
@@ -138,6 +135,19 @@ de:
       workinghours_of_projects: "Arbeitsstunden von Projekten"
     admin:
       title: "Alle Berichte"
+  rights:
+    right: Recht
+    rights: Rechte
+  roles:
+    role: Rolle
+    roles: Rollen
+    name: Name
+    index:
+      title: Rollen
+    edit:
+      title: "Rolle bearbeiten"
+    new:
+      title: "Neue Rolle"
   trackings:
     tracking: Tracking
     trackings: Trackings
@@ -162,7 +172,9 @@ de:
       title: "Tracking zeigen"
   users:
     user: Benutzer
+    users: Benutzer
     email: Mail
+    name: Name
     prename: Vorname
     surname: Nachname
     password: Passwort
@@ -180,6 +192,8 @@ de:
       title: Benutzer
       make_admin: heraufstufen
       revoke_admin: herunterstufen
+    edit:
+      title: "Benutzer bearbeiten"
     devise:
       session:
         remember_me: "Angemeldet bleiben"
@@ -188,9 +202,10 @@ de:
       unlock:
         resend_instructions: "Anleitung zum Benutzer freischalten zusenden"
   attendances:
+    attendance: Anwesenheit
+    attendances: Anwesenheiten
     end: Ende
     start: Beginn
-    attendance: Anwesenheit
     edit:
       title: "Anwesenheit bearbeiten"
     index:
