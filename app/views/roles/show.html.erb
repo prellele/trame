@@ -1,11 +1,13 @@
 <%- model_class = Role -%>
 <div class="page-header">
-  <h1><%= t '.title', default: model_class.model_name.human %></h1>
+  <h1><%= t '.title', default: t("helpers.titles.show", class: model_class.model_name.human ) %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @role.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @role.description || "-" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:rights) %>:</strong></dt>
   <dd><%= @role.rights.map(&:name).join(', ') %></dd>
 </dl>

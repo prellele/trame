@@ -81,10 +81,10 @@ de:
       new: Neu
       edit: Bearbeiten
     titles:
-      edit: Bearbeiten
-      save: Speichern
-      new: Neu
-      delete: Löschen
+      edit: "%{class} bearbeiten"
+      show: "%{class} anzeigen"
+      new: "%{class} erstellen"
+      index: "Alle %{class}"
   home:
     index:
       today: Heute
@@ -113,24 +113,18 @@ de:
   projects:
     project: Projekt
     projects: Projekte
-    edit:
-      title: "Projekt bearbeiten"
     form:
       name: Name
     index:
-      title: Projekte
       usage: "Nutzung der Projekte"
       y_axis_usage: "Arbeitszeit (std)"
       total_workingtime: "Absolute Arbeitszeit dieses Projekts"
-    new:
-      title: "Neues Projekt"
   reports:
     report: Bericht
     reports: Berichte
     workinghours_devided_projects: "Deine Arbeitszeit nach Projekten aufgeteilt"
     percentage: Prozentual
     index:
-      title: Berichte
       workinghours_for_projects: "Arbeitsstunden für Projekte"
       workinghours_of_projects: "Arbeitsstunden von Projekten"
     admin:
@@ -142,12 +136,7 @@ de:
     role: Rolle
     roles: Rollen
     name: Name
-    index:
-      title: Rollen
-    edit:
-      title: "Rolle bearbeiten"
-    new:
-      title: "Neue Rolle"
+    description: Beschreibung
   trackings:
     tracking: Tracking
     trackings: Trackings
@@ -159,17 +148,8 @@ de:
     starttime: Startzeit
     endtime: Endzeit
     todays_trackings: "Deine heutigen Trackings"
-    edit:
-      title: "Tracking bearbeiten"
     form:
       back_to_overview: "Zurück zur Übersicht"
-    index:
-      title: Trackings
-      duration_in_words: "%{hours} Stunden {minutes} Minuten"
-    new:
-      title: "Neues Tracking"
-    show:
-      title: "Tracking zeigen"
   users:
     user: Benutzer
     users: Benutzer
@@ -187,13 +167,6 @@ de:
     last_sign_in_ip: "Letzte angemeldete IP"
     reset_password_sent_at: "Passwort zurücksetzten gesendet am"
     remember_created_at: "Anmeldedaten gemerkt am"
-    admin: Admin
-    index:
-      title: Benutzer
-      make_admin: heraufstufen
-      revoke_admin: herunterstufen
-    edit:
-      title: "Benutzer bearbeiten"
     devise:
       session:
         remember_me: "Angemeldet bleiben"
@@ -206,16 +179,32 @@ de:
     attendances: Anwesenheiten
     end: Ende
     start: Beginn
-    edit:
-      title: "Anwesenheit bearbeiten"
-    index:
-      title: "Alle Anwesenheiten"
-      date: Datum
-      start: Gestartet
-      end: Geendet
-    new:
-      title: "Neue Anwesenheit"
-    update:
-      title: "Anwesenheit aktualisieren"
-    show:
-      title: "Anwesenheit anzeigen"
+  activerecord:
+    models:
+      role: Rolle
+      right: Recht
+      project: Projekt
+      user: Benutzer
+      tracking: Tracking
+      attendances: Anwesenheiten
+    attributes:
+      role:
+        name: Name
+        description: Beschreibung
+      attendance:
+        start: Beginn
+        end: Ende
+        duration: Dauer
+        date: Datum
+      project:
+        name: Name
+      right:
+        name: Name
+      tracking:
+        description: Beschreibung
+        minutes: Minuten
+        start_time: Startzeit
+        billable: Abrechenbar
+        created_at: "Erstellt am"
+        project: Projekt
+        user: Benutzer

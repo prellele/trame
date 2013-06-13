@@ -1,33 +1,33 @@
 <%- model_class = Tracking -%>
 <div class="page-header">
-  <h1><%= t '.title' %></h1>
+  <h1><%= t '.title', default: t("helpers.titles.show", class: model_class.model_name.human ) %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= t 'trackings.description' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @tracking.description %></dd>
-  <dt><strong><%= t 'trackings.starttime' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:starttime) %>:</strong></dt>
   <dd><%= @tracking.start_time %></dd>
-  <dt><strong><%= t 'trackings.minutes' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:minutes) %>:</strong></dt>
   <dd><%= @tracking.minutes %></dd>
-  <dt><strong><%= t 'trackings.billable' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:billable) %>:</strong></dt>
   <dd><%= @tracking.billable ? t('yes') : t('no') %></dd>
-  <dt><strong><%= t 'projects.project' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:project) %>:</strong></dt>
   <dd><%= @tracking.project.try(:name) ? @tracking.project.name : "-" %></dd>
-  <dt><strong><%= t 'users.user' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
   <dd><%= @tracking.user.name %></dd>
 </dl>
 
 <div class="form-actions">
-  <% if allow?("trackings","show") %>
+  <% if allow?("trackings","show", @tracking) %>
   <%= link_to t('.back', default: t("helpers.links.back")),
               trackings_path, class: 'btn' %>
   <% end %>
-  <% if allow?("trackings","edit") %>
+  <% if allow?("trackings","edit", @tracking) %>
   <%= link_to t('.edit', default: t("helpers.links.edit")),
               edit_tracking_path(@tracking), class: 'btn btn-warning' %>
   <% end %>
-  <% if allow?("trackings","destroy") %>
+  <% if allow?("trackings","destroy", @tracking) %>
   <%= link_to t('.destroy', default: t("helpers.links.destroy")),
               tracking_path(@tracking),
               method: 'delete',

@@ -1,23 +1,29 @@
 <%- model_class = Attendance -%>
 <div class="page-header">
-  <h1><%= t '.title' %></h1>
+  <h1><%= t '.title', default: t("helpers.titles.show", class: model_class.model_name.human ) %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= t 'attendance.start' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:start) %>:</strong></dt>
   <dd><%= @attendance.start %></dd>
-  <dt><strong><%= t 'attendance.end' %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:end) %>:</strong></dt>
   <dd><%= @attendance.end %></dd>
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', default: t("helpers.links.back")),
+  <% if allow?("attendances","show",@attendance) %>
+    <%= link_to t('.back', default: t("helpers.links.back")),
               attendances_path, class: 'btn' %>
-  <%= link_to t('.edit', default: t("helpers.links.edit")),
+  <% end %>
+  <% if allow?("attendances","edit",@attendance) %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")),
               edit_attendance_path(@attendance), class: 'btn btn-warning' %>
-  <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+  <% end %>
+  <% if allow?("attendances","destroy",@attendance) %>
+    <%= link_to t('.destroy', default: t("helpers.links.destroy")),
               attendance_path(@attendance),
               method: 'delete',
               data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
               class: 'btn btn-danger' %>
+  <% end %>
 </div>

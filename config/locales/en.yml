@@ -81,10 +81,10 @@ en:
       new: New
       edit: Edit
     titles:
-      edit: Edit
-      save: Save
-      new: New
-      delete: Delete
+      edit: "Edit %{class}"
+      show: "Show %{class}"
+      new: "New %{class}"
+      index: "All %{class}"
   home:
     index:
       today: Today
@@ -113,24 +113,18 @@ en:
   projects:
     project: Project
     projects: Projects
-    edit:
-      title: "Edit Project"
     form:
       name: Name
     index:
-      title: Projects
       usage: "Usage of Projects"
       y_axis_usage: "Workingtime (hours)"
       total_workingtime: "Total Workingtime of this Project"
-    new:
-      title: "New Project"
   reports:
     report: Report
     reports: Reports
     workinghours_devided_projects: "Your total workingtime devided by projects"
     percentage: "Amount percentage"
     index:
-      title: Reports
       workinghours_for_projects: "Workinghours for Projects"
       workinghours_of_projects: "Workinghours of Projects"
     admin:
@@ -142,12 +136,7 @@ en:
     role: Role
     roles: Roles
     name: Name
-    index:
-      title: "Roles"
-    edit:
-      title: "Edit Role"
-    new:
-      title: "New Role"
+    description: Description
   trackings:
     tracking: Tracking
     trackings: Trackings
@@ -159,17 +148,8 @@ en:
     starttime: Starttime
     endtime: Endtime
     todays_trackings: "Your todays trackings"
-    edit:
-      title: "Edit Tracking"
     form:
       back_to_overview: "Back to Overview"
-    index:
-      title: Trackings
-      duration_in_words: "%{hours} hours {minutes} minutes"
-    new:
-      title: "New Tracking"
-    show:
-      title: "Show tracking"
   users:
     user: User
     users: Users
@@ -187,15 +167,6 @@ en:
     last_sign_in_ip: "Last sign in IP"
     reset_password_sent_at: "Reset passwort sent at"
     remember_created_at: "Remember created at"
-    admin: Admin
-    index:
-      title: Users
-      make_admin: "Make Admin"
-      revoke_admin: "Revoke Admin"
-    edit:
-      title: "Edit User"
-    show:
-      title: "Show User"
     devise:
       session:
         remember_me: "Remember me"
@@ -208,16 +179,32 @@ en:
     attendances: Attendances
     end: End
     start: Start
-    edit:
-      title: "Edit Attendances"
-    index:
-      title: "All Attendances"
-      date: "Date"
-      start: "Started"
-      end: "Ended"
-    new:
-      title: "New Attendances"
-    update:
-      title: "Update Attendances"
-    show: 
-      title: "Show Attendances"
+  activerecord:
+    models:
+      role: Role
+      right: Right
+      project: Project
+      user: User
+      tracking: Tracking
+      attendances: Attendances
+    attributes:
+      role:
+        name: Name
+        description: Description
+      attendance:
+        start: Start
+        end: End
+        duration: Duration
+        date: Date
+      project:
+        name: Name
+      right:
+        name: Name
+      tracking:
+        description: Description
+        minutes: Minutes
+        start_time: Starttime
+        billable: Billable
+        created_at: "Created At"
+        project: Project
+        user: User
