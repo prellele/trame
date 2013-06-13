@@ -21,28 +21,28 @@ class Permission
       allow "registrations", [:edit, :update]
       allow "devise/registrations", [:edit, :update]
 
-      if user.can?("ViewProjects" || "EditProjects")
+      if user.can?("ViewProjects", "EditProjects")
         allow :projects, [:index, :show]
       end
       if user.can?("EditProjects")
         allow :projects, [:edit, :update, :destroy]
       end
 
-      if user.can?("ViewRoles" || "EditRoles")
+      if user.can?("ViewRoles", "EditRoles")
         allow :roles, [:index, :show]
       end
       if user.can?("EditRoles")
         allow :roles, [:new, :create, :edit, :update, :destroy]
       end
 
-      if user.can?("ViewUsers" || "EditUsers")
+      if user.can?("ViewUsers", "EditUsers")
         allow :users, [:index, :show]
       end
       if user.can?("EditUsers")
         allow :users, [:edit, :update]
       end
 
-      if user.can?("ViewAllTrackings" || "EditAllTrackings")
+      if user.can?("ViewAllTrackings", "EditAllTrackings")
         allow :trackings, [:show]
         allow :reports, [:admin]
       end
@@ -50,7 +50,7 @@ class Permission
         allow :trackings, [:new, :create, :edit, :update, :destroy]
       end
 
-      if user.can?("ViewAllAttendances" || "EditAllAttendances")
+      if user.can?("ViewAllAttendances", "EditAllAttendances")
         allow :attendances, [:show]
       end
       if user.can?("EditAllAttendances")

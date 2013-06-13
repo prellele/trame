@@ -30,6 +30,6 @@
   <%= link_to t('.back', default: t("helpers.links.back")),
               users_path, class: 'btn' %>
   <% if allow?("users", "edit") %>
-    <%= link_to t('.edit', default: t("helpers.links.edit")), edit_user_path(@user), class: 'btn btn-mini btn-warning' %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")), edit_user_path(@user), class: 'btn btn-warning' %>
   <% end %>
 </div>

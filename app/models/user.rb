@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def visible_trackings
-    (self.can?("ViewAllTrackings" || "EditAllTrackings") ? Tracking : trackings).scoped
+    (self.can?("ViewAllTrackings", "EditAllTrackings") ? Tracking : trackings).scoped
   end
 
   def visible_projects
@@ -122,8 +122,11 @@ class User < ActiveRecord::Base
     sorted_trackings = self.trackings.where("start_time >= ? AND start_time < ?", first_day, first_day+6.day)
   end
 
-  def can?(rightname)
-    self.rights.include?(Right.find_by_name(rightname))
+  def can?(*rights)
+    rights.each do |right|
+      return true if self.rights.include?(Right.find_by_name(right))
+    end
+    false
   end
 
 end

@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :trackings
 
   def trackings_for(user)
-    user.can?("ViewAllTrackings" || "EditAllTrackings") ? trackings : trackings.where(user_id: user.id)
+    user.can?("ViewAllTrackings", "EditAllTrackings") ? trackings : trackings.where(user_id: user.id)
   end
 
   def workinghours_for(user)
