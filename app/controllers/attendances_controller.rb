@@ -2,7 +2,7 @@ class AttendancesController < ApplicationController
 
   # GET /attendances
   def index
-    @attendances = Attendance.all
+    @attendances = current_user.attendances
   end
 
   # GET /attendances/1
