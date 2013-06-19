@@ -9,6 +9,7 @@
 //= require bootstrapSwitch
 //= require donuts
 //= require daterangepicker
+//= require turbolinks
 //= require_tree .
 
 $(document).ready(function () {
@@ -30,3 +31,4 @@ $(document).ready(function () {
     });
 
 });
+
