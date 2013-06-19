@@ -13,6 +13,7 @@ class Tracking < ActiveRecord::Base
   scope :by_daterange, lambda { |range| where("start_time >= ? and start_time <= ?", 
       DateTime.strptime(range.split(' - ')[0],I18n.t("date.formats.date_format")),
       DateTime.strptime("#{range.split(' - ')[1]} 23:59",I18n.t("time.formats.datetime"))) }
+  scope :billables, lambda {|billable| where(:billable => billable)}
 
   def end_time
     self.start_time + self.minutes.minutes if self.start_time && self.minutes

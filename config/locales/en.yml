@@ -99,6 +99,9 @@ en:
       this_week: "This Week"
       your_projects: "Your projects"
       your_timeline: "Your Timeline"
+      total: "Total"
+      billable: "Billable"
+      attendances: "Attendances"
     statistics:
       of: of
       billable_workingtime: "Billable Workingtime"

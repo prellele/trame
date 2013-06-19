@@ -1,4 +1,3 @@
-<h4><%= t("home.index.your_projects") %></h4>
 <div id="dashboardchart" class="hidden-phone"></div>
 <script type="text/javascript">
   $(function() {
@@ -11,7 +10,7 @@
             height: 200
         },
         title: {
-            text: ''
+            text: '<%= t("home.index.your_projects") %>'
         },
         plotOptions: {
             zIndex: 1000,

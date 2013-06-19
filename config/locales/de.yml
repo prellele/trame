@@ -99,6 +99,9 @@ de:
       this_week: "Diese Woche"
       your_projects: "Deine Projekte"
       your_timeline: "Dein Zeitstrahl"
+      total: Gesamt
+      billable: Abrechenbar
+      attendances: ~
     statistics:
       of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"

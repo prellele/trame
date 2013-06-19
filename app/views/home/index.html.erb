@@ -44,8 +44,21 @@
 	</div>
 	<div class="span2">
 		<% if current_user.workinghours > 0 %>
-			<%= render partial: 'piechart' %>
 			<%= render partial: 'workinghours' %>
+
+			<p><strong><%= t(".total") %>:</strong>
+			<%= duration_in_words(current_user.weekly_worked_hours) %></p>
+			<p><strong><%= t(".billable") %>:</strong>
+			<%= duration_in_words(@weekly_trackings.where("billable = ?",true).sum(:minutes)) %></p>
+			<p><strong><%= t(".attendances") %>:</strong>
+			<%= duration_in_words(@weekly_attendances.sum(:duration)) %></p>
+			<p><strong><%= t("home.statistics.billable_workingtime") %>:</strong>
+			<span class="strong"><%= current_user.percentage_billable("week") %>%</span></p>
+			<div class="donut donut">
+	    		<div class="donut-arrow" data-percentage="<%= current_user.percentage_billable("week") %>"></div></p>
+			</div>
+
+			<%= render partial: 'piechart' %>
 		<% end %>
 		<!-- <div class="span4 offset1">
 			<ul class="nav nav-tabs" id="home_navtab">

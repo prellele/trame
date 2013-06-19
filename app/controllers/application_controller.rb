@@ -16,10 +16,12 @@ class ApplicationController < ActionController::Base
     I18n.locale = extract_locale_from_accept_language_header || 'en'
   end
 
-  def attendances_in_daterange(attendances, daterange)
-    attendances.where("start_time >= ? and start_time <= ?", 
-      DateTime.strptime(params[:daterange].split(' - ')[0],t("date.formats.date_format")),
-      DateTime.strptime("#{params[:daterange].split(' - ')[1]} 23:59",t("time.formats.datetime")))
+  def this_week_string
+    "#{l(Date.today.beginning_of_week, :format => t('date.formats.date_format')) } - #{l(Date.today, :format => t('date.formats.date_format')) }"
+  end
+
+  def last_week_string
+    "#{l((Date.today-7.days).beginning_of_week, :format => t('date.formats.date_format')) } - #{l((Date.today-7.days).beginning_of_week+6.days, :format => t('date.formats.date_format')) }"
   end
 
   private
