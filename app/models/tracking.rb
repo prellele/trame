@@ -10,6 +10,9 @@ class Tracking < ActiveRecord::Base
 
   scope :by_project, lambda {|project_id| where(:project_id => project_id)}
   scope :by_user, lambda {|user_id| where(:user_id => user_id)}
+  scope :by_daterange, lambda { |range| where("start_time >= ? and start_time <= ?", 
+      DateTime.strptime(range.split(' - ')[0],I18n.t("date.formats.date_format")),
+      DateTime.strptime("#{range.split(' - ')[1]} 23:59",I18n.t("time.formats.datetime"))) }
 
   def end_time
     self.start_time + self.minutes.minutes if self.start_time && self.minutes

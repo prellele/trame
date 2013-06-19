@@ -5,6 +5,10 @@ class Attendance < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :by_daterange, lambda { |range| where("start >= ? and start <= ?", 
+      DateTime.strptime(range.split(' - ')[0],I18n.t("date.formats.date_format")),
+      DateTime.strptime("#{range.split(' - ')[1]} 23:59",I18n.t("time.formats.datetime"))) }
+
   def end
     self.start + self.duration.minutes if self.start && self.duration
   end
