@@ -28,6 +28,9 @@
       },
       function(start, end) {
           $('#<%= divname %>').html(start.toString("<%= t('date.formats.date_format_daterangepicker') %>") + ' - ' + end.toString("<%= t('date.formats.date_format_daterangepicker') %>"));
+          if ($('#statistics_search').length) {
+            $('#statistics_search').submit();
+          }
     });
   });
 </script>
