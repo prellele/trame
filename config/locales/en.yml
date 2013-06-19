@@ -124,11 +124,6 @@ en:
     reports: Reports
     workinghours_devided_projects: "Your total workingtime devided by projects"
     percentage: "Amount percentage"
-    index:
-      workinghours_for_projects: "Workinghours for Projects"
-      workinghours_of_projects: "Workinghours of Projects"
-    admin:
-      title: "All Reports"
   rights:
     right: Right
     rights: Rights
@@ -137,6 +132,14 @@ en:
     roles: Roles
     name: Name
     description: Description
+  statistics:
+    statistics: Statistics
+    metrics:
+      tracked_hours: "Tracked Hours"
+      billable_hours: "Billable Hours"
+      billable_trackings: "Billable Trackings"
+      due_billable_hours: "Due Billable Hours"
+      attendances_hours: "Attendances Hours"
   trackings:
     tracking: Tracking
     trackings: Trackings

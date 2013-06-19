@@ -124,11 +124,6 @@ de:
     reports: Berichte
     workinghours_devided_projects: "Deine Arbeitszeit nach Projekten aufgeteilt"
     percentage: Prozentual
-    index:
-      workinghours_for_projects: "Arbeitsstunden für Projekte"
-      workinghours_of_projects: "Arbeitsstunden von Projekten"
-    admin:
-      title: "Alle Berichte"
   rights:
     right: Recht
     rights: Rechte
@@ -137,6 +132,14 @@ de:
     roles: Rollen
     name: Name
     description: Beschreibung
+  statistics:
+    statistics: Statistiken
+    metrics:
+      tracked_hours: "Getrackte Stunden"
+      billable_hours: "Abrechenbare Stunden"
+      billable_trackings: "Abrechenbare Trackings"
+      due_billable_hours: "Anteil Abrechenbare Stunden"
+      attendances_hours: "Angewesene Stunden"
   trackings:
     tracking: Tracking
     trackings: Trackings

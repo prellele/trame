@@ -40,6 +40,11 @@
                   <i class="icon-flag"></i><%= t("attendances.attendances") %>
                 <% end %>
               </li>
+              <li class="main">
+                <%= link_to statistics_index_path do %>
+                  <i class="icon-tasks"></i><%= t("statistics.statistics") %>
+                <% end %>
+              </li>
 
               <% if current_user.can?("ViewProjects", "EditProjects", "ViewRoles", "EditRoles", "ViewUsers", "EditUsers", "ViewAllTrackings", "EditAllTrackings") %>
                 <li class="main dropdown">

@@ -23,6 +23,8 @@ Trame::Application.routes.draw do
   
   get 'home/index'
 
+  get 'statistics/index'
+
   devise_for :users, :controllers => { :registrations => "registrations" }
   
   root to: 'home#index'

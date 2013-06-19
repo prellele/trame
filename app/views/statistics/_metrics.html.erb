@@ -1,0 +1,12 @@
+<% trackings = current_user.trackings.by_daterange(daterange) %>
+<% attendances = current_user.attendances.by_daterange(daterange) %>
+
+<div class="metrics pull-<%= side %>" id="all_metrics" style="display: block">
+	<div class="trackings pull-<%= side %>"><span><%= trackings.count %></span><h4><%= t("trackings.trackings") %></h4></div>
+	<div class="tracked pull-<%= side %>"><span><%= (trackings.sum(:minutes) / 60.to_f).round(2) %></span><h4><%= t(".tracked_hours") %></h4></div>
+	<div class="billable pull-<%= side %>"><span><%= (trackings.where(:billable => true).sum(:minutes) / 60.to_f).round(2) %></span><h4><%= t(".billable_hours") %></h4></div>
+	
+	<div class="billabletrackings pull-<%= side %>"><span><%= trackings.sum(:minutes).zero? ? "0%" : "#{((trackings.where(:billable => true).sum(:minutes) / trackings.sum(:minutes).to_f) * 100).round(0) }%" %></span><h4><%= t(".billable_trackings") %></h4></div>
+	<div class="attendances pull-<%= side %>"><span><%= (attendances.sum(:duration) / 60.to_f).round(2) %></span><h4><%= t(".attendances_hours") %></h4></div>
+	<div class="billablehours pull-<%= side %>"><span><%= attendances.sum(:duration).zero? ? "0%" : "#{((trackings.where(:billable => true).sum(:minutes) / attendances.sum(:duration).to_f) * 100).round(0) }%" %></span><h4><%= t(".due_billable_hours") %></h4></div>
+</div>

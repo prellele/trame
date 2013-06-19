@@ -23,11 +23,16 @@ class TrackingsController < ApplicationController
   def create
     @tracking = current_user.trackings.build(params[:tracking])
 
-    if @tracking.save
-      redirect_to root_path, notice: t("flash.notice.successfully_created", class: t("trackings.tracking") )
-    else
-      set_tracking_new_data()
-      render action: "new"
+    respond_to do |format|
+      if @tracking.save
+        format.html { redirect_to @tracking, notice: t("flash.notice.successfully_created", class: t("trackings.tracking")) }
+        format.js   {}
+        format.json { render json: @tracking, status: :created, location: @tracking }
+      else
+        set_tracking_new_data()
+        format.html { render action: "new" }
+        format.json { render json: @tracking.errors, status: :unprocessable_entity }
+      end
     end
   end
 

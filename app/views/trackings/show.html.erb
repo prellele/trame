@@ -21,7 +21,7 @@
 <div class="form-actions">
   <% if allow?("trackings","show", @tracking) %>
   <%= link_to t('.back', default: t("helpers.links.back")),
-              trackings_path, class: 'btn' %>
+              home_index_path, class: 'btn' %>
   <% end %>
   <% if allow?("trackings","edit", @tracking) %>
   <%= link_to t('.edit', default: t("helpers.links.edit")),

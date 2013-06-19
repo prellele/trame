@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     I18n.locale = extract_locale_from_accept_language_header || 'en'
   end
 
+  def attendances_in_daterange(attendances, daterange)
+    attendances.where("start_time >= ? and start_time <= ?", 
+      DateTime.strptime(params[:daterange].split(' - ')[0],t("date.formats.date_format")),
+      DateTime.strptime("#{params[:daterange].split(' - ')[1]} 23:59",t("time.formats.datetime")))
+  end
+
   private
 
   def extract_locale_from_accept_language_header

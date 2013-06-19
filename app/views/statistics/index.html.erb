@@ -1,0 +1,36 @@
+<div class="page-header">
+	<h1 class="header"><%= t("statistics.statistics") %></h1>
+</div>
+<div class="row home_index">
+	<%= form_tag statistics_index_path, :method => 'get', :id => "statistics_search" do %>
+		<div class="span5" style="padding:20px 0 0 20px;">
+		    <div class="control-group">
+		      <div class="controls">
+		        <div class="input-prepend">
+		          <span class="add-on"><i class="icon-calendar"></i></span><%= text_field_tag :daterange_left, params[:daterange_left] %>
+		        </div>
+		      </div>
+	      </div>
+	    </div>
+	    <div class="span5" style="background-color: rgb(241, 241, 241); padding:20px 20px;">
+		    <div class="control-group">
+		      <div class="controls">
+		        <div class="input-prepend">
+		          <span class="add-on"><i class="icon-calendar"></i></span><%= text_field_tag :daterange_right, params[:daterange_right] %>
+		        </div>
+		      </div>
+		    </div>
+	    </div>
+	    <%= submit_tag t("action.show"), class: "btn btn-primary", style: "margin-top:20px;" %>
+	<% end %>
+</div>
+<div class="row home_index">
+	<div class="span5" style="padding:20px 0 0 20px;">
+		<%= render partial: 'table', :locals => { :side => "left", :daterange => @daterange_left } %>
+	</div>
+	<div class="span5" style="background-color: rgb(241, 241, 241); padding:20px 20px;">
+		<%= render partial: 'table', :locals => { :side => "right", :daterange => @daterange_right } %>
+	</div>
+</div>
+
+

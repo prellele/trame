@@ -1,6 +1,6 @@
 <script type="text/javascript">
   $(document).ready(function () {
-    $('#daterange').daterangepicker(
+    $('#<%= divname %>').daterangepicker(
       {
           ranges: {
               '<%= t("dateranges.today") %>': ['today', 'today'],
@@ -20,10 +20,15 @@
             fromLabel: '<%= t("dateranges.from") %>',
             customRangeLabel: '<%= t("dateranges.custom_range") %>',
             firstDay: 1
-          }
+          },
+          onClose: function(e,f,g){
+                   // $('#calenderView').prepend('test');
+                   alert("test");
+               }
       },
       function(start, end) {
-          $('#daterange').value(start.toString("<%= t('date.formats.date_format_daterangepicker') %>") + ' - ' + end.toString("<%= t('date.formats.date_format_daterangepicker') %>"));
+          $('#<%= divname %>').html(start.toString("<%= t('date.formats.date_format_daterangepicker') %>") + ' - ' + end.toString("<%= t('date.formats.date_format_daterangepicker') %>"));
     });
   });
 </script>
+

@@ -1,11 +1,11 @@
 <% unless @projects.empty? %>
 <% content_for :header do %>
-  <%= render partial: 'shared/daterangepicker' %>
+  <%= render partial: 'shared/daterangepicker', :locals => { :divname => "daterange" } %>
 <% end %>
 <% end %>
 
 <div class="page-header">
-  <h1 class="header"><%= t '.title' %></h1>
+  <h1 class="header"><%= t 'reports.reports' %></h1>
   <% unless @projects.empty? %>
   <%= link_to t('.export', default: t("helpers.links.export")), current_url(:format => 'csv'),
   class: 'btn btn-success btn-header' %>
