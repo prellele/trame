@@ -24,7 +24,7 @@ gem 'turbolinks', '1.2.0'
 gem 'twitter-bootstrap-rails', '2.2.7'
 gem 'csv_shaper', '1.0.0'
 gem 'momentjs-rails', '2.0.0.2'
-gem 'jquery-rails', '2.2.1'
+gem 'jquery-rails', '3.0.1'
 gem "bootstrap-flashmessage", "0.0.2"
 gem "bootstrap-datetimepicker-rails", "0.0.11"
 gem 'bootstrap-daterangepicker-rails', '0.0.5'
