@@ -317,3 +317,12 @@ a {
     color: rgb(153, 153, 153);
     text-transform: uppercase;
 }
+ul.footer {
+  margin-top: 20px;
+  float: right;
+   display: inline;
+}
+ul.footer li {
+   display: inline;
+   margin: 0 20px 0 20px;
+}

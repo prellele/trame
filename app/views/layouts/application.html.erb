@@ -117,8 +117,15 @@
     </div>  
     <div id="footer">
       <div class="container">
-        <p class="muted credit">Designed and built by <a href="https://github.com/prellele">prellele</a>. Code is available on <a href="https://github.com/prellele/trame/blob/master/">Github</a> and is licensed under <a href="https://github.com/prellele/trame/blob/master/LICENSE">GNU GPL</a>.</p>
+        <ul class="footer">
+          <li><a href="https://github.com/prellele/trame/blob/master/"><%= t(".code") %></a></li>|
+          <li><a href="https://github.com/prellele/trame/blob/master/LICENSE"><%= t(".license") %></a></li>|
+          <li><a href="https://github.com/prellele/trame/blob/master/Changelog.md"><%= t(".changelog") %></a></li>|
+          <li><a href="https://github.com/prellele/trame/issues?state=open"><%= t(".issue_tracker") %></a></li>|
+          <li><a href="https://github.com/prellele/trame/wiki"><%= t(".wiki") %></a></li>
+        </ul>
       </div>
     </div>
   </body>
 </html>
+

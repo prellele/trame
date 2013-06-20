@@ -113,6 +113,11 @@ de:
       dashboard: ~
       settings: Einstellungen
       logout: Abmelden
+      code: ~
+      license: Lizenz
+      changelog: ~
+      issue_tracker: ~
+      wiki: ~
   projects:
     project: Projekt
     projects: Projekte
