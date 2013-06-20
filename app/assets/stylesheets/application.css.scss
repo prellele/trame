@@ -273,6 +273,8 @@ ul.user_edit{
   }
 }
 .selectbox {
+  float:left;
+  width:220px;
   background: none repeat scroll 0% 0% rgb(255, 255, 255);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25), 0px -1px 0px rgba(0, 0, 0, 0.1) inset;
   color: rgb(51, 51, 51);
@@ -281,7 +283,8 @@ ul.user_edit{
   cursor: pointer;
   border-top: 1px solid rgb(221, 221, 221);
   height: 1.3em;
-  margin-botto: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
 }
 .metrics {
     text-align: left;

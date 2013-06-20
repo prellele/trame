@@ -25,7 +25,7 @@ class TrackingsController < ApplicationController
 
     respond_to do |format|
       if @tracking.save
-        format.html { redirect_to @tracking, notice: t("flash.notice.successfully_created", class: t("trackings.tracking")) }
+        format.html { redirect_to home_index_path, notice: t("flash.notice.successfully_created", class: t("trackings.tracking")) }
         format.js   {}
         format.json { render json: @tracking, status: :created, location: @tracking }
       else

@@ -27,8 +27,9 @@
                }
       },
       function(start, end) {
-          $('#<%= divname %>').html(start.toString("<%= t('date.formats.date_format_daterangepicker') %>") + ' - ' + end.toString("<%= t('date.formats.date_format_daterangepicker') %>"));
+          $('#<%= divname %> span').html(start.toString("<%= t('date.formats.date_format_daterangepicker') %>") + ' - ' + end.toString("<%= t('date.formats.date_format_daterangepicker') %>"));
           if ($('#statistics_search').length) {
+            copyTextToHiddenInputs(this);
             $('#statistics_search').submit();
           }
     });

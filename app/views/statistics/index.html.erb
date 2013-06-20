@@ -2,33 +2,29 @@
 	<h1 class="header"><%= t("statistics.statistics") %></h1>
 </div>
 <div class="row home_index">
-	<%= form_tag statistics_index_path, :method => 'get', :id => "statistics_search" do %>
+	<%= form_tag statistics_index_path, :method => 'get', :id => "statistics_search", :class => "containsdaterange" do %>
 		<div class="span5" style="padding:20px 0 0 20px;">
-		    <div class="control-group pull-left">
-		      <div class="controls">
-		        <div class="input-prepend">
-		          <span class="add-on"><i class="icon-calendar"></i></span><%= text_field_tag :daterange_left, params[:daterange_left] %>
-		        </div>
-		      </div>
-	      </div>
+		  	<%= hidden_field_tag 'daterange_left', '' %>
+			<div id="daterange_leftbox" class="selectbox">
+	    		<i class="icon-calendar"></i>
+	    		<span><%= params[:daterange_left] if params[:daterange_left].present? %></span> <b class="caret"></b>
+	  		</div>
 	    </div>
 	    <div class="span5" style="background-color: rgb(241, 241, 241); padding:20px 20px;">
-		    <div class="control-group pull-right">
-		      <div class="controls">
-		        <div class="input-prepend">
-		          <span class="add-on"><i class="icon-calendar"></i></span><%= text_field_tag :daterange_right, params[:daterange_right] %>
-		        </div>
-		      </div>
-		    </div>
+		  	<%= hidden_field_tag 'daterange_right', '' %>
+			<div id="daterange_rightbox" class="selectbox">
+	    		<i class="icon-calendar"></i>
+	    		<span><%= params[:daterange_right] if params[:daterange_right].present? %></span> <b class="caret"></b>
+	  		</div>
 	    </div>
 	<% end %>
 </div>
 <div class="row home_index">
 	<div class="span5" style="padding:20px 0 0 20px;">
-		<%= render partial: 'table', :locals => { :side => "left", :daterange => @daterange_left } %>
+		<%= render partial: 'table', :locals => { :side => "left", :daterange => params[:daterange_left] } %>
 	</div>
 	<div class="span5" style="background-color: rgb(241, 241, 241); padding:20px 20px;">
-		<%= render partial: 'table', :locals => { :side => "right", :daterange => @daterange_right } %>
+		<%= render partial: 'table', :locals => { :side => "right", :daterange => params[:daterange_right] } %>
 	</div>
 </div>
 

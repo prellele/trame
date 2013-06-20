@@ -1,5 +1,5 @@
 <% content_for :header do %>
-  <%= render partial: 'shared/daterangepicker', :locals => { :divname => "daterange_#{side}" } %>
+  <%= render partial: 'shared/daterangepicker', :locals => { :divname => "daterange_#{side}box" } %>
 <% end %>
 
 <%= render partial: 'metrics', :locals => { :side => side, :daterange => params[:"daterange_#{side}"] } %>

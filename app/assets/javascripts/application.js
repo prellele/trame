@@ -9,7 +9,6 @@
 //= require bootstrapSwitch
 //= require donuts
 //= require daterangepicker
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function () {
@@ -30,5 +29,18 @@ $(document).ready(function () {
       $(this).tab('show');
     });
 
+    $(":submit").click(function () {
+      copyTextToHiddenInputs(this);
+    });
+
 });
+
+function copyTextToHiddenInputs(element) {
+  if ($('.containsdaterange').length) {
+    $(".selectbox").each(function( index ) {
+      var input_id = this.id.substr(0,(this.id.length-3));
+      $("#"+input_id).val(jQuery.trim($(this).text()));
+    });
+  }
+}
 
