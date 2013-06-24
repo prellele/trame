@@ -7,7 +7,7 @@ gem 'configurate', '0.0.8'
 gem 'json', '1.8.0'
 
 # App Server
-gem 'puma', '2.1.0'
+gem 'puma', '2.1.1'
 
 # Database
 gem 'mysql2', '0.3.11', :group => :mysql
