@@ -26,7 +26,7 @@ class Permission
         allow :projects, [:index, :show]
       end
       if user.can?("EditProjects")
-        allow :projects, [:edit, :update, :destroy]
+        allow :projects, [:new, :create, :edit, :update, :destroy]
       end
 
       if user.can?("ViewRoles", "EditRoles")
