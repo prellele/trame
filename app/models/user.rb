@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 
   def most_used_project_id
     trackings.joins(:project).select("COUNT(*) AS count, projects.name, projects.id AS id")
+                             .where("start_time >= ?",Date.today.at_beginning_of_month)
                              .group('projects.name')
                              .reorder("count DESC")
                              .first.try(:id)

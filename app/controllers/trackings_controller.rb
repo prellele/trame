@@ -8,7 +8,7 @@ class TrackingsController < ApplicationController
   # GET /trackings/new
   def new
     set_tracking_new_data()
-    @tracking = Tracking.new(project_id: current_user.most_used_project_id)
+    @tracking = Tracking.new(project_id: current_user.most_used_project_id_in_month)
     @tracking.billable = true
   end
 
