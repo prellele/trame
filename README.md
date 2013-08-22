@@ -9,6 +9,8 @@ Timetracking via Web
 
 Demo (Heroku): http://demo.trame.prellele.de
 
+Development sponsored by [Basix IT](http://www.basix.de)
+
 ## Getting Started
 clone the repo
 
@@ -38,8 +40,6 @@ This application requires:
 
 * Ruby version 1.9.2
 * Rails version 3.2.7
-
-Learn more about "Installing Rails":http://railsapps.github.com/installing-rails.html.
 
 ## Database
 
