@@ -58,10 +58,10 @@
                 <% end %>
                 <td class="td-actions">
                   <div class="btn-group">
-                    <% if allow?("trackings","show") %>
+                    <% if allow?("trackings","show",tracking) %>
                     <%= link_to t('action.show'), tracking_path(tracking), class: 'btn btn-mini' %>
                     <% end %>
-                    <% if allow?("trackings","edit") %>
+                    <% if allow?("trackings","edit",tracking) %>
                     <%= link_to t('action.edit'), edit_tracking_path(tracking), class: 'btn btn-warning btn-mini' %>
                     <% end %>
                   </div>
