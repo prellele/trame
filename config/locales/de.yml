@@ -147,7 +147,7 @@ de:
       billable_hours: "Abrechenbare Stunden"
       billable_trackings: "Abrechenbare Trackings"
       due_billable_hours: "Anteil Abrechenbare Stunden"
-      attendances_hours: "Angewesene Stunden"
+      attendances_hours: "Anwesende Stunden"
   trackings:
     tracking: Tracking
     trackings: Trackings
