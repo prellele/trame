@@ -20,5 +20,8 @@ module ApplicationHelper
   def current_url(new_params)
     url_for :params => params.merge(new_params)
   end
-  
+
+  def global_default_daterange
+    global_default_daterange = "#{Date.today.beginning_of_month.strftime("%d-%m-%Y")} - #{Date.today.strftime("%d-%m-%Y")}"
+  end
 end

@@ -32,7 +32,7 @@
                 <% end %>
               </li>
               <li class="main">
-                <%= link_to reports_path do %>
+                <%= link_to reports_path(daterange: global_default_daterange) do %>
                   <i class="icon-suitcase"></i><%= t("reports.reports") %>
                 <% end %>
               </li>
@@ -62,7 +62,7 @@
                     <% end %>
                     <% if current_user.can?("ViewAllTrackings", "EditAllTrackings") %>
                     <li>
-                      <%= link_to admin_reports_path do %>
+                      <%= link_to admin_reports_path(daterange: global_default_daterange) do %>
                         <i class="icon-suitcase"></i><%= t("reports.reports") %>
                       <% end %>
                     </li>
