@@ -5,7 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    User.find(1).roles << Role.find(1)
   end
 
   def update

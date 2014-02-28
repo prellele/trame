@@ -1,6 +1,7 @@
 class Tracking < ActiveRecord::Base
   attr_accessible :description, :minutes, :start_time, :billable, :created_at, :project_id, :user_id
 
+  attr_readonly :user_id
 
   validates_presence_of :description, :start_time, :project_id
   validates :minutes, presence: true, numericality: { only_integer: true, message: "Duration should be a number" }
