@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 
 gem 'strong_parameters', '0.2.1'
 gem 'configurate', '0.0.8'
@@ -21,17 +21,17 @@ end
 gem 'devise', '2.2.4'
 
 #i18n
-gem 'rails-i18n', '0.7.3'
+gem 'rails-i18n', '~> 0.7.3'
 
 # View
-gem 'turbolinks', '1.2.0'
-gem 'twitter-bootstrap-rails', '2.2.7'
-gem 'csv_shaper', '1.0.0'
-gem 'momentjs-rails', '2.0.0.2'
-gem 'jquery-rails', '3.0.1'
-gem "bootstrap-flashmessage", "0.0.2"
-gem "bootstrap-datetimepicker-rails", "0.0.11"
-gem 'bootstrap-daterangepicker-rails', '0.0.5'
+gem 'turbolinks', '~> 2.2.1'
+gem 'twitter-bootstrap-rails', '~> 2.2.7'
+gem 'csv_shaper', '~> 1.0.0'
+gem 'momentjs-rails', '~> 2.5.1'
+gem 'jquery-rails', '~> 3.0.1'
+gem "bootstrap-flashmessage", "~> 0.0.2"
+gem "bootstrap-datetimepicker-rails", "~> 0.0.11"
+gem 'bootstrap-daterangepicker-rails', '~> 0.0.5'
 
 #Performance
 gem 'will_paginate', '~> 3.0'
