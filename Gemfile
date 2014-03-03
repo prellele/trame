@@ -10,8 +10,12 @@ gem 'json', '1.8.0'
 gem 'puma', '2.1.1'
 
 # Database
-gem 'mysql2', '0.3.11', :group => :mysql
-gem 'pg', '0.15.1', :group => :postgres
+group :mysql do
+  gem 'mysql2', '0.3.11'
+end
+group :postgres do
+  gem 'pg', '0.15.1'
+end
 
 # Auth
 gem 'devise', '2.2.4'
