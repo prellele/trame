@@ -18,7 +18,7 @@ group :postgres do
 end
 
 # Auth
-gem 'devise', '2.2.4'
+gem 'devise', '2.2.8'
 
 #i18n
 gem 'rails-i18n', '~> 0.7.3'
