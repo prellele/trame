@@ -1,10 +1,11 @@
 class Project < ActiveRecord::Base
-  attr_accessible :id, :name
+  attr_accessible :id, :name, :hourly_rate
 
   validates_uniqueness_of :name, presence: true
 
   has_many :trackings, :dependent => :destroy
   has_many :users, through: :trackings
+  belongs_to :client
 
   def trackings_for(user)
     user.can?("ViewAllTrackings", "EditAllTrackings") ? trackings : trackings.where(user_id: user.id)

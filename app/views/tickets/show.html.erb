@@ -1,0 +1,29 @@
+<%- model_class = Ticket -%>
+<div class="page-header">
+  <h1><%= t '.title', default: t("helpers.titles.show", class: model_class.model_name.human ) %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:start) %>:</strong></dt>
+  <dd><%= @ticket.start %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end) %>:</strong></dt>
+  <dd><%= @ticket.end %></dd>
+</dl>
+
+<div class="form-actions">
+  <% if allow?("tickets","show",@ticket) %>
+    <%= link_to t('.back', default: t("helpers.links.back")),
+              tickets_path, class: 'btn' %>
+  <% end %>
+  <% if allow?("tickets","edit",@ticket) %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")),
+              edit_ticket_path(@ticket), class: 'btn btn-warning' %>
+  <% end %>
+  <% if allow?("tickets","destroy",@ticket) %>
+    <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+              ticket_path(@ticket),
+              method: 'delete',
+              data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
+              class: 'btn btn-danger' %>
+  <% end %>
+</div>

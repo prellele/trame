@@ -1,0 +1,38 @@
+<%- model_class = Client -%>
+<div class="page-header">
+  <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t('clients.clients') ) %></h1>
+  <%= link_to t('.new', default: t("helpers.links.new")),
+            new_client_path,
+            class: 'btn btn-primary btn-header' %>
+</div>
+<div class="span7">
+<table class="table table-striped span6">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:date) %></th>
+    <th><%= model_class.human_attribute_name(:start) %></th>
+    <th><%= model_class.human_attribute_name(:end) %></th>
+    <th><%= t '.actions', default: t("helpers.actions") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @clients.each do |client| %>
+      <tr>
+        <td><%= l(client.start, format: :date_format ) %></td>
+        <td><%= l(client.start, format: :time_format) %></td>
+        <td><%= l(client.end, format: :time_format) %></td>
+        <td>
+          <div class="btn-group">
+          <% if allow?("clients","show",client) %>
+            <%= link_to t('action.show'), client_path(client), class: 'btn btn-mini' %>
+          <% end %>
+          <% if allow?("clients","edit",client) %>
+            <%= link_to t('action.edit'), edit_client_path(client), class: 'btn btn-mini btn-warning' %>
+          <% end %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

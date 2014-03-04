@@ -2,6 +2,9 @@ Trame::Application.routes.draw do
   resources :projects
   resources :trackings
   resources :roles
+  resources :clients
+  resources :tickets
+  resources :invoices
 
   resources :attendances do
     collection do 

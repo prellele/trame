@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612145750) do
+ActiveRecord::Schema.define(:version => 20140304114655) do
 
   create_table "attendances", :force => true do |t|
     t.datetime "start"
@@ -21,10 +21,31 @@ ActiveRecord::Schema.define(:version => 20130612145750) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "projects", :force => true do |t|
+  create_table "clients", :force => true do |t|
     t.string   "name"
+    t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "invoices", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "invoices_trackings", :id => false, :force => true do |t|
+    t.integer "invoice_id"
+    t.integer "tracking_id"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.decimal  "hourly_rate", :precision => 10, :scale => 0
+    t.integer  "client_id"
   end
 
   create_table "rights", :force => true do |t|
@@ -50,15 +71,28 @@ ActiveRecord::Schema.define(:version => 20130612145750) do
     t.integer "user_id"
   end
 
+  create_table "tickets", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "priority"
+    t.date     "deadline"
+    t.boolean  "closed"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "trackings", :force => true do |t|
     t.string   "description"
     t.integer  "minutes"
     t.boolean  "billable"
     t.integer  "project_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.datetime "start_time"
+    t.boolean  "billed",      :default => false
   end
 
   create_table "users", :force => true do |t|
