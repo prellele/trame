@@ -2,7 +2,6 @@ class ClientsController < ApplicationController
   # GET /clients
   def index
     @clients = Client.all
-    @clients_usage = Client.find(:all, order: :name)
   end
 
   # GET /clients/1

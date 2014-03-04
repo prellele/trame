@@ -85,6 +85,10 @@ de:
       show: "%{class} anzeigen"
       new: "%{class} erstellen"
       index: "Alle %{class}"
+  priority:
+    low: niedrig
+    middle: normal
+    high: hoch
   home:
     index:
       today: Heute

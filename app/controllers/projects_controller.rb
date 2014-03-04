@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+
+  @clients = Client.all
+
   # GET /projects
   def index
     @projects = Project.all
@@ -13,11 +16,13 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @clients = Client.all
   end
 
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @clients = Client.all
   end
 
   # POST /projects

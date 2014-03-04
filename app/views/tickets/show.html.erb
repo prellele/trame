@@ -4,10 +4,21 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:start) %>:</strong></dt>
-  <dd><%= @ticket.start %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end) %>:</strong></dt>
-  <dd><%= @ticket.end %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @ticket.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @ticket.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:priority) %>:</strong></dt>
+  <dd><%= priority_as_text(@ticket.priority) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deadline) %>:</strong></dt>
+  <dd><%= @ticket.deadline %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:project) %>:</strong></dt>
+  <dd><%= @ticket.project.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
+  <dd><%= @ticket.user.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:closed) %>:</strong></dt>
+  <dd><%= yes_no_as_text(@ticket.closed) %></dd>
+
 </dl>
 
 <div class="form-actions">

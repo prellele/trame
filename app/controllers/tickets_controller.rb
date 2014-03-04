@@ -1,8 +1,10 @@
 class TicketsController < ApplicationController
   # GET /tickets
   def index
-    @tickets = Ticket.all
-    @tickets_usage = Ticket.find(:all, order: :name)
+    @tickets = Ticket.where(closed: false).order(:deadline)
+    if (params[:closed] == "1")
+      @tickets = Ticket.where(closed: true).order(:deadline)
+    end
   end
 
   # GET /tickets/1
@@ -13,11 +15,15 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
+    @projects = Project.all
+    @users = User.all
   end
 
   # GET /tickets/1/edit
   def edit
     @ticket = Ticket.find(params[:id])
+    @projects = Project.all
+    @users = User.all
   end
 
   # POST /tickets

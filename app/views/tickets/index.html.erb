@@ -4,23 +4,30 @@
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_ticket_path,
             class: 'btn btn-primary btn-header' %>
+    <div class="btn-group" style="margin-right:10px;display:inline;float:right;">
+      <%= link_to "Open", tickets_path, class: 'btn' %>
+      <%= link_to "Closed", tickets_path(closed: 1), class: 'btn' %>
+    </div>
+
 </div>
-<div class="span7">
-<table class="table table-striped span6">
+<div class="span10">
+<table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:date) %></th>
-    <th><%= model_class.human_attribute_name(:start) %></th>
-    <th><%= model_class.human_attribute_name(:end) %></th>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%= model_class.human_attribute_name(:deadline) %></th>
+    <th><%= model_class.human_attribute_name(:priority) %></th>
+    <th><%= model_class.human_attribute_name(:project) %></th>
     <th><%= t '.actions', default: t("helpers.actions") %></th>
   </tr>
   </thead>
   <tbody>
   <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= l(ticket.start, format: :date_format ) %></td>
-        <td><%= l(ticket.start, format: :time_format) %></td>
-        <td><%= l(ticket.end, format: :time_format) %></td>
+        <td><%= ticket.name %></td>
+        <td><%= l(ticket.deadline, format: :date_format ) %></td>
+        <td><%= ticket.priority %></td>
+        <td><%= ticket.project.name %></td>
         <td>
           <div class="btn-group">
           <% if allow?("tickets","show",ticket) %>

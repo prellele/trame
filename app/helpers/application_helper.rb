@@ -24,4 +24,25 @@ module ApplicationHelper
   def global_default_daterange
     global_default_daterange = "#{Date.today.beginning_of_month.strftime("%d-%m-%Y")} - #{Date.today.strftime("%d-%m-%Y")}"
   end
+
+  def priority_as_text(priority)
+    case priority
+    when 'l'
+      t('priority.low')
+    when 'm'
+      t('priority.middle')
+    when 'h'
+      t('priority.high')
+    end
+  end
+
+  def yes_no_as_text(bool)
+    case bool
+    when true
+      t('yes')
+    when false
+      t('no')
+    end
+  end
+
 end

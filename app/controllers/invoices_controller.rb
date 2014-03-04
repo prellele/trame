@@ -2,7 +2,6 @@ class InvoicesController < ApplicationController
   # GET /invoices
   def index
     @invoices = Invoice.all
-    @invoices_usage = Invoice.find(:all, order: :name)
   end
 
   # GET /invoices/1

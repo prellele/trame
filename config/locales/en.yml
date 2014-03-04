@@ -41,8 +41,8 @@ en:
       date_format: "%Y-%m-%d"
       datetime: "%Y-%m-%d %h-%M"
       datetime_format: "%Y-%m-%d %h-%M"
-      date_format_datepicker: yyyy-mm-dd
-      date_format_daterangepicker: yyyy-MM-dd
+      date_format_datepicker: "yyyy-mm-dd"
+      date_format_daterangepicker: "yyyy-MM-dd"
   time:
     formats:
       time_format: "%H:%M"
@@ -85,6 +85,10 @@ en:
       show: "Show %{class}"
       new: "New %{class}"
       index: "All %{class}"
+  priority:
+    low: low
+    middle: middle
+    high: high
   home:
     index:
       today: Today
@@ -190,6 +194,18 @@ en:
     attendances: Attendances
     end: End
     start: Start
+  tickets:
+    ticket: Ticket
+    tickets: Tickets
+    name: Name
+  invoices:
+    invoice: Invoice
+    invoices: Invoices
+  clients:
+    client: Client
+    clients: Clients
+    form:
+      name: Name
   activerecord:
     models:
       role: Role
@@ -198,6 +214,9 @@ en:
       user: User
       tracking: Tracking
       attendances: Attendances
+      client: Client
+      ticket: Ticket
+      invoice: Invoice
     attributes:
       role:
         name: Name
@@ -209,6 +228,8 @@ en:
         date: Date
       project:
         name: Name
+        client: Client
+        hourly_rate: Hourly rate
       right:
         name: Name
       tracking:
@@ -219,3 +240,11 @@ en:
         created_at: "Created At"
         project: Project
         user: User
+      ticket:
+        name: Name
+        description: Description
+        user: User
+        client: Client
+        deadline: Deadline
+        closed: Closed
+

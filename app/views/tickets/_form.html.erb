@@ -1,40 +1,59 @@
-<%= form_for @ticket, html: {class: 'form-inline'} do |f| %>
-    <div class="row">
-      <div class="span3 date">
-        
-          <div id="datetimepicker" class="input-prepend">
-                <span class="add-on">
-              <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-            </span>
-            <%= f.text_field :start,
-                              value: @ticket.start.try(:strftime, t("time.formats.datetime")),
-                              placeholder: t("tickets.start"),
-                              class: "input-block-level",
-                              data: { format: t("time.formats.datetime_picker"), 
-                                      :"format-moment" => t("time.formats.datetime_picker_moment") } %>
-          </div>
+<%- model_class = Ticket -%>
+<%= form_for @ticket, html: {class: 'form-horizontal'} do |f| %>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:name), class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, class: 'form-control', placeholder: model_class.human_attribute_name(:name) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:description), class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, class: "form-control", rows: 1, placeholder: model_class.human_attribute_name(:description) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:priority), class: 'control-label' %>
+    <div class="controls">
+       <%= f.select :priority, options_for_select([[t('priority.low'), "l"],[t('priority.middle'), "m"],[t('priority.high'), "h"]]) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:project), class: 'control-label' %>
+    <div class="controls">
+      <%= f.select :project_id, options_from_collection_for_select(@projects, :id, :name, ->(project) {@ticket.project_id == project.id}) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:user), class: 'control-label' %>
+    <div class="controls">
+      <%= f.select :user_id, options_from_collection_for_select(@users, :id, :name, ->(user) {@ticket.user_id == user.id}) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:deadline), class: 'control-label' %>
+    <div class="controls">
+      <div id="datepicker" class="input-prepend">
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+        </span>
+        <%= f.text_field :deadline,
+                          placeholder: model_class.human_attribute_name(:deadline),
+                          data: { format: t("date.formats.date_format_daterangepicker"), 
+                                  :"format-moment" => t("date.formats.date_format_daterangepicker") } %>
       </div>
-      <div class="span3 date">
-        
-          <div id="datetimepicker2" class="input-prepend">
-                <span class="add-on">
-              <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-            </span>
-            <%= f.text_field :end,
-                              value: @ticket.end.try(:strftime, t("time.formats.datetime")),
-                              placeholder: t("tickets.end"),
-                              class: "input-block-level",
-                              data: { format: t("time.formats.datetime_picker"), 
-                                      :"format-moment" => t("time.formats.datetime_picker_moment") } %>
-          </div>
-      </div>
-</div>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label model_class.human_attribute_name(:closed), class: 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :closed %>
+    </div>
+  </div>
       <div class="form-actions">
         <%= f.submit class: 'btn btn-primary' %>
-        <% if params[:controller] != "home" %>
-          <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
-                      tickets_path, class: 'btn' %>
-        <% end %>
+        <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
+                    tickets_path, class: 'btn' %>
       </div>
     
 <% end %>

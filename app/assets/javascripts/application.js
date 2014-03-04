@@ -5,7 +5,6 @@
 //= require bootstrap-flashmessage
 //= require moment
 //= require highcharts
-//= require date
 //= require bootstrapSwitch
 //= require donuts
 //= require daterangepicker
@@ -22,6 +21,9 @@ $(document).ready(function () {
     
     $('#datetimepicker2').datetimepicker({
       pickSeconds: false
+    });
+    $('#datepicker').datetimepicker({
+      pickTime: false
     });
 
     $('#home_navtab a').click(function (e) {

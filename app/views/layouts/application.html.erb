@@ -81,6 +81,30 @@
                       <% end %>
                     </li>
                     <% end %>
+
+                    <% if current_user.can?("ViewClients", "EditClients") %>
+                    <li>
+                      <%= link_to clients_path do %>
+                        <%= glyph(:group) %></i><%= t("clients.clients") %>
+                      <% end %>
+                    </li>
+                    <% end %>
+
+                    <% if current_user.can?("ViewInvoices", "EditInvoices") %>
+                    <li>
+                      <%= link_to invoices_path do %>
+                        <%= glyph(:money) %><%= t("invoices.invoices") %>
+                      <% end %>
+                    </li>
+                    <% end %>
+
+                    <% if current_user.can?("ViewTickets", "EditTickets") %>
+                    <li>
+                      <%= link_to tickets_path do %>
+                        <%= glyph(:tasks) %></span><%= t("tickets.tickets") %>
+                      <% end %>
+                    </li>
+                    <% end %>
                   </ul>
                 </li>
               <% end %>
@@ -119,7 +143,7 @@
     <div id="footer">
       <div class="container">
         <ul class="footer">
-          <li><a href="https://github.com/prellele/trame/blob/master/"><%= t(".code") %></a></li>|
+          <li><a href="https://github.com/prellele/trame/"><%= t(".code") %></a></li>|
           <li><a href="https://github.com/prellele/trame/blob/master/LICENSE"><%= t(".license") %></a></li>|
           <li><a href="https://github.com/prellele/trame/blob/master/Changelog.md"><%= t(".changelog") %></a></li>|
           <li><a href="https://github.com/prellele/trame/issues?state=open"><%= t(".issue_tracker") %></a></li>|

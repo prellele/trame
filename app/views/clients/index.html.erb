@@ -9,18 +9,14 @@
 <table class="table table-striped span6">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:date) %></th>
-    <th><%= model_class.human_attribute_name(:start) %></th>
-    <th><%= model_class.human_attribute_name(:end) %></th>
+    <th><%= model_class.human_attribute_name(:name) %></th>
     <th><%= t '.actions', default: t("helpers.actions") %></th>
   </tr>
   </thead>
   <tbody>
   <% @clients.each do |client| %>
       <tr>
-        <td><%= l(client.start, format: :date_format ) %></td>
-        <td><%= l(client.start, format: :time_format) %></td>
-        <td><%= l(client.end, format: :time_format) %></td>
+        <td><%= client.name %></td>
         <td>
           <div class="btn-group">
           <% if allow?("clients","show",client) %>

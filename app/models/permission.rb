@@ -29,6 +29,27 @@ class Permission
         allow :projects, [:new, :create, :edit, :update, :destroy]
       end
 
+      if user.can?("ViewClients", "EditClients")
+        allow :clients, [:index, :show]
+      end
+      if user.can?("EditClients")
+        allow :clients, [:new, :create, :edit, :update, :destroy]
+      end
+
+      if user.can?("ViewInvoices", "EditInvoices")
+        allow :invoices, [:index, :show]
+      end
+      if user.can?("EditInvoices")
+        allow :invoices, [:new, :create, :edit, :update, :destroy]
+      end
+
+      if user.can?("ViewTickets", "EditTickets")
+        allow :tickets, [:index, :show]
+      end
+      if user.can?("EditTickets")
+        allow :tickets, [:new, :create, :edit, :update, :destroy]
+      end
+
       if user.can?("ViewRoles", "EditRoles")
         allow :roles, [:index, :show]
       end
