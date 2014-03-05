@@ -4,9 +4,9 @@
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_ticket_path,
             class: 'btn btn-primary btn-header' %>
-    <div class="btn-group" style="margin-right:10px;display:inline;float:right;">
-      <%= link_to "Open", tickets_path, class: 'btn' %>
-      <%= link_to "Closed", tickets_path(closed: 1), class: 'btn' %>
+    <div class="btn-group" style="margin-right:10px; display:inline; float:right;">
+      <%= link_to "#{sum_open_tickets} #{t('tickets.open')}", tickets_path, class: (params[:closed] == "1" ? 'btn': 'btn btn-success disabled') %>
+      <%= link_to "#{sum_closed_tickets} #{t('tickets.closed')}", tickets_path(closed: 1), class: (params[:closed] == "1" ? 'btn btn-success disabled': 'btn') %>
     </div>
 
 </div>

@@ -198,6 +198,8 @@ en:
     ticket: Ticket
     tickets: Tickets
     name: Name
+    open: Open
+    closed: Closed
   invoices:
     invoice: Invoice
     invoices: Invoices
