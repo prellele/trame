@@ -189,6 +189,7 @@ en:
         duration: Duration
         date: Date
       project:
+        id: Id
         name: Name
         client: Client
         hourly_rate: Hourly rate

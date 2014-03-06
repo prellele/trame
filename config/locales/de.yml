@@ -194,6 +194,7 @@ de:
         duration: Dauer
         date: Datum
       project:
+        id: Schlüssel
         name: Name
         client: Kunde
         hourly_rate: Stundensatz
