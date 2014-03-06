@@ -1,3 +1,4 @@
+<%- model_class = User -%>
 <div class="page-header">
   <h1><%= t(".edit_account") %></h1>
 </div>
@@ -11,25 +12,25 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <li>Currently waiting confirmation for: <%= resource.unconfirmed_email %></li>
       <% end %>
-    <li><%= f.label t('users.prename') %><%= f.text_field :prename %></li>
-    <li><%= f.label t('users.surname') %><%= f.text_field :surname %></li>
-    <li><%= f.label t('users.weekly_workinghours') %><%= f.text_field :weekly_workinghours %></li>
+    <li><%= f.label model_class.human_attribute_name(:prename) %><%= f.text_field :prename %></li>
+    <li><%= f.label model_class.human_attribute_name(:surname) %><%= f.text_field :surname %></li>
+    <li><%= f.label model_class.human_attribute_name(:weekly_workinghours) %><%= f.text_field :weekly_workinghours %></li>
     </ul>
     <%= f.submit t(".update", default: t("helpers.links.update")), class: "btn btn-primary" %>
   </div>
   <% end %>
 </div>
 
-<h3><%= t("users.password") %></h3>
+<h3><%= model_class.human_attribute_name(:password) %></h3>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
 <div class="row">
   <div class="span5 user_edit">
    <ul class="user_edit">
-      <li><%= f.label t('users.password') %><%= f.password_field :password, autocomplete: "off" %></li>
-      <li><%= f.label t('users.password_confirmation') %><%= f.password_field :password_confirmation %></li>
-      <li><%= f.label t('users.current_password') %><%= f.password_field :current_password %></li>
+      <li><%= f.label model_class.human_attribute_name(:password) %><%= f.password_field :password, autocomplete: "off" %></li>
+      <li><%= f.label model_class.human_attribute_name(:password_confirmation) %><%= f.password_field :password_confirmation %></li>
+      <li><%= f.label model_class.human_attribute_name(:current_password) %><%= f.password_field :current_password %></li>
   </ul>
-  <%= f.submit t(".update_password", default: t("helpers.links.update_resource", resource: t("users.password"))), class: "btn btn-primary" %>
+  <%= f.submit t("helpers.links.update_resource", resource: model_class.human_attribute_name(:password)), class: "btn btn-primary" %>
 </div>
 </div>
 <% end %>

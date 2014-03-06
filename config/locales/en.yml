@@ -6,9 +6,7 @@ en:
   no_unlock_instructions: "Didn't receive unlock instructions?"
   workinghours: Workinghours
   hours: hours
-  no_data_yet: "No %{name} yet, try to create one %{href}"
   nothing_to_see: "Nothing to see here, you need to start tracking..."
-  here: here
   "yes": "Yes"
   "no": "No"
   action:
@@ -22,8 +20,6 @@ en:
       successfully_created: "%{class} was successfully created."
       successfully_updated: "%{class} was successfully updated."
       failed_creating: "Sorry! Creating of %{class} failed."
-      failed_change_permission: "Failed by changing %{username}'s permissions"
-      successfully_changed_permission: "Successfully changed %{username}'s permissions"
     alert:
       not_authorized: "Not Authorized"
   weekday:
@@ -98,9 +94,6 @@ en:
       year: year
       im_here: "I'm here!"
       im_away: "I'm away!"
-      last_trackings: "Your last trackings"
-      projects_working_on: "Projects you are working on"
-      this: "this %{duration}"
       this_week: "This Week"
       your_projects: "Your projects"
       your_timeline: "Your Timeline"
@@ -126,8 +119,6 @@ en:
   projects:
     project: Project
     projects: Projects
-    form:
-      name: Name
     index:
       usage: "Usage of Projects"
       y_axis_usage: "Workingtime (hours)"
@@ -137,14 +128,9 @@ en:
     reports: Reports
     workinghours_devided_projects: "Your total workingtime devided by projects"
     percentage: "Amount percentage"
-  rights:
-    right: Right
-    rights: Rights
   roles:
     role: Role
     roles: Roles
-    name: Name
-    description: Description
   statistics:
     statistics: Statistics
     metrics:
@@ -156,33 +142,10 @@ en:
   trackings:
     tracking: Tracking
     trackings: Trackings
-    duration: Duration
-    billable: Billable
-    description: Description
-    date: Date
-    minutes: Minutes
-    starttime: Starttime
-    endtime: Endtime
     todays_trackings: "Your todays trackings"
-    form:
-      back_to_overview: "Back to Overview"
   users:
     user: User
     users: Users
-    email: Email
-    name: Name
-    prename: Prename
-    surname: Surname
-    password: Password
-    weekly_workinghours: "weekly workinghours"
-    password_confirmation: "Password confirmation"
-    current_password: "Current password"
-    current_sign_in_at: "Current sign in at"
-    last_sign_in_at: "Last sign in at"
-    current_sign_in_ip: "Current sign in IP"
-    last_sign_in_ip: "Last sign in IP"
-    reset_password_sent_at: "Reset passwort sent at"
-    remember_created_at: "Remember created at"
     devise:
       session:
         remember_me: "Remember me"
@@ -193,12 +156,9 @@ en:
   attendances:
     attendance: Attendance
     attendances: Attendances
-    end: End
-    start: Start
   tickets:
     ticket: Ticket
     tickets: Tickets
-    name: Name
     open: Open
     closed: Closed
   invoices:
@@ -207,8 +167,6 @@ en:
   clients:
     client: Client
     clients: Clients
-    form:
-      name: Name
   activerecord:
     models:
       role: Role
@@ -216,7 +174,7 @@ en:
       project: Project
       user: User
       tracking: Tracking
-      attendances: Attendances
+      attendance: Attendance
       client: Client
       ticket: Ticket
       invoice: Invoice
@@ -224,6 +182,7 @@ en:
       role:
         name: Name
         description: Description
+        rights: Rights
       attendance:
         start: Start
         end: End
@@ -238,7 +197,9 @@ en:
       tracking:
         description: Description
         minutes: Minutes
+        duration: Duration
         start_time: Starttime
+        end_time: Endtime
         billable: Billable
         created_at: "Created At"
         project: Project
@@ -250,4 +211,17 @@ en:
         client: Client
         deadline: Deadline
         closed: Closed
-
+      user:
+        email: Email
+        name: Name
+        prename: Prename
+        surname: Surname
+        password: Password
+        weekly_workinghours: Weekly workinghours
+        password_confirmation: "Password confirmation"
+        current_sign_in_at: "Current sign in at"
+        last_sign_in_at: "Last sign in at"
+        current_sign_in_ip: "Current sign in IP"
+        last_sign_in_ip: "Last sign in IP"
+        reset_password_sent_at: "Reset passwort sent at"
+        remember_created_at: "Remember created at"

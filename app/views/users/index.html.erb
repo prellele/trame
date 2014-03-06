@@ -5,12 +5,12 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th><%= t 'users.email' %></th>
-    <th><%= t 'users.prename' %></th>
-    <th><%= t 'users.surname' %></th>
-    <th><%= t 'workinghours' %>(<%= t 'trackings.billable' %>)</th>
-    <th><%= t 'users.current_sign_in_at' %></th>
-    <th><%= t 'users.current_sign_in_ip' %></th>
+    <th><%= model_class.human_attribute_name(:email) %></th>
+    <th><%= model_class.human_attribute_name(:prename) %></th>
+    <th><%= model_class.human_attribute_name(:surname) %></th>
+    <th><%= t 'workinghours' %>(<%= Tracking.human_attribute_name(:billable) %>)</th>
+    <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
+    <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
     <th><%= t '.actions', default: t("helpers.actions") %></th>
   </tr>
   </thead>

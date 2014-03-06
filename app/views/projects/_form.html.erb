@@ -1,18 +1,19 @@
+<%- model_class = Invoice -%>
 <%= form_for @project, html: {class: 'form-horizontal'} do |f| %>
     <div class="control-group">
-      <%= f.label t(".name"), class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:name), class: 'control-label' %>
       <div class="controls">
         <%= f.text_field :name, class: 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label t(".hourly_rate"), class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:hourly_rate), class: 'control-label' %>
       <div class="controls">
         <%= f.text_field :hourly_rate, class: 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label t(".client"), class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:client), class: 'control-label' %>
       <div class="span2">
         <%= f.select :client_id, options_from_collection_for_select(@clients, :id, :name, ->(client) {@project.client_id == client.id}), class: "input-block-level" %>
       </div>

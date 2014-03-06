@@ -1,10 +1,10 @@
+<%- model_class = User -%>
 <div class="form-signin">
-
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
 	    <h2><%= t('forgot_password') %></h2>
 	    <%= devise_error_messages! %>
 
-	    <%= f.email_field :email, placeholder: t('users.email'), autofocus: true %>
+	    <%= f.email_field :email, placeholder: model_class.human_attribute_name(:email), autofocus: true %>
 
 	    <button class="btn btn-primary" type="submit"><%= t('users.devise.password.resend_instructions') %></button>
 	<% end %>

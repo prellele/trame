@@ -1,18 +1,19 @@
+<%- model_class = Role -%>
 <%= form_for @role, html: {class: 'form-horizontal'} do |f| %>
     <div class="control-group">
-      <%= f.label t("roles.name"), class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:name), class: 'control-label' %>
       <div class="controls">
         <%= f.text_field :name, class: 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label t("roles.description"), class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:description), class: 'control-label' %>
       <div class="controls">
         <%= f.text_field :description, class: 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label t("rights.rights"), class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:rights), class: 'control-label' %>
       <div class="controls">
         <ul class="rights">
         <% for right in Right.all %>

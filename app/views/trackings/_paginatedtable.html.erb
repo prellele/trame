@@ -1,12 +1,13 @@
 <% if @trackings.present? %>
+<%- model_class = Tracking -%>
 <table id="trackings_table" class="table table-striped trackings_index">
   <thead>
     <tr>
       <th></th>
-      <th><%= t("trackings.description") %></th>
-      <th><%= t("trackings.duration") %></th>
-      <th><%= t("trackings.starttime") %></th>
-      <th><%= t("projects.project") %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:duration) %></th>
+      <th><%= model_class.human_attribute_name(:start_time) %></th>
+      <th><%= model_class.human_attribute_name(:project) %></th>
       <th><%= t '.actions', default: t("helpers.actions") %></th>
     </tr>
   </thead>

@@ -1,3 +1,4 @@
+
 de:
   sign_in: Anmelden
   sign_up: Registrieren
@@ -6,9 +7,7 @@ de:
   no_unlock_instructions: "Keine Entsperr-Anweisungen erhalten?"
   workinghours: Arbeitsstunden
   hours: Stunden
-  no_data_yet: "Keine %{name} vorhanden, versuche welche %{href} zu erstellen"
   nothing_to_see: "Hier gibts nichts zu sehen, beginne zu tracken..."
-  here: hier
   "yes": Ja
   "no": Nein
   action:
@@ -22,8 +21,6 @@ de:
       successfully_created: "%{class} wurde erfolgreich erstellt."
       successfully_updated: "%{class} wurde erfolgreich aktualisiert."
       failed_creating: "Entschuldigung, das Erstellen der %{class} schlug fehl."
-      failed_change_permission: "Fehlgeschlagen: Ändern von %{username}'s Berechtigungen"
-      successfully_changed_permission: "Erfolgreich %{username}'s Berechtigungen geändert"
     alert:
       not_authorized: "Nicht berechtigt"
   weekday:
@@ -46,6 +43,7 @@ de:
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
   time:
     formats:
+      month_year: ~
       time_format: "%H:%M"
       date_format: "%d-%m-%Y"
       datetime: "%d-%m-%Y %H:%M"
@@ -56,7 +54,6 @@ de:
       datetime_picker: "dd-MM-yyyy hh:mm"
       datetime_picker_moment: "dd-MM-yyyy HH:mm"
       time_ago: "vor %{time}"
-    month_names: [~, Januar, Februar, März, April, Mai, June, July, August, September, October, November, December]
   dateranges:
     today: Heute
     yesterday: Gestern
@@ -99,15 +96,12 @@ de:
       year: Jahr
       im_here: "Ich bin da!"
       im_away: "Ich bin weg!"
-      last_trackings: "Deine letzten Trackings"
-      projects_working_on: "Projekte an denen du arbeitest"
-      this: "this %{duration}"
       this_week: "Diese Woche"
       your_projects: "Deine Projekte"
       your_timeline: "Dein Zeitstrahl"
       total: Gesamt
       billable: Abrechenbar
-      attendances: ~
+      attendances: Anwesenheiten
     statistics:
       of: von
       billable_workingtime: "Abrechenbare Arbeitszeit"
@@ -127,8 +121,6 @@ de:
   projects:
     project: Projekt
     projects: Projekte
-    form:
-      name: Name
     index:
       usage: "Nutzung der Projekte"
       y_axis_usage: "Arbeitszeit (std)"
@@ -144,8 +136,6 @@ de:
   roles:
     role: Rolle
     roles: Rollen
-    name: Name
-    description: Beschreibung
   statistics:
     statistics: Statistiken
     metrics:
@@ -157,33 +147,10 @@ de:
   trackings:
     tracking: Tracking
     trackings: Trackings
-    duration: Dauer
-    billable: Abrechenbar
-    description: Beschreibung
-    date: Datum
-    minutes: Minuten
-    starttime: Startzeit
-    endtime: Endzeit
     todays_trackings: "Deine heutigen Trackings"
-    form:
-      back_to_overview: "Zurück zur Übersicht"
   users:
     user: Benutzer
     users: Benutzer
-    email: Mail
-    name: Name
-    prename: Vorname
-    surname: Nachname
-    password: Passwort
-    weekly_workinghours: "Wöchentliche Arbeitsstunden"
-    password_confirmation: "Passwort bestätigen"
-    current_password: "Aktuelles Passwort"
-    current_sign_in_at: "Aktuelle Anmeldung um"
-    last_sign_in_at: "Letzte Anmeldung um"
-    current_sign_in_ip: "Aktuell angemeldete IP"
-    last_sign_in_ip: "Letzte angemeldete IP"
-    reset_password_sent_at: "Passwort zurücksetzten gesendet am"
-    remember_created_at: "Anmeldedaten gemerkt am"
     devise:
       session:
         remember_me: "Angemeldet bleiben"
@@ -194,8 +161,17 @@ de:
   attendances:
     attendance: Anwesenheit
     attendances: Anwesenheiten
-    end: Ende
-    start: Beginn
+  tickets:
+    ticket: Ticket
+    tickets: Tickets
+    open: Offen
+    closed: Geschlossen
+  invoices:
+    invoice: Rechnung
+    invoices: Rechnungen
+  clients:
+    client: Kunde
+    clients: Kunden
   activerecord:
     models:
       role: Rolle
@@ -203,25 +179,54 @@ de:
       project: Projekt
       user: Benutzer
       tracking: Tracking
-      attendances: Anwesenheiten
+      attendance: Anwesenheit
+      client: Kunde
+      ticket: Ticket
+      invoice: Rechnung
     attributes:
       role:
         name: Name
         description: Beschreibung
+        rights: Rechte
       attendance:
-        start: Beginn
+        start: Start
         end: Ende
         duration: Dauer
         date: Datum
       project:
         name: Name
+        client: Kunde
+        hourly_rate: Stundensatz
       right:
         name: Name
       tracking:
         description: Beschreibung
         minutes: Minuten
+        duration: Dauer
         start_time: Startzeit
+        end_time: Endzeit
         billable: Abrechenbar
         created_at: "Erstellt am"
         project: Projekt
         user: Benutzer
+      ticket:
+        name: Name
+        description: Beschreibung
+        user: Benutzer
+        client: Kunde
+        deadline: Deadline
+        closed: Geschlossen
+      user:
+        email: Email
+        name: Name
+        prename: Vorname
+        surname: Nachname
+        password: Passwort
+        weekly_workinghours: "Wöchentliche Arbeitszeit"
+        password_confirmation: "Passwort wiederholen"
+        current_sign_in_at: "Aktuell angemeldet um"
+        last_sign_in_at: "Zuletzt angemeldet um"
+        current_sign_in_ip: "Aktuell angemeldet an IP"
+        last_sign_in_ip: "Zuletzt angemeldet an IP"
+        reset_password_sent_at: "Passwort zugesandt um"
+        remember_created_at: "Remember erstellt um"

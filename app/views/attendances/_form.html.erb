@@ -1,3 +1,4 @@
+<%- model_class = Attendance -%>
 <%= form_for @attendance, html: {class: 'form-inline'} do |f| %>
     <div class="row">
       <div class="span3 date">
@@ -8,7 +9,7 @@
             </span>
             <%= f.text_field :start,
                               value: @attendance.start.try(:strftime, t("time.formats.datetime")),
-                              placeholder: t("attendances.start"),
+                              placeholder: model_class.human_attribute_name(:start),
                               class: "input-block-level",
                               data: { format: t("time.formats.datetime_picker"), 
                                       :"format-moment" => t("time.formats.datetime_picker_moment") } %>
@@ -22,7 +23,7 @@
             </span>
             <%= f.text_field :end,
                               value: @attendance.end.try(:strftime, t("time.formats.datetime")),
-                              placeholder: t("attendances.end"),
+                              placeholder: model_class.human_attribute_name(:end),
                               class: "input-block-level",
                               data: { format: t("time.formats.datetime_picker"), 
                                       :"format-moment" => t("time.formats.datetime_picker_moment") } %>

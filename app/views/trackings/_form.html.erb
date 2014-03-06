@@ -1,10 +1,11 @@
+<%- model_class = Tracking -%>
 <%= form_for @tracking, html: {class: 'form-inline'} do |f| %>
     <div class="row-fluid row-tracking">
       <div class="span7">
-        <%= f.text_area :description, class: "input-block-level", rows: 1, placeholder: t('trackings.description') %>
+        <%= f.text_area :description, class: "input-block-level", rows: 1, placeholder: model_class.human_attribute_name(:description) %>
       </div>
       <div class="span2 input-append">
-        <%= f.number_field :minutes, placeholder: t('trackings.duration'), 
+        <%= f.number_field :minutes, placeholder: model_class.human_attribute_name(:duration), 
                                      class: "input-block-level", 
                                      data: { format: "m"} %>
         <span class="add-on">min</span>
@@ -22,7 +23,7 @@
               <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
             </span>
             <%= f.text_field :start_time,
-                              placeholder: t("trackings.starttime"),
+                              placeholder: model_class.human_attribute_name(:start_time),
                               class: "input-block-level",
                               data: { format: t("time.formats.datetime_picker"), 
                                       :"format-moment" => t("time.formats.datetime_picker_moment") } %>
@@ -32,7 +33,7 @@
           <div class="input-append">
             <input id="tracking_end_time" 
                 class="input-block-level" 
-                placeholder="<%= t("trackings.endtime") %>" 
+                placeholder="<%= model_class.human_attribute_name(:end_time) %>" 
                 data-format-moment=<%= t("time.formats.time_picker_moment") %> 
                 type="text" 
                 value="<%= @tracking.end_time.to_formatted_s(:time) if @tracking.end_time %>" disabled></input>
@@ -42,7 +43,7 @@
           </div>
       </div>
       <div class="span3">
-        <span class="lead billable"><%= t('trackings.billable') %></span>
+        <span class="lead billable"><%= model_class.human_attribute_name(:billable) %></span>
         <div class="switcher" data-on-label="<%= t('yes') %>" data-off-label="<%= t('no') %>">
           <%= f.check_box :billable %>
         </div>

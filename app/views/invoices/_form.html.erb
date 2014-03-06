@@ -1,9 +1,10 @@
+<%- model_class = Invoice -%>
 <%= form_for @invoice, remote: true, html: {class: 'form-horizontal'} do |f| %>
 
 <div class="span10">
   
     <div class="control-group">
-      <%= f.label :client_id, class: 'control-label' %>
+      <%= f.label model_class.human_attribute_name(:client), class: 'control-label' %>
       <div class="controls">
       <%= f.collection_select :client_id, @clients, :id, :name,
         {include_blank: true},
