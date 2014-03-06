@@ -43,6 +43,7 @@ de:
       datetime_format: "%d-%m-%Y %h-%M"
       date_format_datepicker: dd-mm-yyyy
       date_format_daterangepicker: dd-MM-yyyy
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
   time:
     formats:
       time_format: "%H:%M"
@@ -55,6 +56,7 @@ de:
       datetime_picker: "dd-MM-yyyy hh:mm"
       datetime_picker_moment: "dd-MM-yyyy HH:mm"
       time_ago: "vor %{time}"
+    month_names: [~, Januar, Februar, März, April, Mai, June, July, August, September, October, November, December]
   dateranges:
     today: Heute
     yesterday: Gestern

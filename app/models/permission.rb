@@ -38,6 +38,7 @@ class Permission
 
       if user.can?("ViewInvoices", "EditInvoices")
         allow :invoices, [:index, :show]
+        allow :"dynamic_select/clients", [:trackings]
       end
       if user.can?("EditInvoices")
         allow :invoices, [:new, :create, :edit, :update, :destroy]

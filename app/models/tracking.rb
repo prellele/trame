@@ -23,4 +23,8 @@ class Tracking < ActiveRecord::Base
   def group_by_criteria
     start_time.to_date
   end
+
+  def name
+    self.description
+  end
 end

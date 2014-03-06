@@ -5,22 +5,36 @@
             new_invoice_path,
             class: 'btn btn-primary btn-header' %>
 </div>
-<div class="span7">
-<table class="table table-striped span6">
+<div class="span11">
+<table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:date) %></th>
-    <th><%= model_class.human_attribute_name(:start) %></th>
-    <th><%= model_class.human_attribute_name(:end) %></th>
+    <th><%= model_class.human_attribute_name(:created_at) %></th>
+    <th><%= model_class.human_attribute_name(:client) %></th>
+    <th><%= model_class.human_attribute_name(:projects) %></th>
+    <th><%= model_class.human_attribute_name(:trackings) %></th>
+    <th><%= model_class.human_attribute_name(:range) %></th>
+    <th><%= model_class.human_attribute_name(:sum) %></th>
     <th><%= t '.actions', default: t("helpers.actions") %></th>
   </tr>
   </thead>
   <tbody>
   <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= l(invoice.start, format: :date_format ) %></td>
-        <td><%= l(invoice.start, format: :time_format) %></td>
-        <td><%= l(invoice.end, format: :time_format) %></td>
+        <td><%= l(invoice.created_at, format: :datetime ) %></td>
+        <td><%= invoice.client.name %></td>
+        <td><%= invoice.projects %></td>
+        <td><span class="badge"><%= invoice.trackings.count %></span></td>
+        <td>
+          <% if tracking = invoice.trackings.order("start_time ASC").first %>
+            <%= l(tracking.start_time, :format => :month_year) %>
+          <% end %>
+          -
+          <% if tracking = invoice.trackings.order("start_time DESC").first %>
+            <%= l(tracking.start_time, :format => :month_year) %>
+          <% end %>
+        </td>
+        <td><%= number_to_currency(invoice.trackings.collect {|t| (t.project.hourly_rate.to_f / 60 ) * t.minutes }.sum) %></td>
         <td>
           <div class="btn-group">
           <% if allow?("invoices","show",invoice) %>

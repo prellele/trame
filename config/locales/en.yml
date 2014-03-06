@@ -45,6 +45,7 @@ en:
       date_format_daterangepicker: "yyyy-MM-dd"
   time:
     formats:
+      month_year: "%B %Y"
       time_format: "%H:%M"
       date_format: "%Y-%m-%d"
       datetime: "%Y-%m-%d %H:%M"

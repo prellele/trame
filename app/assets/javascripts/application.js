@@ -35,6 +35,8 @@ $(document).ready(function () {
       copyTextToHiddenInputs(this);
     });
 
+    $('select[data-dynamic-selectable-url][data-dynamic-selectable-target]').dynamicSelectable();
+
 });
 
 function copyTextToHiddenInputs(element) {

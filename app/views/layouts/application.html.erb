@@ -101,7 +101,7 @@
                     <% if current_user.can?("ViewTickets", "EditTickets") %>
                     <li>
                       <%= link_to tickets_path do %>
-                        <%= glyph(:tasks) %></span><%= t("tickets.tickets") %>
+                        <%= glyph(:tasks) %><%= t("tickets.tickets") %>
                       <% end %>
                     </li>
                     <% end %>
