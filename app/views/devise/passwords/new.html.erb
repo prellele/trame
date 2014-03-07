@@ -6,7 +6,7 @@
 
 	    <%= f.email_field :email, placeholder: model_class.human_attribute_name(:email), autofocus: true %>
 
-	    <button class="btn btn-primary" type="submit"><%= t('users.devise.password.resend_instructions') %></button>
+	    <button class="button button-primary" type="submit"><%= t('users.devise.password.resend_instructions') %></button>
 	<% end %>
 
 	<%= render "devise/shared/links" %>

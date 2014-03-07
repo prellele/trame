@@ -21,17 +21,17 @@
 <div class="form-actions">
   <% if allow?("trackings","show", @tracking) %>
   <%= link_to t('.back', default: t("helpers.links.back")),
-              home_index_path, class: 'btn' %>
+              home_index_path, class: 'button' %>
   <% end %>
   <% if allow?("trackings","edit", @tracking) %>
   <%= link_to t('.edit', default: t("helpers.links.edit")),
-              edit_tracking_path(@tracking), class: 'btn btn-warning' %>
+              edit_tracking_path(@tracking), class: 'button button-warning' %>
   <% end %>
   <% if allow?("trackings","destroy", @tracking) %>
   <%= link_to t('.destroy', default: t("helpers.links.destroy")),
               tracking_path(@tracking),
               method: 'delete',
               data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))},
-              class: 'btn btn-danger' %>
+              class: 'button button-danger' %>
   <% end %>
 </div>

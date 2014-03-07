@@ -25,13 +25,10 @@ gem 'rails-i18n', '~> 0.7.3'
 
 # View
 gem 'turbolinks', '~> 2.2.1'
-gem 'twitter-bootstrap-rails', '~> 2.2.7'
+gem 'foundation-rails'
 gem 'csv_shaper', '~> 1.0.0'
 gem 'momentjs-rails', '~> 2.5.1'
 gem 'jquery-rails', '~> 3.0.1'
-gem "bootstrap-flashmessage", "~> 0.0.2"
-gem "bootstrap-datetimepicker-rails", "~> 0.0.11"
-gem 'bootstrap-daterangepicker-rails', '~> 0.0.5'
 
 #Performance
 gem 'will_paginate', '~> 3.0'

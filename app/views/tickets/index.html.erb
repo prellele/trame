@@ -3,10 +3,10 @@
   <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t('tickets.tickets') ) %></h1>
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_ticket_path,
-            class: 'btn btn-primary btn-header' %>
-    <div class="btn-group" style="margin-right:10px; display:inline; float:right;">
-      <%= link_to "#{sum_open_tickets} #{t('tickets.open')}", tickets_path, class: (params[:closed] == "1" ? 'btn': 'btn btn-success disabled') %>
-      <%= link_to "#{sum_closed_tickets} #{t('tickets.closed')}", tickets_path(closed: 1), class: (params[:closed] == "1" ? 'btn btn-success disabled': 'btn') %>
+            class: 'button button-primary button-header' %>
+    <div class="button-group" style="margin-right:10px; display:inline; float:right;">
+      <%= link_to "#{sum_open_tickets} #{t('tickets.open')}", tickets_path, class: (params[:closed] == "1" ? 'button': 'button button-success disabled') %>
+      <%= link_to "#{sum_closed_tickets} #{t('tickets.closed')}", tickets_path(closed: 1), class: (params[:closed] == "1" ? 'button button-success disabled': 'button') %>
     </div>
 
 </div>
@@ -29,12 +29,12 @@
         <td><%= ticket.priority %></td>
         <td><%= ticket.project.name %></td>
         <td>
-          <div class="btn-group">
+          <div class="button-group">
           <% if allow?("tickets","show",ticket) %>
-            <%= link_to t('action.show'), ticket_path(ticket), class: 'btn btn-mini' %>
+            <%= link_to t('action.show'), ticket_path(ticket), class: 'button button-mini' %>
           <% end %>
           <% if allow?("tickets","edit",ticket) %>
-            <%= link_to t('action.edit'), edit_ticket_path(ticket), class: 'btn btn-mini btn-warning' %>
+            <%= link_to t('action.edit'), edit_ticket_path(ticket), class: 'button button-mini button-warning' %>
           <% end %>
           </div>
         </td>

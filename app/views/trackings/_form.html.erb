@@ -52,10 +52,10 @@
     </div>
 
     <div class="form-actions">
-      <%= f.submit class: 'btn btn-primary' %>
+      <%= f.submit class: 'button button-primary' %>
       <% if params[:controller] != "home" %>
         <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
-                    home_index_path, class: 'btn' %>
+                    home_index_path, class: 'button' %>
       <% end %>
     </div>
 <% end %>

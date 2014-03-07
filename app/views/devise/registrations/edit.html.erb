@@ -2,35 +2,93 @@
 <div class="page-header">
   <h1><%= t(".edit_account") %></h1>
 </div>
-<h3><%= t(".settings") %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
 <%= devise_error_messages! %>
-<div class="row">
-  <div class="span5 user_edit">
-    <ul class="user_edit">
-      <li><%= f.label :email %><%= f.email_field :email, autofocus: true %></li>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <li>Currently waiting confirmation for: <%= resource.unconfirmed_email %></li>
-      <% end %>
-    <li><%= f.label model_class.human_attribute_name(:prename) %><%= f.text_field :prename %></li>
-    <li><%= f.label model_class.human_attribute_name(:surname) %><%= f.text_field :surname %></li>
-    <li><%= f.label model_class.human_attribute_name(:weekly_workinghours) %><%= f.text_field :weekly_workinghours %></li>
-    </ul>
-    <%= f.submit t(".update", default: t("helpers.links.update")), class: "btn btn-primary" %>
+<fieldset>
+  <legend><%= t(".settings") %></legend>
+  <div class="row">
+    <div class="small-8">
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :email, :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.email_field :email, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+          <% end %>
+        </div>
+      </div> 
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label model_class.human_attribute_name(:prename), :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :prename %>
+        </div> 
+      </div> 
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label model_class.human_attribute_name(:surname), :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :surname %>
+        </div> 
+      </div> 
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label model_class.human_attribute_name(:weekly_workinghours), :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :weekly_workinghours %>
+        </div> 
+      </div> 
+      <div class="row">
+        <div class="small-2 small-offset-9 columns">
+          <%= f.submit t(".update", default: t("helpers.links.update")), class: "button button-primary" %>
+        </div>
+      </div> 
+    </div> 
   </div>
-  <% end %>
-</div>
+</fieldset>
+<% end %>
 
-<h3><%= model_class.human_attribute_name(:password) %></h3>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
-<div class="row">
-  <div class="span5 user_edit">
-   <ul class="user_edit">
-      <li><%= f.label model_class.human_attribute_name(:password) %><%= f.password_field :password, autocomplete: "off" %></li>
-      <li><%= f.label model_class.human_attribute_name(:password_confirmation) %><%= f.password_field :password_confirmation %></li>
-      <li><%= f.label model_class.human_attribute_name(:current_password) %><%= f.password_field :current_password %></li>
-  </ul>
-  <%= f.submit t("helpers.links.update_resource", resource: model_class.human_attribute_name(:password)), class: "btn btn-primary" %>
-</div>
-</div>
+<fieldset>
+  <legend><%= model_class.human_attribute_name(:password) %></legend>
+  <div class="row">
+    <div class="small-8">
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label model_class.human_attribute_name(:password), :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label model_class.human_attribute_name(:password_confirmation), :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.password_field :password_confirmation %>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label model_class.human_attribute_name(:current_password), :class => "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.password_field :current_password %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 small-offset-9 columns">
+          <%= f.submit t("helpers.links.update_resource", resource: model_class.human_attribute_name(:password)), class: "button button-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
 <% end %>

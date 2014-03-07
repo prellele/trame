@@ -3,7 +3,7 @@
   <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t('attendances.attendances') ) %></h1>
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_attendance_path,
-            class: 'btn btn-primary btn-header' %>
+            class: 'button button-primary button-header' %>
 </div>
 <div class="span7">
 <table class="table table-striped span6">
@@ -22,12 +22,12 @@
         <td><%= l(attendance.start, format: :time_format) %></td>
         <td><%= l(attendance.end, format: :time_format) %></td>
         <td>
-          <div class="btn-group">
+          <div class="button-group">
           <% if allow?("attendances","show",attendance) %>
-            <%= link_to t('action.show'), attendance_path(attendance), class: 'btn btn-mini' %>
+            <%= link_to t('action.show'), attendance_path(attendance), class: 'button button-mini' %>
           <% end %>
           <% if allow?("attendances","edit",attendance) %>
-            <%= link_to t('action.edit'), edit_attendance_path(attendance), class: 'btn btn-mini btn-warning' %>
+            <%= link_to t('action.edit'), edit_attendance_path(attendance), class: 'button button-mini button-warning' %>
           <% end %>
           </div>
         </td>

@@ -1,7 +1,7 @@
 <%- model_class = Role -%>
 <div class="page-header">
   <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t("roles.roles") ) %></h1>
-  <%= link_to t('.new', default: t("helpers.links.new")), new_role_path, class: 'btn btn-primary btn-header' %>
+  <%= link_to t('.new', default: t("helpers.links.new")), new_role_path, class: 'button button-primary button-header' %>
 </div>
 <div class="span7">
 <table class="table table-striped span6">
@@ -18,13 +18,13 @@
         <td><%= link_to role.id, role_path(role) %></td>
         <td><%= role.name %></td>
         <td>
-          <div class="btn-group">
+          <div class="button-group">
           <% if allow?("roles","show") %>
-          <%= link_to t('action.show'), role_path(role), class: 'btn btn-mini' %>
+          <%= link_to t('action.show'), role_path(role), class: 'button button-mini' %>
           <% end %>
           <% if allow?("roles","edit") %>
           <%= link_to t('.edit', default: t("helpers.links.edit")),
-                      edit_role_path(role), class: 'btn btn-mini btn-warning' %>
+                      edit_role_path(role), class: 'button button-mini button-warning' %>
           <% end %>
           </div>  
         </td>

@@ -3,7 +3,7 @@
   <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t('projects.projects') ) %></h1>
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_project_path,
-            class: 'btn btn-primary btn-header' %>
+            class: 'button button-primary button-header' %>
 </div>
 <div class="span7">
 <table class="table table-striped span6">
@@ -22,13 +22,13 @@
         <td><%= project.name %></td>
         <td><%= project.client.name %></td>
         <td>
-          <div class="btn-group">
+          <div class="button-group">
           <% if allow?("projects","show") %>
-          <%= link_to t('action.show'), project_path(project), class: 'btn btn-mini' %>
+          <%= link_to t('action.show'), project_path(project), class: 'button button-mini' %>
           <% end %>
           <% if allow?("projects","edit") %>
           <%= link_to t('.edit', default: t("helpers.links.edit")),
-                      edit_project_path(project), class: 'btn btn-mini btn-warning' %>
+                      edit_project_path(project), class: 'button button-mini button-warning' %>
           <% end %>
           </div>
         </td>

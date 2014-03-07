@@ -2,138 +2,125 @@
 <html>
 <head>
   <title>Trame</title>
-  <%= javascript_include_tag "application" %>
-  <%= stylesheet_link_tag "application", media: "all" %>
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>  
   <%= yield :header %>
 </head>
 <body>
-  <div class="flash">
-    <%= bootstrap_flash %>
-  </div>
+  <%= render 'shared/flash_messages' if !flash.empty? %>
   <div id="wrap">
     <% if user_signed_in? %>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/"><%= image_tag("icon_25.png") %>Trame</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav main-nav">
-              <li class="main">
-                <%= link_to root_path do %>
-                  <i class="icon-dashboard"></i><%= t(".dashboard") %>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name"> 
+          <h1><a href="#">Trame</a></h1> 
+        </li> 
+        <li class="toggle-topbar menu-icon">
+          <%= link_to root_path do %>
+            <%= t(".dashboard") %>
+          <% end %>
+        </li> 
+      </ul> 
+      <section class="top-bar-section">   <!-- Right Nav Section --> 
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#"><%= current_user.name %></a>
+            <ul class="dropdown">
+              <li>
+                <%= link_to edit_user_registration_path do %>
+                  <%= t(".settings") %>
                 <% end %>
               </li>
-              <li class="main">
-                <%= link_to reports_path(daterange: global_default_daterange) do %>
-                  <i class="icon-suitcase"></i><%= t("reports.reports") %>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <%= t(".logout") %>
                 <% end %>
-              </li>
-              <li class="main">
-                <%= link_to attendances_path do %>
-                  <i class="icon-flag"></i><%= t("attendances.attendances") %>
-                <% end %>
-              </li>
-              <li class="main">
-                <%= link_to statistics_index_path do %>
-                  <i class="icon-tasks"></i><%= t("statistics.statistics") %>
-                <% end %>
-              </li>
+              </li> 
+            </ul>
+          </li> 
+        </ul> <!-- Left Nav Section --> 
+        <ul class="left">
+          <li>
+            <%= link_to root_path do %>
+              <%= t(".dashboard") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to reports_path(daterange: global_default_daterange) do %>
+              <%= t("reports.reports") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to attendances_path do %>
+              <%= t("attendances.attendances") %>
+            <% end %>
+          </li> 
+          <li>
+            <%= link_to statistics_index_path do %>
+              <%= t("statistics.statistics") %>
+            <% end %>
+          </li>
+          <% if current_user.can?("ViewProjects", "EditProjects") %>
+          <li>
+            <%= link_to projects_path do %>
+              <%= t("projects.projects") %>
+            <% end %>
+          </li>
+          <% end %>
+          <% if current_user.can?("ViewAllTrackings", "EditAllTrackings") %>
+          <li>
+            <%= link_to admin_reports_path(daterange: global_default_daterange) do %>
+              <%= t("reports.reports") %>
+            <% end %>
+          </li>
+          <% end %>
+          <% if current_user.can?("ViewUsers", "EditUsers") %>
+          <li>
+            <%= link_to users_path do %>
+              <%= t("users.users") %>
+            <% end %>
+          </li>
+          <% end %>
+          <% if current_user.can?("ViewRoles", "EditRoles") %>
+          <li>
+            <%= link_to roles_path do %>
+              <%= t("roles.roles") %>
+            <% end %>
+          </li>
+          <% end %>
 
-              <% if current_user.can?("ViewProjects", "EditProjects", "ViewRoles", "EditRoles", "ViewUsers", "EditUsers", "ViewAllTrackings", "EditAllTrackings") %>
-                <li class="main dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-star"></i><%= t(".management") %>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <% if current_user.can?("ViewProjects", "EditProjects") %>
-                    <li>
-                      <%= link_to projects_path do %>
-                        <i class="icon-road"></i><%= t("projects.projects") %>
-                      <% end %>
-                    </li>
-                    <% end %>
-                    <% if current_user.can?("ViewAllTrackings", "EditAllTrackings") %>
-                    <li>
-                      <%= link_to admin_reports_path(daterange: global_default_daterange) do %>
-                        <i class="icon-suitcase"></i><%= t("reports.reports") %>
-                      <% end %>
-                    </li>
-                    <% end %>
-                    <% if current_user.can?("ViewUsers", "EditUsers") %>
-                    <li>
-                      <%= link_to users_path do %>
-                        <i class="icon-group"></i><%= t("users.users") %>
-                      <% end %>
-                    </li>
-                    <% end %>
-                    <% if current_user.can?("ViewRoles", "EditRoles") %>
-                    <li>
-                      <%= link_to roles_path do %>
-                        <i class="icon-eye-open"></i><%= t("roles.roles") %>
-                      <% end %>
-                    </li>
-                    <% end %>
+          <% if current_user.can?("ViewClients", "EditClients") %>
+          <li>
+            <%= link_to clients_path do %>
+              <%= t("clients.clients") %>
+            <% end %>
+          </li>
+          <% end %>
 
-                    <% if current_user.can?("ViewClients", "EditClients") %>
-                    <li>
-                      <%= link_to clients_path do %>
-                        <%= glyph(:group) %></i><%= t("clients.clients") %>
-                      <% end %>
-                    </li>
-                    <% end %>
+          <% if current_user.can?("ViewInvoices", "EditInvoices") %>
+          <li>
+            <%= link_to invoices_path do %>
+              <%= t("invoices.invoices") %>
+            <% end %>
+          </li>
+          <% end %>
 
-                    <% if current_user.can?("ViewInvoices", "EditInvoices") %>
-                    <li>
-                      <%= link_to invoices_path do %>
-                        <%= glyph(:money) %><%= t("invoices.invoices") %>
-                      <% end %>
-                    </li>
-                    <% end %>
+          <% if current_user.can?("ViewTickets", "EditTickets") %>
+          <li>
+            <%= link_to tickets_path do %>
+              <%= t("tickets.tickets") %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
 
-                    <% if current_user.can?("ViewTickets", "EditTickets") %>
-                    <li>
-                      <%= link_to tickets_path do %>
-                        <%= glyph(:tasks) %><%= t("tickets.tickets") %>
-                      <% end %>
-                    </li>
-                    <% end %>
-                  </ul>
-                </li>
-              <% end %>
-              </ul>
-              <ul class="nav pull-right">
-                <li class="main dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <%= current_user.name %>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <% if allow? "devise/registrations", :edit %>
-                    <li><%= link_to edit_user_registration_path do %>
-                      <i class="icon-cogs"></i><%= t(".settings") %>
-                      <% end %>
-                    </li>
-                    <% end %>
-                    <li>
-                      <%= link_to destroy_user_session_path, method: :delete do %>
-                      <i class="icon-signout"></i><%= t(".logout") %>
-                      <% end %>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+    
       <% end %>
       <div class="container">
         <%= yield %>
@@ -151,6 +138,7 @@
         </ul>
       </div>
     </div>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
 

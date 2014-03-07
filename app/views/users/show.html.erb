@@ -28,8 +28,8 @@
 
 <div class="form-actions">
   <%= link_to t('.back', default: t("helpers.links.back")),
-              users_path, class: 'btn' %>
+              users_path, class: 'button' %>
   <% if allow?("users", "edit") %>
-    <%= link_to t('.edit', default: t("helpers.links.edit")), edit_user_path(@user), class: 'btn btn-warning' %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")), edit_user_path(@user), class: 'button button-warning' %>
   <% end %>
 </div>

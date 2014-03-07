@@ -3,7 +3,7 @@
   <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t('clients.clients') ) %></h1>
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_client_path,
-            class: 'btn btn-primary btn-header' %>
+            class: 'button button-primary button-header' %>
 </div>
 <div class="span7">
 <table class="table table-striped span6">
@@ -18,12 +18,12 @@
       <tr>
         <td><%= client.name %></td>
         <td>
-          <div class="btn-group">
+          <div class="button-group">
           <% if allow?("clients","show",client) %>
-            <%= link_to t('action.show'), client_path(client), class: 'btn btn-mini' %>
+            <%= link_to t('action.show'), client_path(client), class: 'button button-mini' %>
           <% end %>
           <% if allow?("clients","edit",client) %>
-            <%= link_to t('action.edit'), edit_client_path(client), class: 'btn btn-mini btn-warning' %>
+            <%= link_to t('action.edit'), edit_client_path(client), class: 'button button-mini button-warning' %>
           <% end %>
           </div>
         </td>

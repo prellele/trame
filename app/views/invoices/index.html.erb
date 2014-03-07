@@ -3,7 +3,7 @@
   <h1 class="header"><%= t '.title', default: t("helpers.titles.index", class: t('invoices.invoices') ) %></h1>
   <%= link_to t('.new', default: t("helpers.links.new")),
             new_invoice_path,
-            class: 'btn btn-primary btn-header' %>
+            class: 'button button-primary button-header' %>
 </div>
 <div class="span11">
 <table class="table table-striped">
@@ -36,12 +36,12 @@
         </td>
         <td><%= number_to_currency(invoice.trackings.collect {|t| (t.project.hourly_rate.to_f / 60 ) * t.minutes }.sum) %></td>
         <td>
-          <div class="btn-group">
+          <div class="button-group">
           <% if allow?("invoices","show",invoice) %>
-            <%= link_to t('action.show'), invoice_path(invoice), class: 'btn btn-mini' %>
+            <%= link_to t('action.show'), invoice_path(invoice), class: 'button button-mini' %>
           <% end %>
           <% if allow?("invoices","edit",invoice) %>
-            <%= link_to t('action.edit'), edit_invoice_path(invoice), class: 'btn btn-mini btn-warning' %>
+            <%= link_to t('action.edit'), edit_invoice_path(invoice), class: 'button button-mini button-warning' %>
           <% end %>
           </div>
         </td>

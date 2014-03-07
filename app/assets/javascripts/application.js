@@ -1,31 +1,11 @@
-//= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require bootstrap-datetimepicker
-//= require bootstrap-flashmessage
+//= require foundation
 //= require moment
 //= require highcharts
-//= require bootstrapSwitch
 //= require donuts
-//= require daterangepicker
 //= require_tree .
 
 $(document).ready(function () {
-    $('time').tooltip();
-    $('span').tooltip();
-    $(".collapse").collapse();
-
-    $('#datetimepicker').datetimepicker({
-      pickSeconds: false
-    });    
-    
-    $('#datetimepicker2').datetimepicker({
-      pickSeconds: false
-    });
-    $('#datepicker').datetimepicker({
-      pickTime: false
-    });
-
     $('#home_navtab a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
@@ -37,6 +17,8 @@ $(document).ready(function () {
 
     $('select[data-dynamic-selectable-url][data-dynamic-selectable-target]').dynamicSelectable();
 
+    $(document).foundation();
+
 });
 
 function copyTextToHiddenInputs(element) {
@@ -47,4 +29,6 @@ function copyTextToHiddenInputs(element) {
     });
   }
 }
+
+
 

@@ -25,10 +25,10 @@
     </div> 
 
   <div class="form-actions">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'button button-primary' %>
     <% if params[:controller] != "home" %>
     <%= link_to t('.back_to_overview', default: t("helpers.links.back")),
-    invoices_path, class: 'btn' %>
+    invoices_path, class: 'button' %>
     <% end %>
   </div>
 

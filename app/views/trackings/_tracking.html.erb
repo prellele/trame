@@ -15,12 +15,12 @@
   </td>
   <td class="td-project_name nowrap"><%= tracking.try(:project) ? tracking.project.name : "-" %></td>
     <td class="td-actions">
-      <div class="btn-group">
+      <div class="button-group">
       <% if allow?("trackings","show",tracking) %>
-          <%= link_to t('action.show'), tracking_path(tracking), class: 'btn btn-mini' %>
+          <%= link_to t('action.show'), tracking_path(tracking), class: 'button button-mini' %>
       <% end %>
       <% if allow?("trackings","edit",tracking) %>
-          <%= link_to t('action.edit'), edit_tracking_path(tracking), class: 'btn btn-warning btn-mini' %>
+          <%= link_to t('action.edit'), edit_tracking_path(tracking), class: 'button button-warning button-mini' %>
       <% end %>
       </div>
     </td>

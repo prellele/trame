@@ -1,0 +1,6 @@
+<% flash.each do |key, value| %>
+  <div data-alert data-options="animation_speed:500;" class="alert-box <%= key %> radius" >
+    <%= "#{value} "%>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
