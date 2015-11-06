@@ -127,6 +127,9 @@ de:
   projects:
     project: Projekt
     projects: Projekte
+    archive: Archiv
+    active: Aktiv
+    archived: Archiviert
     form:
       name: Name
     index:

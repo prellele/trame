@@ -4,8 +4,8 @@ class ReportsController < ApplicationController
   # GET /reports
   def index
     @selectable_projects = current_user.projects
-    @projects = current_user.projects
-    @projects = @projects.where(id: params[:project_ids]) if params[:project_ids]
+    @projects = current_user.projects.sort_by { |project| project.name.downcase }
+    @projects = @projects.where(id: params[:project_ids], archive: false) if params[:project_ids]
     @projects_data = @projects.map do |project|
       trackings = project.trackings
       trackings = trackings.where(user_id: current_user.id)
@@ -19,10 +19,10 @@ class ReportsController < ApplicationController
  
   def admin
     csv_usernames = "All"
-    @selectable_projects = current_user.visible_projects
+    @selectable_projects = Project.where(archive: false).sort_by { |project| project.name.downcase }
     @selectable_users = User.all
-    @projects = Project.all
-    @projects = Project.where(id: params[:project_ids]) if params[:project_ids]
+    @projects = Project.where(archive: false).sort_by { |project| project.name.downcase }
+    @projects = Project.where(id: params[:project_ids],archive: false).sort_by { |project| project.name.downcase } if params[:project_ids]
     @projects_data = @projects.map do |project|
       trackings = project.trackings
       if params[:user_ids]

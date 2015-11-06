@@ -1,11 +1,10 @@
 class ProjectsController < ApplicationController
 
-  @clients = Client.all
-
   # GET /projects
   def index
-    @projects = Project.all
-    @projects_usage = Project.find(:all, order: :name)
+    @project_filter = params[:filter] && params[:filter][:archive].to_i || 0
+    @projects = Project.where("archive = ?", @project_filter)
+    @projects_usage = @projects
   end
 
   # GET /projects/1

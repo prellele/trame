@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   def set_data_for_new_tracking
     @tracking = Tracking.new(project_id: current_user.most_used_project_id)
     @tracking.billable = true
-    @projects = Project.all 
+    @projects = Project.where(:archive => false).sort_by { |project| project.name.downcase }
   end
 
 end

@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :id, :name, :hourly_rate, :client_id
+  attr_accessible :id, :name, :hourly_rate, :client_id, :archive
 
   validates_uniqueness_of :name, presence: true
 

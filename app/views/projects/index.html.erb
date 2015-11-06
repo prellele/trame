@@ -6,6 +6,10 @@
             class: 'btn btn-primary btn-header' %>
 </div>
 <div class="span7">
+  <%= form_tag projects_path, :method => :get, :style => "display:inline;float:right;" do |f| %>
+<span>Filter:</span>
+  <%= select(:filter,:archive, options_for_select([[t("projects.active"), 0], [t("projects.archived"), 1]], @project_filter), {}, { :class => "dropdown-toggle span2", :style => "display:inline;", :onchange => "this.form.submit()" }) %>
+  <% end %>
 <table class="table table-striped span6">
   <thead>
   <tr>
